@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import {Provider} from "react-redux";
+import {store} from "./Redux/Store";
+import HeaderNavBarMagicContainer from "./Components/PersistentDrawerLeft/PersistentDrawerLeft";
+import {NavBar} from "./Components/NavBar/NavBar";
+import {BrowserRouter} from "react-router-dom";
+import { Body } from './Components/Body/Body';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <HeaderNavBarMagicContainer
+                NavBar={<NavBar/>}
+                Body={<Body/>}
+            />
+        </div>
+    );
 }
 
-export default App;
+export const AppContainer = () => {
+    return <>
+        <BrowserRouter>
+            <Provider store={store}>
+                <App/>
+            </Provider>
+        </BrowserRouter>
+    </>
+};
+
+
+export default AppContainer;
