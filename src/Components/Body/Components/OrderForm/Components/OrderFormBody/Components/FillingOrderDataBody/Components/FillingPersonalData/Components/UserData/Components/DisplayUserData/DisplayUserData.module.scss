@@ -1,0 +1,15 @@
+.DisplayUserData{
+  //padding: 0 8px;
+
+  .UserDataElement{
+    display: flex;
+    align-items: center;
+
+    .elementLabel{
+      margin: 0 10px 0 0;
+    }
+    .elementValue{
+      font-size: 17px;
+    }
+  }
+}

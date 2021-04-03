@@ -1,0 +1,14 @@
+.TotalPrice{
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+
+  .totalPriceTitle{
+    font-size: 20px;
+    margin: 0 20px 0 0;
+  }
+
+  .priceValue{
+    font-size: 25px;
+  }
+}

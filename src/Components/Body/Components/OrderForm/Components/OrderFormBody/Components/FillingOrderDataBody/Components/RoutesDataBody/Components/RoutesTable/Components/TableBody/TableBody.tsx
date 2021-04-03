@@ -7,7 +7,9 @@ import {Divider} from "@material-ui/core";
 export const TableBody = () => {
     return <div className={style.TableBody}>
         <ColumnsTitles/>
+
         <Divider/>
+
         <TravelInfo/>
     </div>
 };
