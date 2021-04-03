@@ -1,0 +1,16 @@
+.ChoiceDataContainer{
+  margin: 0 0 20px 0;
+
+  .choiceDataWrapper{
+    display: flex;
+    //border: 1px solid red;
+
+    .formContainer{
+      display: flex;
+      align-items: center;
+      margin: 0 0 0 20px;
+      //border: 1px solid fuchsia;
+    }
+  }
+
+}

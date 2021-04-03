@@ -1,0 +1,13 @@
+.ColumnsTitles{
+  display: flex;
+  justify-content: space-between;
+  //border: 1px solid blue;
+
+  .ColumnTitle{
+    flex: 1 0 0;
+    min-width: 50px;
+    font-size: 12px;
+    word-break: break-word;
+    //border: 1px solid chocolate;
+  }
+}

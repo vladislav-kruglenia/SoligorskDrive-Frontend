@@ -3,9 +3,9 @@ import './App.scss';
 import {Provider} from "react-redux";
 import {store} from "./Redux/Store";
 import HeaderNavBarMagicContainer from "./Components/PersistentDrawerLeft/PersistentDrawerLeft";
-import {NavBar} from "./Components/NavBar/NavBar";
 import {BrowserRouter} from "react-router-dom";
 import { Body } from './Components/Body/Body';
+import {NavBar} from "./Components/NavBar/NavBar";
 
 function App() {
     return (

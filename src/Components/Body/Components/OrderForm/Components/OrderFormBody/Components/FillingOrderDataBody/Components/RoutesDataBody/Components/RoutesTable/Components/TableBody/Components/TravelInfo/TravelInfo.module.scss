@@ -1,0 +1,13 @@
+.TravelInfo{
+  display: flex;
+  justify-content: space-around;
+
+  //border: 1px solid salmon;
+
+  .travelInfoElement{
+    display: flex;
+    align-items: center;
+    min-width: 50px;
+    flex: 1 0 0;
+  }
+}
