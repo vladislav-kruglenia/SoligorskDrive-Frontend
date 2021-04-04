@@ -1,10 +1,10 @@
-export interface UserDataFormProps extends ValuesFormType {
+export interface UserDataFormProps extends UserOrderData {
     exitEditMode: () => void,
     remainingNumberSeats: number,
 }
 
 
-export type ValuesFormType = {
+export type UserOrderData = {
     userName: string,
     userPhone: string,
     userNumberSeats: number,

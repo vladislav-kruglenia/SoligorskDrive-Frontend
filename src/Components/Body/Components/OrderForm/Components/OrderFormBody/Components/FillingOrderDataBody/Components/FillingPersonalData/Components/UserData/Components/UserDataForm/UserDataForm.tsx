@@ -3,7 +3,7 @@ import style from "./UserDataForm.module.scss"
 import * as yup from "yup";
 import {useFormik} from "formik";
 import {Button, TextField} from "@material-ui/core";
-import {UserDataFormProps, ValuesFormType} from "./UserDataForm.types";
+import {UserDataFormProps, UserOrderData} from "./UserDataForm.types";
 
 export const UserDataForm:FC<UserDataFormProps> = (props) => {
 
@@ -24,7 +24,7 @@ export const UserDataForm:FC<UserDataFormProps> = (props) => {
             .required('Это поле обязательно'),
     });
 
-    const valuesForm: ValuesFormType = {
+    const valuesForm: UserOrderData = {
         userName: props.userName,
         userPhone: props.userPhone,
         userNumberSeats: props.userNumberSeats,
@@ -32,7 +32,7 @@ export const UserDataForm:FC<UserDataFormProps> = (props) => {
     const Form = useFormik({
         initialValues: valuesForm,
         validationSchema: validationSchema,
-        onSubmit: (values: ValuesFormType) => {
+        onSubmit: (values: UserOrderData) => {
             props.exitEditMode();
             console.log(values);
         }

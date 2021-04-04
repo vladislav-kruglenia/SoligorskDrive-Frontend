@@ -3,6 +3,7 @@ import React, {FC, memo, useCallback} from 'react';
 import DateFnsUtils from '@date-io/date-fns';
 import {KeyboardDatePicker, MuiPickersUtilsProvider,} from '@material-ui/pickers';
 import {KeyboardDatePickerProps} from "./DateChoice.types";
+import {getDate} from "../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer-functions";
 
 
 export const DateChoice = () => {
@@ -13,6 +14,11 @@ export const DateChoice = () => {
     );
 
     const handleDateChange = useCallback((date: Date | null) => {
+        const newDate = date
+            ? getDate(date)
+            : null;
+
+        console.log(newDate);
         setSelectedDate(date);
     }, [setSelectedDate]);
 
@@ -38,7 +44,7 @@ const KeyboardDatePickerComponent:FC<KeyboardDatePickerProps> = (props) => {
         format="dd/MM/yyyy"
         margin="normal"
         id="date-picker-inline"
-        label="Date picker inline"
+        label="Выберите дату"
         value={props.selectedDate}
         onChange={props.handleDateChange}
         KeyboardButtonProps={{
