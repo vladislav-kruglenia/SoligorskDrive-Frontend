@@ -6,8 +6,16 @@ import {UserDataForm} from "./Components/UserDataForm/UserDataForm";
 import {ValueDisplay} from "../../../../../../../../../../../../AppGlobal/AppGlobalComponents/DisplayingDifferentData/InputEditMode";
 import {DisplayTypeEnum} from "../../../../../../../../../../../../AppGlobal/AppGlobalComponents/DisplayingDifferentData/Types/DisplayingDifferentDataTypes";
 import {FormTypeEnum} from "../../../../../../../../../../../../AppGlobal/AppGlobalComponents/DisplayingDifferentData/Types/InputEditModeTypes";
+import {useSelector} from "react-redux";
+import {
+    getRemainingNumberSeatsSelector,
+    getUserOrderDataSelector
+} from "../../../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
 
 export const UserData = () => {
+    const userOrderData = useSelector(getUserOrderDataSelector);
+    const remainingNumberSeats = useSelector(getRemainingNumberSeatsSelector);
+
     const [editMode, setEditMode] = useState(false);
 
     return <div className={style.UserData}>
@@ -17,12 +25,10 @@ export const UserData = () => {
             editModeStatus={editMode}
             type={FormTypeEnum.grandForm}
             setEditModeInProps={value => setEditMode(value)}
-            displayComponent={<DisplayUserData/>}
+            displayComponent={<DisplayUserData userOrderData={userOrderData}/>}
             grandFormComponent={<UserDataForm
-                userName={'Влад'}
-                userPhone={'+375293817500'}
-                remainingNumberSeats={18}
-                userNumberSeats={1}
+                userOrderData={userOrderData}
+                remainingNumberSeats={remainingNumberSeats}
                 exitEditMode={() => setEditMode(false)}
             />}
         />

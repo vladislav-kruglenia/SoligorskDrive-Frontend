@@ -3,24 +3,27 @@ import React, {FC, memo, useCallback} from 'react';
 import DateFnsUtils from '@date-io/date-fns';
 import {KeyboardDatePicker, MuiPickersUtilsProvider,} from '@material-ui/pickers';
 import {KeyboardDatePickerProps} from "./DateChoice.types";
-import {getDate} from "../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer-functions";
+import {useDispatch, useSelector} from "react-redux";
+import {getDateSelector} from "../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
+import {EditDatePayload} from "../../../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
+import {editDate} from "../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer";
 
 
 export const DateChoice = () => {
+    const selectedDate = useSelector(getDateSelector);
+
+    const dispatch = useDispatch();
+    const editDateAction = useCallback((date: Date) => {
+      const action: EditDatePayload = {date};
+      return dispatch(editDate(action))
+    }, [dispatch]);
 
     // The first commit of Material-UI
-    const [selectedDate, setSelectedDate] = React.useState<Date | null>(
-        new Date(),
-    );
+    // const [selectedDate, setSelectedDate] = React.useState<Date | null | string>(currentDate);
 
     const handleDateChange = useCallback((date: Date | null) => {
-        const newDate = date
-            ? getDate(date)
-            : null;
-
-        console.log(newDate);
-        setSelectedDate(date);
-    }, [setSelectedDate]);
+        if(date) editDateAction(date);
+    }, [editDateAction]);
 
     return (
         <>

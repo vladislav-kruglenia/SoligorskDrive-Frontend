@@ -1,4 +1,4 @@
 export type KeyboardDatePickerProps = {
-    selectedDate: Date | null,
+    selectedDate: Date | null | string,
     handleDateChange: (date: Date | null) => void,
 }

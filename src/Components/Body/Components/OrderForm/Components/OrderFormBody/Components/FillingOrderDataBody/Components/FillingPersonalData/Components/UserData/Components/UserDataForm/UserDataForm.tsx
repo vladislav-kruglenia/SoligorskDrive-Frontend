@@ -3,9 +3,11 @@ import style from "./UserDataForm.module.scss"
 import * as yup from "yup";
 import {useFormik} from "formik";
 import {Button, TextField} from "@material-ui/core";
-import {UserDataFormProps, UserOrderData} from "./UserDataForm.types";
+import {UserDataFormProps} from "./UserDataForm.types";
+import {UserOrderData} from "../../../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
 
 export const UserDataForm:FC<UserDataFormProps> = (props) => {
+    const {userName, userPhone, userNumberSeats} = props.userOrderData;
 
     const validationSchema = yup.object({
         userName: yup
@@ -25,9 +27,9 @@ export const UserDataForm:FC<UserDataFormProps> = (props) => {
     });
 
     const valuesForm: UserOrderData = {
-        userName: props.userName,
-        userPhone: props.userPhone,
-        userNumberSeats: props.userNumberSeats,
+        userName: userName,
+        userPhone: userPhone,
+        userNumberSeats: userNumberSeats,
     };
     const Form = useFormik({
         initialValues: valuesForm,

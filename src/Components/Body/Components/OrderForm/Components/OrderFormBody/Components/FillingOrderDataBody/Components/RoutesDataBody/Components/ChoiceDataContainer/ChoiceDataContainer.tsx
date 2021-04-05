@@ -10,7 +10,7 @@ export const ChoiceDataContainer = () => {
         <Typography variant={"h5"}>Выбор данных</Typography>
         <div className={style.choiceDataWrapper}>
             <div className={style.formContainer}>
-                <DirectionChoice directionType={DirectionsEnum.none}/>
+                <DirectionChoice/>
             </div>
             <div className={style.formContainer}>
                 <DateChoice/>

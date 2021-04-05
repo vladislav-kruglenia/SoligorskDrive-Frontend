@@ -1,3 +1,6 @@
+import {ReactNodeArray} from "react";
+
 export type HorizontalLinearStepperProps = {
-    indexActiveStep: number
+    indexActiveStep: number,
+    Steps: ReactNodeArray,
 }

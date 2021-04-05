@@ -1,11 +1,9 @@
-export interface UserDataFormProps extends UserOrderData {
+import {UserOrderData} from "../../../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
+
+export interface UserDataFormProps {
+    userOrderData: UserOrderData,
     exitEditMode: () => void,
     remainingNumberSeats: number,
 }
 
 
-export type UserOrderData = {
-    userName: string,
-    userPhone: string,
-    userNumberSeats: number,
-}

@@ -3,8 +3,8 @@ import {DirectionsEnum, StepsEnum} from "../../../AppGlobal/AppGlobalTypes/Enums
 export type StartStateType = {
     orderSteps: Steps,
     selectedDirection: DirectionsEnum,
-    selectedDate: string,
-    startHour: number | null,
+    selectedDate: string | Date,
+    startHour: number,
     haltData: SelectedHaltData,
     userContacts: UserContacts,
     seats: Seats,
@@ -14,10 +14,10 @@ export type StartStateType = {
 
 export type Steps = {
     indexActiveStep: number,
-    stepsArr: Step[]
+    stepsArr: StepType[]
 }
 
-export type Step = {
+export type StepType = {
     stepId: StepsEnum,
     stepLabel: string,
 }

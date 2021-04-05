@@ -1,9 +1,7 @@
 import {DirectionsEnum} from "../../../AppGlobal/AppGlobalTypes/Enums";
-import {UserOrderData} from "../../../Components/Body/Components/OrderForm/Components/OrderFormBody/Components/FillingOrderDataBody/Components/FillingPersonalData/Components/UserData/Components/UserDataForm/UserDataForm.types";
-import {SelectedHaltData} from "./StartState.types";
 
 export type EditDatePayload = {
-    date: string
+    date: Date,
 }
 
 export type EditDirectionPayload = {
@@ -22,5 +20,11 @@ export interface EditOrderingStagesPayload {
 
 export type EditStartHourPayload = {
     startHour: number,
+}
+
+export type UserOrderData = {
+    userName: string,
+    userPhone: string,
+    userNumberSeats: number,
 }
 

@@ -1,13 +1,15 @@
 import React, {FC} from "react";
 import style from "./DisplayUserData.module.scss"
-import {UserDataElementProps} from "./DisplayUserData.types";
+import {DisplayUserDataProps, UserDataElementProps} from "./DisplayUserData.types";
 import {Typography} from "@material-ui/core";
 
-export const DisplayUserData = () => {
+export const DisplayUserData:FC<DisplayUserDataProps> = (props) => {
+    const {userName, userPhone, userNumberSeats} = props.userOrderData;
+
     return <div className={style.DisplayUserData}>
-        <UserDataElement labelText={'Ваше имя:'} elementValue={'Владислав'}/>
-        <UserDataElement labelText={'Ваш телефон:'} elementValue={'+375293817501'}/>
-        <UserDataElement labelText={'Количесво мест:'} elementValue={`${1}`}/>
+        <UserDataElement labelText={'Ваше имя:'} elementValue={userName}/>
+        <UserDataElement labelText={'Ваш телефон:'} elementValue={userPhone}/>
+        <UserDataElement labelText={'Количество мест:'} elementValue={userNumberSeats}/>
     </div>
 };
 

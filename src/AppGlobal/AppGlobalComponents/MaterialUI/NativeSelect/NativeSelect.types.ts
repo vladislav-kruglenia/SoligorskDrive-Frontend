@@ -9,5 +9,5 @@ export type NativeSelectProps = {
 }
 
 export enum NativeSelectOptions {
-    None = 'None',
+    None = 'none',
 }

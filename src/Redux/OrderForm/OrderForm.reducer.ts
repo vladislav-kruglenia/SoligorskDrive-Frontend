@@ -6,7 +6,7 @@ import {
     EditSelectedHaltDataPayload, EditOrderingStagesPayload,
     EditUserOrderDataPayload, EditStartHourPayload
 } from "./Types/Actions.types";
-import {getOrderPrice} from "./OrderForm.reducer-functions";
+import {getOrderPrice} from "./OrderForm.helper-functions";
 import {Halts} from "./Classes/Halts.class";
 
 const startState = new StartStateOrderForm().getStartState();
@@ -50,6 +50,8 @@ const orderFormReducer = createSlice({
         
     }
 });
+
+export const {editDate,} = orderFormReducer.actions;
 
 
 

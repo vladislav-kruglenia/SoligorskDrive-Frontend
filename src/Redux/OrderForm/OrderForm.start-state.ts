@@ -1,17 +1,18 @@
 import {SelectedHaltData, StartStateType} from "./Types/StartState.types";
 import {DirectionsEnum, StepsEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
-import {getDate} from "./OrderForm.reducer-functions";
+import {getDate} from "./OrderForm.helper-functions";
 import {Halts} from "./Classes/Halts.class";
 
 export class StartStateOrderForm {
-    currentDate = getDate(new Date());
+    currentDate = new Date();
+    // currentDate = getDate(new Date());
 
 
 
     getStartState(): StartStateType {
         return {
             orderSteps: {
-                indexActiveStep: 0,
+                indexActiveStep: 2,
                 stepsArr: [
                     {stepId: StepsEnum.ChoiceRoute, stepLabel: 'Выбор рейса'},
                     {stepId: StepsEnum.FillingData, stepLabel: 'Оформление заказа'},
@@ -31,7 +32,7 @@ export class StartStateOrderForm {
                 orderPrice: 0,
                 tariffPrice: 9,
             },
-            startHour: null,
+            startHour: 0,
         }
     }
 
