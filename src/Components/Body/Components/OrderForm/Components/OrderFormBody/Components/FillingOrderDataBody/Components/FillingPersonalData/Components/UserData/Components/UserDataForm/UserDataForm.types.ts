@@ -2,8 +2,9 @@ import {UserOrderData} from "../../../../../../../../../../../../../../Redux/Ord
 
 export interface UserDataFormProps {
     userOrderData: UserOrderData,
-    exitEditMode: () => void,
     remainingNumberSeats: number,
+    editUserOrderData: (userOrderData: UserOrderData) => void,
+    exitEditMode: () => void,
 }
 
 

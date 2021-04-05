@@ -35,6 +35,7 @@ export const UserDataForm:FC<UserDataFormProps> = (props) => {
         initialValues: valuesForm,
         validationSchema: validationSchema,
         onSubmit: (values: UserOrderData) => {
+            props.editUserOrderData(values);
             props.exitEditMode();
             console.log(values);
         }

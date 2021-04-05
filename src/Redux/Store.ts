@@ -1,6 +1,6 @@
 import {combineReducers, configureStore, getDefaultMiddleware, Store} from "@reduxjs/toolkit";
 import {AppStateType} from "../AppGlobal/AppGlobalTypes/Types";
-import orderFormReducer, {editDate} from "./OrderForm/OrderForm.reducer"
+import orderFormReducer from "./OrderForm/OrderForm.reducer"
 
 
 export const reducers = combineReducers({

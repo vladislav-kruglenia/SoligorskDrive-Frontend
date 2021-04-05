@@ -1,4 +1,5 @@
 import {DirectionsEnum} from "../../../AppGlobal/AppGlobalTypes/Enums";
+import {TravelInfoType} from "../../../Components/Body/Components/OrderForm/Components/OrderFormBody/Components/FillingOrderDataBody/Components/RoutesDataBody/Components/RoutesTable/Components/TableBody/TableBody.types";
 
 export type EditDatePayload = {
     date: Date,
@@ -18,9 +19,7 @@ export interface EditOrderingStagesPayload {
     indexActiveStep: number,
 }
 
-export type EditStartHourPayload = {
-    startHour: number,
-}
+export interface EditTravelInfoPayload extends TravelInfoType {}
 
 export type UserOrderData = {
     userName: string,

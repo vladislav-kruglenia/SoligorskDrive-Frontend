@@ -1,4 +1,4 @@
-import React, {FC, useMemo, useState} from "react";
+import React, {FC, useMemo} from "react";
 import style from "./OrderingStages.module.scss";
 import {Step, StepLabel, Stepper} from "@material-ui/core";
 import {HorizontalLinearStepperProps} from "./OrderingStages.types";

@@ -2,7 +2,6 @@ import React from "react";
 import style from "./ChoiceDataContainer.module.scss";
 import {DirectionChoice} from "./Components/DirectionChoice/DirectionChoice";
 import {DateChoice} from "./Components/DateChoice/DateChoice";
-import {DirectionsEnum} from "../../../../../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 import {Typography} from "@material-ui/core";
 
 export const ChoiceDataContainer = () => {
