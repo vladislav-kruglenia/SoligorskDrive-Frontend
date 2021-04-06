@@ -4,17 +4,8 @@ import {OrderConfirmation} from "./Components/OrderConfirmation/OrderConfirmatio
 import {FillingOrderDataBody} from "./Components/FillingOrderDataBody/FillingOrderDataBody";
 import {Redirect, Route, Switch} from "react-router";
 import {AppLinks, OrderFormLinks} from "../../../../../../AppGlobal/AppGlobalTypes/Links";
-import {useSelector} from "react-redux";
-import {getOrderStepsSelector} from "../../../../../../Redux/OrderForm/OrderForm.selectors";
-import {StepsIndexesEnum} from "../../../../../../AppGlobal/AppGlobalTypes/Enums";
 
 export const OrderFormBody = () => {
-
-    const {indexActiveStep} = useSelector(getOrderStepsSelector);
-
-    if(indexActiveStep === StepsIndexesEnum.OrderConfirmation) return <OrderConfirmation/>;
-
-
     return <div className={style.OrderFormBody}>
         <Switch>
             <Route exact path={`${AppLinks.OrderForm}`}

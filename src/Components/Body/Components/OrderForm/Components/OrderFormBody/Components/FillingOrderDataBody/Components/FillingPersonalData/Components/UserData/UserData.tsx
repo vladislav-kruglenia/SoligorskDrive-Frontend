@@ -8,7 +8,6 @@ import {DisplayTypeEnum} from "../../../../../../../../../../../../AppGlobal/App
 import {FormTypeEnum} from "../../../../../../../../../../../../AppGlobal/AppGlobalComponents/DisplayingDifferentData/Types/InputEditModeTypes";
 import {useDispatch, useSelector} from "react-redux";
 import {
-    getIsFilledUpContactsSelector,
     getRemainingNumberSeatsSelector,
     getUserOrderDataSelector
 } from "../../../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
@@ -23,7 +22,6 @@ export const UserData:FC<UserDataProps> = (props) => {
     const {isFilledUpContacts} = props;
     const userOrderData = useSelector(getUserOrderDataSelector);
     const remainingNumberSeats = useSelector(getRemainingNumberSeatsSelector);
-    // const isFilledUpContacts = useSelector(getIsFilledUpContactsSelector);
 
 
     const dispatch = useDispatch();

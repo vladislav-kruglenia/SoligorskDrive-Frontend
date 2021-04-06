@@ -1,6 +1,5 @@
 import {SelectedHaltData, StartStateType} from "./Types/StartState.types";
 import {DirectionsEnum, ErrorEnum, StepsEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
-import {Halts} from "./Classes/Halts.class";
 
 export class StartStateOrderForm {
     currentDate = new Date();

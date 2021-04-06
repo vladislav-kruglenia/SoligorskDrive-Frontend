@@ -1,0 +1,11 @@
+.OrderConfirmation{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .text{
+    color: #4caf50;
+    margin: 0 0 20px 0;
+  }
+}

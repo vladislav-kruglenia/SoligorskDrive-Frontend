@@ -11,7 +11,7 @@ import {
 } from "./Types/Actions.types";
 import {getOrderPrice} from "./OrderForm.helper-functions";
 import {Halts} from "./Classes/Halts.class";
-import {StepsIndexesEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
+import {DirectionsEnum, StepsIndexesEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
 
 const startState = new StartStateOrderForm().getStartState();
 
@@ -27,7 +27,7 @@ const orderFormReducer = createSlice({
 
         editDirection(state, action: PayloadAction<EditDirectionPayload>) {
             const {direction} = action.payload;
-            state.selectedDirection = action.payload.direction;
+            state.selectedDirection = direction;
             state.indexActiveTravel = null;
             state.orderSteps.indexActiveStep = StepsIndexesEnum.ChoiceRoute
             /*state.orderSteps.indexActiveStep = direction === DirectionsEnum.none
@@ -67,13 +67,20 @@ const orderFormReducer = createSlice({
             state.indexActiveTravel = action.payload.indexActiveTravel
         },
 
+        restartOrderForm(state){
+            state.indexActiveTravel = null;
+            state.orderSteps.indexActiveStep = StepsIndexesEnum.ChoiceRoute;
+            state.selectedDirection = DirectionsEnum.none;
+        },
+
+
     }
 });
 
 export const {
     editDate, editDirection, editUserOrderData,
     editSelectedHaltData, editTravelInfo, editIndexActiveStage,
-    editIndexActiveTravel,
+    editIndexActiveTravel, restartOrderForm,
 } = orderFormReducer.actions;
 
 

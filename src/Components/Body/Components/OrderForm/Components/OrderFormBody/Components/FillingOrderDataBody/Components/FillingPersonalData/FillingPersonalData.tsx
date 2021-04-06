@@ -10,7 +10,7 @@ import {
     getHaltDataSelector,
     getIsFilledUpContactsSelector
 } from "../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
-import {ErrorEnum, StepsIndexesEnum} from "../../../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
+import {ErrorEnum} from "../../../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 
 export const FillingPersonalData = () => {
     const {selectedHaltLabel, haltTime} = useSelector(getHaltDataSelector);
