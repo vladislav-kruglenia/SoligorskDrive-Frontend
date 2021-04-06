@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import {Badge, Button, Typography} from "@material-ui/core";
-import {OrderButtonPropsType} from "./MaterialButtons.types";
+import {OrderButtonPropsType, SendOrderButtonPropsType} from "./MaterialButtons.types";
 
 export const OrderButton: FC<OrderButtonPropsType> = (props) => {
     return <>
@@ -13,11 +13,28 @@ export const OrderButton: FC<OrderButtonPropsType> = (props) => {
                         props.onClickFunc()
                     }}>
                 {props.buttonText}
-                {/*<OrderButtonText/>*/}
             </Button>
         </Badge>
     </>
 };
+
+export const SendOrderButton: FC<SendOrderButtonPropsType> = (props) => {
+    return <>
+        <Badge color="secondary" badgeContent={0}>
+            <Button variant={"contained"}
+                    color={"primary"}
+                    size={props.size}
+                    disabled={props.disabled}
+                    onClick={() => {
+                        props.onClickFunc()
+                    }}>
+                {props.buttonText}
+            </Button>
+        </Badge>
+    </>
+};
+
+
 
 export const OrderButtonText = () => {
     return <Badge color="secondary" badgeContent={0}>

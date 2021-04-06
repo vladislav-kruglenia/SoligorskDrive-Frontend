@@ -7,7 +7,8 @@ import {useDispatch} from "react-redux";
 import {EditSelectedHaltDataPayload} from "../../../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
 import {editSelectedHaltData} from "../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer";
 
-export const HaltChoice: FC<HaltChoiceProps> = () => {
+export const HaltChoice: FC<HaltChoiceProps> = (props) => {
+    const {haltName} = props;
     const HaltsClass = new Halts();
     const haltsArray = HaltsClass.getHaltLabels();
 
@@ -29,6 +30,7 @@ export const HaltChoice: FC<HaltChoiceProps> = () => {
             labelText={'Выбор остановки'}
             errorText={'Остановка не выбрана'}
             OptionsArray={HaltsOptionsArray}
+            optionValue={haltName}
             editOptionValue={value => editSelectedHaltDataAction(value)}
         />
     </div>

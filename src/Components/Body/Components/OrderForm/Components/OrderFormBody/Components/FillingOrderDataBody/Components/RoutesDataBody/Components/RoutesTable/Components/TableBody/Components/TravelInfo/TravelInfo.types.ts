@@ -1,6 +1,10 @@
 import {TravelInfoType} from "../../TableBody.types";
 
-export interface TravelInfoProps extends TravelInfoType {}
+export interface TravelInfoProps extends TravelInfoType {
+    indexTravel: number,
+    indexActiveTravel: number | null,
+    isNotCurrentDirection: boolean,
+}
 
 export type StartTravelTimeProps = {
     startHourTravel: number,
@@ -11,4 +15,5 @@ export type TravelPriceProps = {
     priceTravel: number,
 }
 
-export interface OrderButtonContainerProps extends TravelInfoProps {}
+export interface OrderButtonContainerProps extends TravelInfoProps {
+}

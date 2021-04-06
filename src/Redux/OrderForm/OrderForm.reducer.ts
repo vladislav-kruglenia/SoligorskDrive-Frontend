@@ -3,11 +3,15 @@ import {StartStateOrderForm} from "./OrderForm.start-state";
 import {
     EditDatePayload,
     EditDirectionPayload,
-    EditSelectedHaltDataPayload, EditOrderingStagesPayload,
-    EditUserOrderDataPayload, EditTravelInfoPayload
+    EditIndexActiveTravelPayload,
+    EditOrderingStagesPayload,
+    EditSelectedHaltDataPayload,
+    EditTravelInfoPayload,
+    EditUserOrderDataPayload
 } from "./Types/Actions.types";
 import {getOrderPrice} from "./OrderForm.helper-functions";
 import {Halts} from "./Classes/Halts.class";
+import {StepsIndexesEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
 
 const startState = new StartStateOrderForm().getStartState();
 
@@ -16,11 +20,20 @@ const orderFormReducer = createSlice({
     initialState: startState,
     reducers: {
         editDate(state, action: PayloadAction<EditDatePayload>) {
-            state.selectedDate = action.payload.date
+            state.selectedDate = action.payload.date;
+            state.indexActiveTravel = null;
+            state.orderSteps.indexActiveStep = StepsIndexesEnum.ChoiceRoute;
         },
 
         editDirection(state, action: PayloadAction<EditDirectionPayload>) {
-            state.selectedDirection = action.payload.direction
+            const {direction} = action.payload;
+            state.selectedDirection = action.payload.direction;
+            state.indexActiveTravel = null;
+            state.orderSteps.indexActiveStep = StepsIndexesEnum.ChoiceRoute
+            /*state.orderSteps.indexActiveStep = direction === DirectionsEnum.none
+                ? DirectionsIndexesEnum.ChoiceRoute
+                : state.orderSteps.indexActiveStep
+            */
         },
 
         editUserOrderData(state, action: PayloadAction<EditUserOrderDataPayload>) {
@@ -49,12 +62,18 @@ const orderFormReducer = createSlice({
         editIndexActiveStage(state, action: PayloadAction<EditOrderingStagesPayload>) {
             state.orderSteps.indexActiveStep = action.payload.indexActiveStep
         },
+
+        editIndexActiveTravel(state, action: PayloadAction<EditIndexActiveTravelPayload>){
+            state.indexActiveTravel = action.payload.indexActiveTravel
+        },
+
     }
 });
 
 export const {
     editDate, editDirection, editUserOrderData,
-    editSelectedHaltData, editTravelInfo, editIndexActiveStage
+    editSelectedHaltData, editTravelInfo, editIndexActiveStage,
+    editIndexActiveTravel,
 } = orderFormReducer.actions;
 
 

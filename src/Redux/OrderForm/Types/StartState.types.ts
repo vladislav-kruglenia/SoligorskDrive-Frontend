@@ -9,7 +9,7 @@ export type StartStateType = {
     userContacts: UserContacts,
     seats: Seats,
     prices: Prices,
-
+    indexActiveTravel: number | null,
 }
 
 export type Steps = {

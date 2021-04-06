@@ -5,14 +5,15 @@ import {Typography} from "@material-ui/core";
 import {OrderButtonContainerProps} from "../../TravelInfo.types";
 import {useDispatch} from "react-redux";
 import {
+    EditIndexActiveTravelPayload,
     EditOrderingStagesPayload,
     EditTravelInfoPayload
 } from "../../../../../../../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
-import {editTravelInfo, editIndexActiveStage} from "../../../../../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer";
+import {editTravelInfo, editIndexActiveStage, editIndexActiveTravel} from "../../../../../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer";
 import {TravelInfoType} from "../../../../TableBody.types";
 
 export const OrderButtonContainer:FC<OrderButtonContainerProps> = (props) => {
-    const {startHourTravel, remainingNumberSeats, priceTravel} = props;
+    const {startHourTravel, remainingNumberSeats, priceTravel, indexTravel, isNotCurrentDirection} = props;
     const travelInfoProps: TravelInfoType = {startHourTravel, remainingNumberSeats, priceTravel};
 
     const dispatch = useDispatch();
@@ -28,6 +29,14 @@ export const OrderButtonContainer:FC<OrderButtonContainerProps> = (props) => {
         return dispatch(editIndexActiveStage(action))
     }, [dispatch]);
 
+    const editIndexActiveTravelAction = useCallback((indexActiveTravel: number) => {
+        const action: EditIndexActiveTravelPayload = {indexActiveTravel};
+
+        return dispatch(editIndexActiveTravel(action))
+    }, [dispatch]);
+
+
+
 
 
     return <div className={style.OrderButtonContainer}>
@@ -36,11 +45,12 @@ export const OrderButtonContainer:FC<OrderButtonContainerProps> = (props) => {
         <OrderButton
             onClickFunc={() => {
                 editTravelInfoAction(travelInfoProps);
-                editIndexActiveStageAction(1)
+                editIndexActiveStageAction(1);
+                editIndexActiveTravelAction(indexTravel);
             }}
             buttonText={"Выбрать"}
             size={"small"}
-            disabled={false} // Todo: Error - дизаблить если не выбрано направление
+            disabled={isNotCurrentDirection} // Todo: Error - дизаблить если не выбрано направление
         />
     </div>
 };

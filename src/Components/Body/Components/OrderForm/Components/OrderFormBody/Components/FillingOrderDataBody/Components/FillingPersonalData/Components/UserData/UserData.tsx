@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from "react";
+import React, {FC, useCallback, useState} from "react";
 import style from "./UserData.module.scss"
 import {Typography} from "@material-ui/core";
 import {DisplayUserData} from "./Components/DisplayUserData/DisplayUserData";
@@ -8,6 +8,7 @@ import {DisplayTypeEnum} from "../../../../../../../../../../../../AppGlobal/App
 import {FormTypeEnum} from "../../../../../../../../../../../../AppGlobal/AppGlobalComponents/DisplayingDifferentData/Types/InputEditModeTypes";
 import {useDispatch, useSelector} from "react-redux";
 import {
+    getIsFilledUpContactsSelector,
     getRemainingNumberSeatsSelector,
     getUserOrderDataSelector
 } from "../../../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
@@ -16,10 +17,13 @@ import {
     UserOrderData
 } from "../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
 import {editUserOrderData} from "../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer";
+import {UserDataProps} from "./UserData.types";
 
-export const UserData = () => {
+export const UserData:FC<UserDataProps> = (props) => {
+    const {isFilledUpContacts} = props;
     const userOrderData = useSelector(getUserOrderDataSelector);
     const remainingNumberSeats = useSelector(getRemainingNumberSeatsSelector);
+    // const isFilledUpContacts = useSelector(getIsFilledUpContactsSelector);
 
 
     const dispatch = useDispatch();
@@ -28,7 +32,7 @@ export const UserData = () => {
         return dispatch(editUserOrderData(action))
     }, [dispatch]);
 
-    const [editMode, setEditMode] = useState(false);
+    const [editMode, setEditMode] = useState(true);
 
     return <div className={style.UserData}>
         <Typography className={style.userDataTitle} variant={'h5'}>Ваши контакты и количество мест</Typography>
@@ -44,6 +48,7 @@ export const UserData = () => {
                 editUserOrderData={userOrderData1 => editUserOrderDataAction(userOrderData1)}
                 exitEditMode={() => setEditMode(false)}
             />}
+            isNotAllowedToExitEditMode={!isFilledUpContacts}
         />
     </div>
 };

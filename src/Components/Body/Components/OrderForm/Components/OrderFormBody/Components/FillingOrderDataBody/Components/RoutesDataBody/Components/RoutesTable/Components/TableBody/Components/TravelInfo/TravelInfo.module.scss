@@ -1,7 +1,7 @@
 .TravelInfo{
   display: flex;
   justify-content: space-around;
-  padding: 8px 0;
+  padding: 8px 5px;
   //border: 1px solid salmon;
 
   .travelInfoElement{
@@ -10,4 +10,8 @@
     min-width: 50px;
     flex: 1 0 0;
   }
+}
+
+.activeTravelField{
+  background-color: #f5f5f5;
 }

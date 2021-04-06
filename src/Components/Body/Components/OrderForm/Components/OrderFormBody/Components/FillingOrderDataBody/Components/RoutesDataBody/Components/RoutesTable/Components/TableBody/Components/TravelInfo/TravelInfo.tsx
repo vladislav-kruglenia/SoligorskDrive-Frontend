@@ -7,9 +7,11 @@ import {Divider} from "@material-ui/core";
 import {TravelInfoProps} from "./TravelInfo.types";
 
 export const TravelInfo:FC<TravelInfoProps> = (props) => {
-    const {startHourTravel, priceTravel} = props;
+    const {startHourTravel, priceTravel, indexTravel, indexActiveTravel, isNotCurrentDirection} = props;
 
-    return <div className={style.TravelInfo}>
+    const isActiveField = indexTravel === indexActiveTravel;
+
+    return <div className={`${style.TravelInfo} ${isActiveField && style.activeTravelField}`}>
         <div className={style.travelInfoElement}>
             <StartTravelTime startHourTravel={startHourTravel}/>
         </div>
@@ -23,7 +25,10 @@ export const TravelInfo:FC<TravelInfoProps> = (props) => {
             <OrderButtonContainer
                 startHourTravel={startHourTravel}
                 priceTravel={priceTravel}
+                indexTravel={indexTravel}
+                indexActiveTravel={indexActiveTravel}
                 remainingNumberSeats={props.remainingNumberSeats}
+                isNotCurrentDirection={isNotCurrentDirection}
             />
         </div>
         <Divider/>

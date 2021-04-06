@@ -1,5 +1,5 @@
 import {SelectedHaltData, StartStateType} from "./Types/StartState.types";
-import {DirectionsEnum, StepsEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
+import {DirectionsEnum, ErrorEnum, StepsEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
 import {Halts} from "./Classes/Halts.class";
 
 export class StartStateOrderForm {
@@ -32,11 +32,13 @@ export class StartStateOrderForm {
                 tariffPrice: 9,
             },
             startHour: 0,
+            indexActiveTravel: null,
         }
     }
 
     private _getHaltsStartData(): SelectedHaltData{
-        const {haltLabel, haltTime} = new Halts().haltsArray[0];
+        const {haltLabel, haltTime} = {haltLabel: ErrorEnum.None, haltTime: ErrorEnum.None};
+        // const {haltLabel, haltTime} = new Halts().haltsArray[0];
         return {
             selectedHaltLabel: haltLabel,
             haltTime

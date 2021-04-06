@@ -1,24 +1,27 @@
-import React from "react";
+import React, {FC} from "react";
 import style from "./HaltContainer.module.scss"
 import {HaltChoice} from "./Components/HaltChoice/HaltChoice";
 import {HaltTimeDisplay} from "./Components/HaltTimeDisplay/HaltTimeDisplay";
 import {Typography} from "@material-ui/core";
 import {useSelector} from "react-redux";
-import {
-    getHaltDataSelector,
-    getStartHourSelector
-} from "../../../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
+import {getStartHourSelector} from "../../../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
+import {HaltContainerProps} from "./HaltContainer.types";
 
-export const HaltContainer = () => {
-    const {selectedHaltLabel, haltTime} = useSelector(getHaltDataSelector);
+export const HaltContainer:FC<HaltContainerProps> = (props) => {
+    const {selectedHaltLabel, haltTime, isSelectedHaltLabel} = props;
+
+    // const {selectedHaltLabel, haltTime} = useSelector(getHaltDataSelector);
     const startHour = useSelector(getStartHourSelector);
+    const isHaltTimeDisplay = isSelectedHaltLabel
+        ? <HaltTimeDisplay haltTime={haltTime} startHour={startHour}/>
+        : null;
 
     return <div className={style.HaltContainer}>
         <Typography variant={"h5"}>Остановка и время отправления</Typography>
 
         <div className={style.haltWrapper}>
             <HaltChoice haltName={selectedHaltLabel}/>
-            <HaltTimeDisplay haltTime={haltTime} startHour={startHour}/>
+            {isHaltTimeDisplay}
         </div>
     </div>
 };

@@ -4,13 +4,31 @@ import {HaltContainer} from "./Components/HaltContainer/HaltContainer";
 import {UserData} from "./Components/UserData/UserData";
 import {TotalPrice} from "./Components/TotalPrice/TotalPrice";
 import {Divider, Paper} from "@material-ui/core";
+import {SendOrderButtonContainer} from "./Components/SendOrderButtonContainer/SendOrderButtonContainer";
+import {useSelector} from "react-redux";
+import {
+    getHaltDataSelector,
+    getIsFilledUpContactsSelector
+} from "../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
+import {ErrorEnum, StepsIndexesEnum} from "../../../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 
 export const FillingPersonalData = () => {
+    const {selectedHaltLabel, haltTime} = useSelector(getHaltDataSelector);
+    const isFilledUpContacts = useSelector(getIsFilledUpContactsSelector);
+    const isSelectedHaltLabel = selectedHaltLabel !== ErrorEnum.None;
+    const isDisabledSendOrderButton = !isSelectedHaltLabel || !isFilledUpContacts;
+
     return <Paper className={style.FillingPersonalData}>
-        <HaltContainer/>
-        <UserData/>
+        <UserData isFilledUpContacts={isFilledUpContacts}/>
+        <HaltContainer
+            selectedHaltLabel={selectedHaltLabel}
+            haltTime={haltTime}
+            isSelectedHaltLabel={isSelectedHaltLabel}
+        />
         <Divider/>
         <TotalPrice/>
+        <SendOrderButtonContainer isDisabledSendOrderButton={isDisabledSendOrderButton}/>
     </Paper>
 };
+
 

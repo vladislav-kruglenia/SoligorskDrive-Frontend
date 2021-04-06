@@ -21,6 +21,10 @@ export interface EditOrderingStagesPayload {
 
 export interface EditTravelInfoPayload extends TravelInfoType {}
 
+export type EditIndexActiveTravelPayload = {
+    indexActiveTravel: number,
+}
+
 export type UserOrderData = {
     userName: string,
     userPhone: string,
