@@ -1,5 +1,6 @@
 export enum AppLinks {
     OrderForm = '/order-form',
+    OrdersHistory = '/orders-history',
 }
 
 export enum OrderFormLinks {

@@ -1,6 +1,11 @@
 import React, {FC} from "react";
 import {Badge, Button, Typography} from "@material-ui/core";
-import {LinkButtonPropsType, OrderButtonPropsType, SendOrderButtonPropsType} from "./MaterialButtons.types";
+import {
+    LinkButtonPropsType,
+    OrderButtonPropsType,
+    OutlinedButtonPropsType,
+    SendOrderButtonPropsType
+} from "./MaterialButtons.types";
 import {OrderFormLinks} from "../../../AppGlobalTypes/Links";
 import {Link} from "react-router-dom";
 
@@ -47,6 +52,20 @@ export const LinkButton: FC<LinkButtonPropsType> = (props) => {
         {props.buttonText}
     </Button>
 };
+
+export const OutlinedButton: FC<OutlinedButtonPropsType> = (props) => {
+    return <Button variant={"outlined"}
+                   color={"primary"}
+                   size={props.size}
+                   disabled={props.disabled}
+                   onClick={() => {
+                       props.onClickFunc()
+                   }}>
+        {props.buttonText}
+    </Button>
+};
+
+
 
 
 export const OrderButtonText = () => {

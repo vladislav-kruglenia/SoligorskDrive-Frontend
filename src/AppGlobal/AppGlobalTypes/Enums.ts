@@ -4,6 +4,13 @@ export enum DirectionsEnum {
     toSoligorsk = 'toSoligorsk',
 }
 
+export enum DirectionsNamesEnum {
+    toMinsk = 'Солигорск - Минск',
+    toSoligorsk = 'Минск - Солигорск',
+}
+
+
+
 export enum StepsIndexesEnum {
     ChoiceRoute = 0,
     FillingData = 1,

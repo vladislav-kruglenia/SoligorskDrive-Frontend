@@ -10,5 +10,10 @@ export const NavBar = () => {
             <ListItemIcon> <SupervisorAccountIcon/> </ListItemIcon>
             <ListItemText primary={'Оформление заказа'}/>
         </ListItem>
+        <ListItem button component={Link} to={AppLinks.OrdersHistory}>
+            <ListItemIcon> <SupervisorAccountIcon/> </ListItemIcon>
+            <ListItemText primary={'История заказов'}/>
+        </ListItem>
+
     </List>
 };
