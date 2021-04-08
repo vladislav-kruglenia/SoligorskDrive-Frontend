@@ -1,13 +1,14 @@
 import React, {FC} from "react";
-import style from "../../../../../../../../../../../../../../AppGlobal/AppGlobalStyles/Forms/UserDataForm/UserDataForm.module.scss"
 import * as yup from "yup";
 import {useFormik} from "formik";
+import style
+    from "../../../../../../../../AppGlobal/AppGlobalStyles/Forms/UserDataForm/UserDataForm.module.scss";
 import {Button, TextField} from "@material-ui/core";
-import {UserDataFormProps} from "./UserDataForm.types";
-import {UserOrderData} from "../../../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
+import {UserProfileDataFormProps} from "./UserProfileDataForm.types";
+import {MainUserProfileData} from "../UserProfileDataDisplay/UserProfileDataDisplay.types";
 
-export const UserDataForm:FC<UserDataFormProps> = (props) => {
-    const {userName, userPhone, userNumberSeats} = props.userOrderData;
+export const UserProfileDataForm:FC<UserProfileDataFormProps> = (props) => {
+    const {userName, userPhone, userLogin} = props.userData;
 
     const validationSchema = yup.object({
         userName: yup
@@ -18,24 +19,23 @@ export const UserDataForm:FC<UserDataFormProps> = (props) => {
             .string()
             .nullable()
             .required('Это поле обязательно'),
-        userNumberSeats: yup
-            .number()
-            .min(0, 'Введите положительное число')
-            .max(props.remainingNumberSeats, `Доступное количество мест: ${props.remainingNumberSeats}`)
+        userLogin: yup
+            .string()
             .nullable()
             .required('Это поле обязательно'),
     });
 
-    const valuesForm: UserOrderData = {
+    const valuesForm: MainUserProfileData = {
         userName: userName,
         userPhone: userPhone,
-        userNumberSeats: userNumberSeats,
+        userLogin: userLogin,
     };
+
     const Form = useFormik({
         initialValues: valuesForm,
         validationSchema: validationSchema,
-        onSubmit: (values: UserOrderData) => {
-            props.editUserOrderData(values);
+        onSubmit: (values: MainUserProfileData) => {
+            props.editUserData(values);
             props.exitEditMode();
             console.log(values);
         }
@@ -58,12 +58,12 @@ export const UserDataForm:FC<UserDataFormProps> = (props) => {
                        error={Form.touched.userPhone && Boolean(Form.errors.userPhone)}
                        helperText={Form.touched.userPhone && Form.errors.userPhone}
             />
-            <TextField className={style.textField} id="userNumberSeats" type={'number'}
-                       label={"Количество мест"} variant="outlined" size={"small"}
-                       value={Form.values.userNumberSeats}
+            <TextField className={style.textField} id="userLogin"
+                       label={"Ваш логин"} variant="outlined" size={"small"}
+                       value={Form.values.userLogin}
                        onChange={Form.handleChange}
-                       error={Form.touched.userNumberSeats && Boolean(Form.errors.userNumberSeats)}
-                       helperText={Form.touched.userNumberSeats && Form.errors.userNumberSeats}
+                       error={Form.touched.userLogin && Boolean(Form.errors.userLogin)}
+                       helperText={Form.touched.userLogin && Form.errors.userLogin}
             />
         </div>
 
@@ -73,3 +73,4 @@ export const UserDataForm:FC<UserDataFormProps> = (props) => {
         </Button>
     </form>
 };
+

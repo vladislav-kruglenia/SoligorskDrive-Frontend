@@ -1,7 +1,8 @@
 import React, {FC} from "react";
+import style from "./MaterialButtons.module.scss"
 import {Badge, Button, Typography} from "@material-ui/core";
 import {
-    LinkButtonPropsType,
+    LinkButtonPropsType, NavBarButtonPropsType,
     OrderButtonPropsType,
     OutlinedButtonPropsType,
     SendOrderButtonPropsType
@@ -56,6 +57,21 @@ export const LinkButton: FC<LinkButtonPropsType> = (props) => {
 export const OutlinedButton: FC<OutlinedButtonPropsType> = (props) => {
     return <Button variant={"outlined"}
                    color={"primary"}
+                   size={props.size}
+                   disabled={props.disabled}
+                   onClick={() => {
+                       props.onClickFunc()
+                   }}>
+        {props.buttonText}
+    </Button>
+};
+
+export const NavBarButton: FC<NavBarButtonPropsType> = (props) => {
+    return <Button variant={"outlined"}
+                   component={Link}
+                   to={props.link}
+                   className={style.NavBarButton}
+                   color={props.color}
                    size={props.size}
                    disabled={props.disabled}
                    onClick={() => {

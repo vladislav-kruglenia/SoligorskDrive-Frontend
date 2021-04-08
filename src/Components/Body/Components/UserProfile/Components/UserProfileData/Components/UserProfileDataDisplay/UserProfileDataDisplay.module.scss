@@ -1,0 +1,19 @@
+.UserProfileDataDisplay{
+  //margin: 15px 0 0 0;
+  padding: 0 10px;
+
+  .UserValue{
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 0;
+    //border: 1px solid brown;
+
+    .label{
+      margin: 0 10px 0 0;
+    }
+
+    .value{
+      font-size: 18px;
+    }
+  }
+}
