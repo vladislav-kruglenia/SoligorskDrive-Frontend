@@ -7,7 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {DeleteOrderButtonContainer} from "./Components/DeleteOrderButtonContainer/DeleteOrderButtonContainer";
+import {DeleteOrderButtonContainer} from "../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/DeleteOrderButtonContainer/DeleteOrderButtonContainer";
 import {OrdersTableProps, OrderTableType} from "./OrdersTable.types";
 
 

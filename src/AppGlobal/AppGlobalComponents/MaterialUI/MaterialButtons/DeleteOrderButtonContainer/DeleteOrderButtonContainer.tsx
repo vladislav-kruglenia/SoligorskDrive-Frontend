@@ -1,4 +1,4 @@
-import {OutlinedButton} from "../../../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/MaterialButtons";
+import {OutlinedButton} from "../MaterialButtons";
 import React, {FC} from "react";
 import {DeleteOrderButtonContainerProps} from "./DeleteOrderButtonContainer.types";
 

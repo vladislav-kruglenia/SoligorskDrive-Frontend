@@ -1,0 +1,12 @@
+.OrdersTableTitles{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  min-height: 40px;
+  padding: 0 10px;
+
+  .title{
+    margin: 0 10px 0 0;
+  }
+}

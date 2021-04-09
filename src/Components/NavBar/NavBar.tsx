@@ -20,6 +20,10 @@ export const NavBar = () => {
                 <ListItemIcon> <SupervisorAccountIcon/> </ListItemIcon>
                 <ListItemText primary={'Мой профиль'}/>
             </ListItem>
+            <ListItem button component={Link} to={AppLinks.DispatcherPanel}>
+                <ListItemIcon> <SupervisorAccountIcon/> </ListItemIcon>
+                <ListItemText primary={'Панель диспетчера'}/>
+            </ListItem>
 
         </List>
         <LogInButtonContainer/>

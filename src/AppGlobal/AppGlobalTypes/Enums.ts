@@ -5,6 +5,7 @@ export enum DirectionsEnum {
 }
 
 export enum DirectionsNamesEnum {
+    none = 'none',
     toMinsk = 'Солигорск - Минск',
     toSoligorsk = 'Минск - Солигорск',
 }
