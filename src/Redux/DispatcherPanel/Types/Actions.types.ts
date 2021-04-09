@@ -1,8 +1,8 @@
-import {DirectionsNamesEnum} from "../../../AppGlobal/AppGlobalTypes/Enums";
+import {DirectionsEnum} from "../../../AppGlobal/AppGlobalTypes/Enums";
 import {SortOrdersEnum} from "./DispatcherPanel.types";
 
 export type EditCurrentDirectionPayload = {
-    direction: DirectionsNamesEnum,
+    direction: DirectionsEnum,
 }
 
 export type EditCurrentDatePayload = {
@@ -11,6 +11,5 @@ export type EditCurrentDatePayload = {
 
 export type EditSortByValuePayload = {
     sortType: SortOrdersEnum,
-    value: boolean,
 }
 

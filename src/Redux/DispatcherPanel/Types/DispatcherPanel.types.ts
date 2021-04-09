@@ -1,8 +1,10 @@
+import {DirectionsEnum} from "../../../AppGlobal/AppGlobalTypes/Enums";
+
 export type StartStateType = {
     sortOrders: SortOrders,
-    currentDirection: string,
+    currentDirection: DirectionsEnum,
     currentDate: Date,
-    dateTypes: DateTypes,
+    dateTypesDisplay: DateTypes,
 }
 
 export type SortOrders = {

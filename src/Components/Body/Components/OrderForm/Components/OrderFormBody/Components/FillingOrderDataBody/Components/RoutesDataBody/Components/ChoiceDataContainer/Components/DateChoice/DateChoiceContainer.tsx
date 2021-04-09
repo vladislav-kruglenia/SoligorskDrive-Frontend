@@ -26,6 +26,7 @@ export const DateChoiceContainer = () => {
     return <DateChoice
         selectedDate={selectedDate}
         handleDateChange={handleDateChange}
+        isDatePicker={true}
     />;
 };
 

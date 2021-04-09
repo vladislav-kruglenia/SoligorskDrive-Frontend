@@ -5,20 +5,25 @@ import DateFnsUtils from "@date-io/date-fns";
 import {DateChoiceProps, KeyboardDatePickerProps} from "./DateChoice.types";
 
 export const DateChoice:FC<DateChoiceProps> = (props) => {
-    const {selectedDate, handleDateChange, isTimePicker} = props;
+    const {selectedDate, handleDateChange, isTimePicker, isDatePicker} = props;
     const TimePicker = isTimePicker && <KeyboardTimePickerComponent
         selectedDate={selectedDate}
         handleDateChange={handleDateChange}
     />;
 
+
+    const DatePicker = isDatePicker && <KeyboardDatePickerComponent
+        selectedDate={selectedDate}
+        handleDateChange={handleDateChange}
+    />;
+
+
+
     return (
         <>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <div className={style.pickers}>
-                    <KeyboardDatePickerComponent
-                        selectedDate={selectedDate}
-                        handleDateChange={handleDateChange}
-                    />
+                    {DatePicker}
                     {TimePicker}
                 </div>
             </MuiPickersUtilsProvider>

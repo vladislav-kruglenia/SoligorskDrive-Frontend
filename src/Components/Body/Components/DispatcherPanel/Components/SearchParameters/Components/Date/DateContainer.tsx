@@ -1,9 +1,9 @@
-import React, {useCallback, useState} from "react";
+import React, {FC, memo, useCallback} from "react";
 import {DateChoice} from "../../../../../../../../AppGlobal/AppGlobalComponents/Selectors/DateChoice/DateChoice";
+import {DateContainerProps} from "./DateContainer.types";
 
-export const DateContainer = () => {
-    // const newDate = new Date();
-    const [selectedDate, editDate] = useState(new Date());
+export const DateContainer:FC<DateContainerProps> = (props) => {
+    const {currentDate, editDate, isDatePicker, isTimePicker} = props;
 
     const handleDateChange = useCallback((date: Date | null) => {
         if(date) editDate(date);
@@ -11,9 +11,12 @@ export const DateContainer = () => {
 
     return <div>
         <DateChoice
-            selectedDate={selectedDate}
+            selectedDate={currentDate}
             handleDateChange={handleDateChange}
-            isTimePicker={true}
+            isTimePicker={isTimePicker}
+            isDatePicker={isDatePicker}
         />
     </div>
 };
+
+export const DateContainerMemo = memo(DateContainer);

@@ -1,12 +1,12 @@
 import {DateTypes, StartStateType} from "./Types/DispatcherPanel.types";
-import {DirectionsNamesEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
+import {DirectionsEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {EditCurrentDatePayload, EditCurrentDirectionPayload, EditSortByValuePayload} from "./Types/Actions.types";
 
 const startState: StartStateType = {
     currentDate: new Date(),
-    currentDirection: DirectionsNamesEnum.none,
-    dateTypes:{
+    currentDirection: DirectionsEnum.none,
+    dateTypesDisplay:{
         dateString: '',
         timeString: '',
     },
@@ -32,15 +32,17 @@ const dispatcherPanelReducer = createSlice({
             };
 
             state.currentDate = action.payload.date;
-            state.dateTypes = newDateTypes;
+            state.dateTypesDisplay = newDateTypes;
 
         },
         editSortByValue(state, action: PayloadAction<EditSortByValuePayload>){
-            const {sortType, value} = action.payload;
-            state.sortOrders[sortType] = value
+            const {sortType} = action.payload;
+            state.sortOrders[sortType] = !state.sortOrders[sortType]
         },
     }
 });
+
+export const {editSortByValue, editCurrentDate, editCurrentDirection} = dispatcherPanelReducer.actions;
 
 export default dispatcherPanelReducer.reducer
 

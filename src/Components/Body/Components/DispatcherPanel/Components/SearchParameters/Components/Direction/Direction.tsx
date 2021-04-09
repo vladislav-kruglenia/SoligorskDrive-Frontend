@@ -1,15 +1,18 @@
-import React, {useState} from "react";
+import React, {FC, memo} from "react";
 import style from "./Direction.module.scss"
-import {DirectionsEnum} from "../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 import {DirectionChoice} from "../../../../../../../../AppGlobal/AppGlobalComponents/Selectors/DirectionChoice/DirectionChoice";
+import {DirectionProps} from "./Direction.types";
 
-export const Direction = () => {
-    const [currentDirection, editDirection] = useState(DirectionsEnum.none);
+export const Direction:FC<DirectionProps> = (props) => {
+    const {direction, editDirectionAction} = props;
+    // const [currentDirection, editDirection] = useState(props.direction);
 
     return <div className={style.Direction}>
         <DirectionChoice
-            currentDirection={currentDirection}
-            editDirectionAction={editDirection}
+            currentDirection={direction}
+            editDirectionAction={editDirectionAction}
         />
     </div>
 };
+
+export const DirectionMemo = memo(Direction);
