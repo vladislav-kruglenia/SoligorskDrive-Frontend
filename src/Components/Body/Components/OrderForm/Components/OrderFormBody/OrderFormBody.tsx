@@ -13,6 +13,7 @@ export const OrderFormBody = () => {
             <Route path={`${OrderFormLinks.FillingOrderData}`} render={() => <FillingOrderDataBody/>}/>
             <Route path={`${OrderFormLinks.OrderConfirmation}`} render={() => <OrderConfirmation/>}/>
         </Switch>
+            {/*<div>Преимущества</div>*/}
     </div>
 };
 

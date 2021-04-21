@@ -1,9 +1,9 @@
 import React, {FC} from "react";
 import {DirectionsEnum} from "../../../AppGlobalTypes/Enums";
-import {NativeSelectComponent} from "../../MaterialUI/NativeSelect/NativeSelectComponent";
 import {DirectionChoiceProps} from "./DirectionChoice.types";
+import {NativeSelectComponent} from "../../MaterialUI/NativeSelect/NativeSelectComponent";
 
-export const DirectionChoice: FC<DirectionChoiceProps> = (props) => {
+export const DirectionChoiceSelect: FC<DirectionChoiceProps> = (props) => {
     const {currentDirection, editDirectionAction} = props;
 
     const OptionsArray = [
@@ -19,3 +19,5 @@ export const DirectionChoice: FC<DirectionChoiceProps> = (props) => {
         optionValue={currentDirection}
     />
 };
+
+

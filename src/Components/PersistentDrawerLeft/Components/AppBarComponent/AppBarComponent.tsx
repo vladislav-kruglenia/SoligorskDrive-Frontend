@@ -4,10 +4,11 @@ import clsx from "clsx";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
-import Typography from "@material-ui/core/Typography";
 import {AppBarComponentProps} from "./AppBarComponent.types";
+import {UserHeader} from "../../../Header/UserHeader";
 
 export const AppBarComponent: FC<AppBarComponentProps> = ({classes, ...props}) => {
+
     const handleDrawerOpen = () => {
         props.setOpen(true);
     };
@@ -28,9 +29,8 @@ export const AppBarComponent: FC<AppBarComponentProps> = ({classes, ...props}) =
             >
                 <MenuIcon/>
             </IconButton>
-            <Typography variant="h6" noWrap>
-                Persistent drawer
-            </Typography>
+
+            <UserHeader/>
         </Toolbar>
     </AppBar>
 };

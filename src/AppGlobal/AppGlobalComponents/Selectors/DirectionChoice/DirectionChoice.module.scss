@@ -1,0 +1,17 @@
+.DirectionChoice{
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+  //height: 40px;
+  margin: 0 20px 0 0;
+  padding: 16px 0 0 0;
+  //border: 1px solid brown;
+
+  .DirectionButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 165px;
+    //border: 1px solid #61dafb;
+  }
+}

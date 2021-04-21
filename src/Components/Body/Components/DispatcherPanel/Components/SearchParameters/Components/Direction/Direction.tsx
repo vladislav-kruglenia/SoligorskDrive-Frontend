@@ -1,6 +1,6 @@
 import React, {FC, memo} from "react";
 import style from "./Direction.module.scss"
-import {DirectionChoice} from "../../../../../../../../AppGlobal/AppGlobalComponents/Selectors/DirectionChoice/DirectionChoice";
+import {DirectionChoiceSelect} from "../../../../../../../../AppGlobal/AppGlobalComponents/Selectors/DirectionChoice/DirectionChoiceSelect";
 import {DirectionProps} from "./Direction.types";
 
 export const Direction:FC<DirectionProps> = (props) => {
@@ -8,7 +8,7 @@ export const Direction:FC<DirectionProps> = (props) => {
     // const [currentDirection, editDirection] = useState(props.direction);
 
     return <div className={style.Direction}>
-        <DirectionChoice
+        <DirectionChoiceSelect
             currentDirection={direction}
             editDirectionAction={editDirectionAction}
         />

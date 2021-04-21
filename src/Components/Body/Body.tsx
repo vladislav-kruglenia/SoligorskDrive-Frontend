@@ -7,18 +7,21 @@ import {OrdersHistory} from "./Components/OrdersHistory/OrdersHistory";
 import {LoginPage} from "./Components/LoginPage/LoginPage";
 import {UserProfile} from "./Components/UserProfile/UserProfile";
 import {DispatcherPanel} from "./Components/DispatcherPanel/DispatcherPanel";
+import {FrontendPage} from "./Components/FrontendPage/FrontendPage";
 
 export const Body = () => {
     return <div className={style.Body}>
+        <FrontendPage/>
         <Switch>
-        <Route exact path='/'
-               render={() => <Redirect to={AppLinks.OrderForm}/>}/>
-        <Route path={AppLinks.OrderForm} render={()=><OrderForm/>}/>
-        <Route path={AppLinks.OrdersHistory} render={()=><OrdersHistory/>}/>
-        <Route path={AppLinks.LoginPage} render={()=><LoginPage/>}/>
-        <Route path={AppLinks.UserProfile} render={()=><UserProfile/>}/>
-        <Route path={AppLinks.DispatcherPanel} render={()=><DispatcherPanel/>}/>
-    </Switch>
+            <Route exact path='/'
+                   render={() => <Redirect to={AppLinks.OrderForm}/>}/>
+            <Route path={AppLinks.OrderForm} render={() => <OrderForm/>}/>
+            <Route path={AppLinks.OrdersHistory} render={() => <OrdersHistory/>}/>
+            <Route path={AppLinks.LoginPage} render={() => <LoginPage/>}/>
+            <Route path={AppLinks.UserProfile} render={() => <UserProfile/>}/>
+            <Route path={AppLinks.DispatcherPanel} render={() => <DispatcherPanel/>}/>
+        </Switch>
     </div>
 };
+
 

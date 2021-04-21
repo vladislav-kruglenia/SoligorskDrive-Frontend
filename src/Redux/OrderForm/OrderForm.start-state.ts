@@ -18,7 +18,7 @@ export class StartStateOrderForm {
                 ],
             },
             seats: {remainingNumberSeats: 12, userNumberSeats: 1},
-            selectedDirection: DirectionsEnum.none,
+            selectedDirection: DirectionsEnum.toMinsk,
             selectedDate: this.currentDate,
             haltData: this._getHaltsStartData(),
             userContacts: {

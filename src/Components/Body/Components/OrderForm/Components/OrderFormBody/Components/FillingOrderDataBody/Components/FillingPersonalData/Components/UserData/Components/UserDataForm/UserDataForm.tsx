@@ -60,6 +60,7 @@ export const UserDataForm:FC<UserDataFormProps> = (props) => {
             />
             <TextField className={style.textField} id="userNumberSeats" type={'number'}
                        label={"Количество мест"} variant="outlined" size={"small"}
+                       InputProps={{ inputProps: { min: 1} }}
                        value={Form.values.userNumberSeats}
                        onChange={Form.handleChange}
                        error={Form.touched.userNumberSeats && Boolean(Form.errors.userNumberSeats)}

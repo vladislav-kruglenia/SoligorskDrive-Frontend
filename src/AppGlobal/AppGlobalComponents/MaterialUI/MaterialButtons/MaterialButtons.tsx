@@ -5,7 +5,7 @@ import {
     LinkButtonPropsType, NavBarButtonPropsType,
     OrderButtonPropsType,
     OutlinedButtonPropsType,
-    SendOrderButtonPropsType
+    SendOrderButtonPropsType, TextOrOutlinedButtonPropsType
 } from "./MaterialButtons.types";
 import {OrderFormLinks} from "../../../AppGlobalTypes/Links";
 import {Link} from "react-router-dom";
@@ -65,6 +65,20 @@ export const OutlinedButton: FC<OutlinedButtonPropsType> = (props) => {
         {props.buttonText}
     </Button>
 };
+
+export const TextOrOutlinedButton: FC<TextOrOutlinedButtonPropsType> = (props) => {
+    return <Button variant={props.variant}
+                   color={"primary"}
+                   size={props.size}
+                   disabled={props.disabled}
+                   onClick={() => {
+                       props.onClickFunc()
+                   }}>
+        {props.buttonText}
+    </Button>
+};
+
+
 
 export const NavBarButton: FC<NavBarButtonPropsType> = (props) => {
     return <Button variant={"outlined"}
