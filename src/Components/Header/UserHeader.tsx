@@ -10,7 +10,7 @@ export const UserHeader = () => {
 
     return <div className={style.UserHeader}>
         <Logo/>
-        <Typography variant="h6" noWrap>
+        <Typography variant="h6" noWrap className={style.headerTitle}>
             {currentPageName}
         </Typography>
     </div>

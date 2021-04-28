@@ -1,0 +1,19 @@
+.LandingHeader{
+  z-index: 1;
+  width: 100%;
+  min-width: 320px;
+  height: 80px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+
+  //border: 1px solid #ffffff;
+
+  .headerButtons{
+    display: flex;
+    justify-content: space-around;
+    width: 320px;
+  }
+}

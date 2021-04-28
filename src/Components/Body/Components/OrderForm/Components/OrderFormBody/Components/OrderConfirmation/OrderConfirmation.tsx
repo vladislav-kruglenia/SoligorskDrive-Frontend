@@ -1,12 +1,15 @@
-import React from "react";
+import React, {FC} from "react";
 import style from "./OrderConfirmation.module.scss"
 import {Typography} from "@material-ui/core";
 import {useDispatch} from "react-redux";
 import {restartOrderForm} from "../../../../../../../../Redux/OrderForm/OrderForm.reducer";
 import {LinkButton} from "../../../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/MaterialButtons";
-import {OrderFormLinks} from "../../../../../../../../AppGlobal/AppGlobalTypes/Links";
+import {useOrderFormLinks} from "../../../../OrderForm.hooks";
+import {OrderConfirmationProps} from "./OrderConfirmation.types";
 
-export const OrderConfirmation = () => {
+export const OrderConfirmation:FC<OrderConfirmationProps> = (props) => {
+    const {FillingOrderDataLink} = useOrderFormLinks(props.typeComponent);
+
     const dispatch = useDispatch();
     const restartOrderFormAction = () => {
         dispatch(restartOrderForm())
@@ -17,7 +20,7 @@ export const OrderConfirmation = () => {
         <LinkButton
             size={"large"}
             disabled={false}
-            link={OrderFormLinks.FillingOrderData}
+            link={FillingOrderDataLink}
             buttonText={'Оформить новый заказ'}
             onClickFunc={()=> restartOrderFormAction()}
         />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FC} from "react";
 import style from "./FillingPersonalData.module.scss"
 import {HaltContainer} from "./Components/HaltContainer/HaltContainer";
 import {UserData} from "./Components/UserData/UserData";
@@ -11,8 +11,9 @@ import {
     getIsFilledUpContactsSelector
 } from "../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
 import {ErrorEnum} from "../../../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
+import {FillingPersonalDataProps} from "./FillingPersonalData.types";
 
-export const FillingPersonalData = () => {
+export const FillingPersonalData:FC<FillingPersonalDataProps> = (props) => {
     const {selectedHaltLabel, haltTime} = useSelector(getHaltDataSelector);
     const isFilledUpContacts = useSelector(getIsFilledUpContactsSelector);
     const isSelectedHaltLabel = selectedHaltLabel !== ErrorEnum.None;
@@ -27,7 +28,10 @@ export const FillingPersonalData = () => {
         />
         <Divider/>
         <TotalPrice/>
-        <SendOrderButtonContainer isDisabledSendOrderButton={isDisabledSendOrderButton}/>
+        <SendOrderButtonContainer
+            typeComponent={props.typeComponent}
+            isDisabledSendOrderButton={isDisabledSendOrderButton}
+        />
     </Paper>
 };
 

@@ -2,21 +2,42 @@ import React from 'react';
 import './App.scss';
 import {Provider} from "react-redux";
 import {store} from "./Redux/Store";
-import HeaderNavBarMagicContainer from "./Components/PersistentDrawerLeft/PersistentDrawerLeft";
-import {BrowserRouter} from "react-router-dom";
-import { Body } from './Components/Body/Body';
-import {NavBar} from "./Components/NavBar/NavBar";
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
+import {Body} from './Components/Body/Body';
+import {AppLinks} from "./AppGlobal/AppGlobalTypes/Links";
+import {LandingPage} from "./Components/Landing/Landing";
+import HeaderDrawer from "./Components/HeaderDrawer/HeaderDrawer";
 
 function App() {
     return (
         <div className="App">
-            <HeaderNavBarMagicContainer
-                NavBar={<NavBar/>}
-                Body={<Body/>}
-            />
+            <Switch>
+                <Route exact path='/'
+                       render={() => <Redirect to={AppLinks.AppRedirect}/>}/>
+                <Route path={AppLinks.AppRedirect} render={() => (
+
+                    <AppUIContainer/>
+
+                    /*// Временно отстранен. Портит всю разметку Body
+                    <HeaderNavBarMagicContainer
+                        NavBar={<NavBar/>}
+                        Body={<Body/>}
+                    />*/
+                    )}/>
+
+                <Route path={AppLinks.LandingPage} render={() => <LandingPage/>}/>
+            </Switch>
         </div>
     );
 }
+
+export const AppUIContainer = () => {
+    return <>
+        <HeaderDrawer/>
+        <Body/>
+    </>
+};
+
 
 export const AppContainer = () => {
     return <>

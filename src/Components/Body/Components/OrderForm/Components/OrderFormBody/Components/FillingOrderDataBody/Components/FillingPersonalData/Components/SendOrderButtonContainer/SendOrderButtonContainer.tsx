@@ -6,8 +6,11 @@ import {useDispatch} from "react-redux";
 import {EditOrderingStagesPayload} from "../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
 import {editIndexActiveStage} from "../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer";
 import {StepsIndexesEnum} from "../../../../../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
+import {useOrderFormLinks} from "../../../../../../../../OrderForm.hooks";
 
 export const SendOrderButtonContainer:FC<SendOrderButtonContainerProps> = (props) => {
+    const {OrderConfirmationLink} = useOrderFormLinks(props.typeComponent);
+
     const dispatch = useDispatch();
     const editIndexActiveStageAction = useCallback((indexActiveStep: number) => {
         const action: EditOrderingStagesPayload = {indexActiveStep};
@@ -21,6 +24,7 @@ export const SendOrderButtonContainer:FC<SendOrderButtonContainerProps> = (props
 
     return <div className={style.SendOrderButtonContainer}>
         <SendOrderButton
+            link={OrderConfirmationLink}
             buttonText={'Заказать'}
             disabled={props.isDisabledSendOrderButton}
             size={"large"}

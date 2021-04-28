@@ -20,7 +20,10 @@ const PersistentDrawerLeft:FC<PersistentDrawerLeftProps> = (props) => {
     return (
         <div className={classes.root}>
             <CssBaseline />
+            {/*HEADER*/}
             <AppBarComponent setOpen={setOpen} isOpen={open} classes={classes}/>
+
+            {/*NAVBAR*/}
             <DrawerComponent NavBar={props.NavBar} setOpen={setOpen} classes={classes} isOpen={open}/>
 
             <main

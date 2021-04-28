@@ -5,9 +5,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {getDirectionSelector} from "../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
 import {EditDirectionPayload} from "../../../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
 import {editDirection} from "../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer";
-import {
-    DirectionChoiceSelect
-} from "../../../../../../../../../../../../../../AppGlobal/AppGlobalComponents/Selectors/DirectionChoice/DirectionChoiceSelect";
 import {DirectionChoiceButton} from "../../../../../../../../../../../../../../AppGlobal/AppGlobalComponents/Selectors/DirectionChoice/DirectionChoiceButton";
 
 export const DirectionChoiceContainer = () => {

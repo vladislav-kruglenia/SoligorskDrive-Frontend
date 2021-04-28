@@ -10,7 +10,9 @@ export type StandardButtonProps = {
 
 export interface OrderButtonPropsType extends StandardButtonProps{}
 
-export interface SendOrderButtonPropsType extends StandardButtonProps{}
+export interface SendOrderButtonPropsType extends StandardButtonProps{
+    link: string,
+}
 
 export interface OutlinedButtonPropsType extends StandardButtonProps{}
 

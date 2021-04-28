@@ -2,12 +2,13 @@ import React, {FC} from "react";
 import style from "./MaterialButtons.module.scss"
 import {Badge, Button, Typography} from "@material-ui/core";
 import {
-    LinkButtonPropsType, NavBarButtonPropsType,
+    LinkButtonPropsType,
+    NavBarButtonPropsType,
     OrderButtonPropsType,
     OutlinedButtonPropsType,
-    SendOrderButtonPropsType, TextOrOutlinedButtonPropsType
+    SendOrderButtonPropsType,
+    TextOrOutlinedButtonPropsType
 } from "./MaterialButtons.types";
-import {OrderFormLinks} from "../../../AppGlobalTypes/Links";
 import {Link} from "react-router-dom";
 
 export const OrderButton: FC<OrderButtonPropsType> = (props) => {
@@ -29,8 +30,8 @@ export const OrderButton: FC<OrderButtonPropsType> = (props) => {
 export const SendOrderButton: FC<SendOrderButtonPropsType> = (props) => {
     return <Button variant={"contained"}
                    component={Link}
-                   to={OrderFormLinks.OrderConfirmation}
-                   color={"primary"}
+                   to={props.link}
+                   color={props.color || "primary"}
                    size={props.size}
                    disabled={props.disabled}
                    onClick={() => {
@@ -42,7 +43,7 @@ export const SendOrderButton: FC<SendOrderButtonPropsType> = (props) => {
 
 export const LinkButton: FC<LinkButtonPropsType> = (props) => {
     return <Button variant={"outlined"}
-                   color={"primary"}
+                   color={props.color || "primary"}
                    component={Link}
                    to={props.link}
                    size={props.size}

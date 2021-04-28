@@ -1,9 +1,19 @@
-.CurrentOrdersTable{
-  .table{
-    min-width: 650px;
+.CurrentOrdersTable {
+  width: 100%;
+  min-width: 320px;
 
-    .tableHead{
-      background-color: #e0e0e0;
+
+  .tableWrapper {
+    overflow-x: auto;
+
+    .table {
+      //width: 500px;
+      min-width: 400px;
+
+      .tableHead {
+        background-color: #e0e0e0;
+      }
     }
   }
+
 }

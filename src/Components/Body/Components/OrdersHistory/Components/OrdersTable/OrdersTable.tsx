@@ -1,5 +1,5 @@
 import React, {FC, useMemo} from "react";
-import style from "./CurrentOrdersTable.module.scss"
+import style from "./CurrentOrdersTable.module.scss";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -29,7 +29,7 @@ export const OrdersTable:FC<OrdersTableProps> = (props) => {
         ))
     ),[orders, isCurrentOrdersTable]);
 
-    return <TableContainer component={Paper} className={style.CurrentOrdersTable}>
+    return <TableContainer component={Paper} className={style.CurrentOrdersTable} style={{ overflowX: "auto" }}>
         <Table className={style.table} aria-label="simple table">
             <TableHead className={style.tableHead}>
                 <TableRow>
