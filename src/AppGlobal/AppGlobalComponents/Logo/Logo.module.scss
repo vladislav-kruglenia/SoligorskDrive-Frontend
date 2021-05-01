@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@900&family=Open+Sans+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,800&display=swap');
+
+$colorLogo: rgba(255, 255, 255, 0.75);
+$colorLogoHover: rgba(255, 255, 255, 0.95);
+
+.Logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 25px 0 15px;
+  text-decoration: none;
+
+
+  cursor: pointer;
+
+  .LogoTitle{
+    color: $colorLogo;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 28px;
+  }
+
+
+
+  .Letters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 43px;
+    height: 43px;
+
+    border: 2px solid $colorLogo;
+    border-radius: 50%;
+
+
+    .logoLetter{
+      color: $colorLogo;
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-size: 25px;
+    }
+
+    .logoLetter:nth-child(1){
+      margin-right: 1px;
+    }
+
+    .logoLetter:nth-child(2){
+      margin-left: 1px;
+      font-size: 21px;
+    }
+
+    .logoLetter:nth-child(3){
+      margin-left: 1px;
+    }
+  }
+
+
+
+  &:hover{
+    .LogoTitle{
+      color: $colorLogoHover;
+      text-decoration: none;
+    }
+  }
+}

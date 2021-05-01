@@ -1,15 +1,16 @@
 import React from "react";
 import style from "./OrdersArchive.module.scss"
-import {Typography} from "@material-ui/core";
+import OrdersHistoryStyle from "../../OrdersHistory.module.scss";
+import {Paper, Typography} from "@material-ui/core";
 import {OrdersTable} from "../OrdersTable/OrdersTable";
 import {OrderTableType} from "../OrdersTable/OrdersTable.types";
 import {DirectionsNamesEnum} from "../../../../../../AppGlobal/AppGlobalTypes/Enums";
 
 export const OrdersArchive = () => {
-    return <div className={style.OrdersArchive}>
-        <Typography variant={'h4'} className={style.title}>Архив заказанных рейсов</Typography>
+    return <Paper className={style.OrdersArchive}>
+        <Typography variant={'h4'} className={OrdersHistoryStyle.tableTitle}>Архив заказанных рейсов</Typography>
         <OrdersTable orders={orders}/>
-    </div>
+    </Paper>
 };
 
 const orders: OrderTableType[] = [

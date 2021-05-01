@@ -1,9 +1,17 @@
-.pickers{
-  display: flex;
-  flex-wrap: wrap;
+.DateChoice {
+  margin: 0 0 0 20px;
 
-  .picker{
-    margin: 0 10px 0 0;
+  @media all and (max-width: 400px){
+    margin: 0 0 0 10px;
+  }
+
+  .pickers {
+    display: flex;
+    flex-wrap: wrap;
+
+    .picker {
+      margin: 0 10px 0 0;
+    }
   }
 }
 

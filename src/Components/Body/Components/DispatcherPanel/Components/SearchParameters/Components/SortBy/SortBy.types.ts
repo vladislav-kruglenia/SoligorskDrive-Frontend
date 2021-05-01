@@ -11,3 +11,9 @@ export type SortElementProps = {
     sortType: SortOrdersEnum,
     editSortElementValue: (sortType: SortOrdersEnum) => void,
 }
+
+export type SortElementParams = {
+    label: string,
+    checked: boolean,
+    sortType: SortOrdersEnum,
+}

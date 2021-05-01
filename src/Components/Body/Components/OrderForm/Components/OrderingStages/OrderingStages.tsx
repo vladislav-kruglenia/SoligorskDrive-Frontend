@@ -1,6 +1,6 @@
 import React, {FC, useMemo} from "react";
 import style from "./OrderingStages.module.scss";
-import {Step, StepLabel, Stepper} from "@material-ui/core";
+import {Paper, Step, StepLabel, Stepper} from "@material-ui/core";
 import {HorizontalLinearStepperProps} from "./OrderingStages.types";
 import {useSelector} from "react-redux";
 import {getOrderStepsSelector} from "../../../../../../Redux/OrderForm/OrderForm.selectors";
@@ -18,12 +18,12 @@ export const OrderingStages = () => {
     ), [stepsArr]);
 
 
-    return <div className={style.OrderingStages}>
+    return <Paper className={style.OrderingStages}>
         <HorizontalLinearStepper
             Steps={Steps}
             indexActiveStep={indexActiveStep}
         />
-    </div>
+    </Paper>
 
 };
 

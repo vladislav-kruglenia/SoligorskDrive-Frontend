@@ -1,9 +1,11 @@
-.headerContainer {
+.HeaderDrawer {
+  position: absolute;
   display: flex;
   align-items: center;
   width: 100%;
   height: 60px;
-  background-color: #3f51b5;
+  background-color: rgba(0, 0, 0, 0.3);
+  //background-color: #3f51b5;
 
   .navBarButton {
     margin: 0 10px;

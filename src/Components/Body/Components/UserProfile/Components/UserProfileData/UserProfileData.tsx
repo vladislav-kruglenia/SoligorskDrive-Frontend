@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import style from "./UserProfileData.module.scss"
 import {DisplayUserProfileData} from "./Components/UserProfileDataDisplay/DisplayUserProfileData";
-import {Divider, Typography} from "@material-ui/core";
+import {Divider, Paper, Typography} from "@material-ui/core";
 import {MainUserProfileData} from "./Components/UserProfileDataDisplay/UserProfileDataDisplay.types";
 import {UserProfileDataForm} from "./Components/UserProfileDataForm/UserProfileDataForm";
 import {ValueDisplay} from "../../../../../../AppGlobal/AppGlobalComponents/DisplayingDifferentData/InputEditMode";
@@ -11,7 +11,7 @@ import {DisplayTypeEnum} from "../../../../../../AppGlobal/AppGlobalComponents/D
 export const UserProfileData = () => {
     const [editMode, setEditMode] = useState(false);
 
-    return <div className={style.UserProfileData}>
+    return <Paper className={style.UserProfileData}>
         <Typography variant={'h4'}>Мои данные</Typography>
         <Divider/>
         <div className={style.profileDataWrapper}>
@@ -34,7 +34,7 @@ export const UserProfileData = () => {
                 }
             />
         </div>
-    </div>
+    </Paper>
 };
 
 const userProfileData: MainUserProfileData = {

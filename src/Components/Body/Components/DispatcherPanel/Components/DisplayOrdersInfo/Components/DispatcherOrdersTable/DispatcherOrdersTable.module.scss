@@ -1,4 +1,7 @@
 .DispatcherOrdersTable{
+  margin: 20px 0 0 0;
+  //border: 1px solid chocolate;
+
   .table{
     min-width: 650px;
 
@@ -6,4 +9,9 @@
       background-color: #e0e0e0;
     }
   }
+}
+
+.DispatcherOrdersTableWrapper{
+  padding: 0 0 40px 0;
+  //border: 1px solid crimson;
 }

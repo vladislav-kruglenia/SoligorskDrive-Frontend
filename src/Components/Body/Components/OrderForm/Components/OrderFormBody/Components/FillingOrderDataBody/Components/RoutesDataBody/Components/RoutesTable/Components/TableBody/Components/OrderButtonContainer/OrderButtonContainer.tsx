@@ -1,16 +1,19 @@
 import React, {FC, useCallback} from "react";
 import style from "./OrderButtonContainer.module.scss"
-import {OrderButton} from "../../../../../../../../../../../../../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/MaterialButtons";
-import {Typography} from "@material-ui/core";
-import {OrderButtonContainerProps} from "../../TravelInfo.types";
+import {OrderButton} from "../../../../../../../../../../../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/MaterialButtons";
 import {useDispatch} from "react-redux";
 import {
     EditIndexActiveTravelPayload,
     EditOrderingStagesPayload,
     EditTravelInfoPayload
-} from "../../../../../../../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
-import {editTravelInfo, editIndexActiveStage, editIndexActiveTravel} from "../../../../../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer";
-import {TravelInfoType} from "../../../../TableBody.types";
+} from "../../../../../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
+import {
+    editIndexActiveStage,
+    editIndexActiveTravel,
+    editTravelInfo
+} from "../../../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer";
+import {TravelInfoType} from "../../TableBody.types";
+import {OrderButtonContainerProps} from "./OrderButtonContainer.types";
 
 export const OrderButtonContainer:FC<OrderButtonContainerProps> = (props) => {
     const {startHourTravel, remainingNumberSeats, priceTravel, indexTravel, isNotCurrentDirection} = props;
@@ -41,7 +44,7 @@ export const OrderButtonContainer:FC<OrderButtonContainerProps> = (props) => {
 
     return <div className={style.OrderButtonContainer}>
 
-        <Typography component={'div'} className={style.numberSeats}>{props.remainingNumberSeats} мест</Typography>
+        {/*<Typography component={'div'} className={style.numberSeats}>{props.remainingNumberSeats} мест</Typography>*/}
         <OrderButton
             onClickFunc={() => {
                 editTravelInfoAction(travelInfoProps);

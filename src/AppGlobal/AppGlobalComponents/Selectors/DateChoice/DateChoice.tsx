@@ -20,14 +20,14 @@ export const DateChoice:FC<DateChoiceProps> = (props) => {
 
 
     return (
-        <>
+        <div className={style.DateChoice}>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <div className={style.pickers}>
                     {DatePicker}
                     {TimePicker}
                 </div>
             </MuiPickersUtilsProvider>
-        </>
+        </div>
 
     );
 };

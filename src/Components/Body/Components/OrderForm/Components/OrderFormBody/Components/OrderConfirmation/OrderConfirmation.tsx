@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import style from "./OrderConfirmation.module.scss"
-import {Typography} from "@material-ui/core";
+import {Paper, Typography} from "@material-ui/core";
 import {useDispatch} from "react-redux";
 import {restartOrderForm} from "../../../../../../../../Redux/OrderForm/OrderForm.reducer";
 import {LinkButton} from "../../../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/MaterialButtons";
@@ -15,7 +15,7 @@ export const OrderConfirmation:FC<OrderConfirmationProps> = (props) => {
         dispatch(restartOrderForm())
     };
 
-    return <div className={style.OrderConfirmation}>
+    return <Paper className={style.OrderConfirmation}>
         <Typography variant={"h2"} className={style.text}>Ваш заказ успешно оформлен!</Typography>
         <LinkButton
             size={"large"}
@@ -24,5 +24,5 @@ export const OrderConfirmation:FC<OrderConfirmationProps> = (props) => {
             buttonText={'Оформить новый заказ'}
             onClickFunc={()=> restartOrderFormAction()}
         />
-    </div>
+    </Paper>
 };

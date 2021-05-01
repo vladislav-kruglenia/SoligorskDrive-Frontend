@@ -1,9 +1,10 @@
 import React from "react";
+import style from "./DispatcherPanel.module.scss"
 import {SearchParameters} from "./Components/SearchParameters/SearchParameters";
 import {DisplayOrdersInfo} from "./Components/DisplayOrdersInfo/DisplayOrdersInfo";
 
 export const DispatcherPanel = () => {
-    return <div>
+    return <div className={style.DispatcherPanel}>
         <SearchParameters/>
         <DisplayOrdersInfo/>
     </div>

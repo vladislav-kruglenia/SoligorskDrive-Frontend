@@ -1,4 +1,8 @@
 .Direction{
   width: 237px;
-  margin: 7px 10px 0 0;
+  margin: 7px 10px 0 20px;
+
+  @media all and (max-width: 400px){
+    margin-left: 10px;
+  }
 }

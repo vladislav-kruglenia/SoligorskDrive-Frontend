@@ -6,7 +6,7 @@ import {IconButton} from "@material-ui/core";
 import {NavBar} from "../NavBar/NavBar";
 import {UserHeader} from "../Header/UserHeader";
 
-let HeaderDrawer = () => {
+const HeaderDrawer = () => {
     const [state, setState] = React.useState({
         left: false,
     });
@@ -36,7 +36,7 @@ let HeaderDrawer = () => {
         </div>
     );
 
-    return <div className={style.headerContainer}>
+    return <div className={style.HeaderDrawer}>
         <IconButton color={"default"} onClick={toggleDrawer('left', true)} className={style.navBarButton}>
             <MenuIcon htmlColor={"#ffffff"}/>
         </IconButton>

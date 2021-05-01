@@ -3,5 +3,9 @@
   min-width: 300px;
   width: 35%;
 
+  @media all and (max-width: 900px){
+    width: 80%;
+  }
+
   //border: 1px solid navy;
 }

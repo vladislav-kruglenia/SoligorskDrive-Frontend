@@ -1,7 +1,6 @@
 import {StartStateType} from "./Types/App.types";
 import {AppLinks} from "../../AppGlobal/AppGlobalTypes/Links";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {EditSortByValuePayload} from "../DispatcherPanel/Types/Actions.types";
 import {EditCurrentPagePayload} from "./Types/Actions.types";
 
 const startState: StartStateType = {

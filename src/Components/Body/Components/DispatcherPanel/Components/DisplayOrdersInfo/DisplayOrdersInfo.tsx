@@ -1,16 +1,16 @@
 import React from "react";
 import style from "./DisplayOrdersInfo.module.scss"
 import {DispatcherOrdersTables} from "./Components/DispatcherOrdersTable/DispatcherOrdersTable";
-import {Typography} from "@material-ui/core";
+import {Paper, Typography} from "@material-ui/core";
 import {DispatcherOrdersData} from "./DisplayOrdersInfo.types";
 import {DirectionsNamesEnum} from "../../../../../../AppGlobal/AppGlobalTypes/Enums";
 
 export const DisplayOrdersInfo = () => {
 
-    return <div className={style.DisplayOrdersInfo}>
-        <Typography variant={"h6"}>Текущие рейсы</Typography>
+    return <Paper className={style.DisplayOrdersInfo}>
+        <Typography className={style.title} variant={"h6"}>Текущие рейсы</Typography>
         <DispatcherOrdersTables dispatcherOrders={dispatcherOrdersArr}/>
-    </div>
+    </Paper>
 };
 
 const dispatcherOrdersArr: DispatcherOrdersData[] = [

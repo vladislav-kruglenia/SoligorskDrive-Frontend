@@ -1,12 +1,12 @@
 import React from "react";
 import style from "./RoutesTable.module.scss"
 import {TableTitle} from "./Components/TableTitle/TableTitle";
-import {TableBody} from "./Components/TableBody/TableBody";
+import {travelsInfo, TravelsInfoTable} from "./Components/TableBody/TableRoutes";
 
 export const RoutesTable = () => {
     return <div className={style.RoutesTable}>
         <TableTitle/>
-        <TableBody/>
+        <TravelsInfoTable travelsInfo={travelsInfo}/>
     </div>
 };
 

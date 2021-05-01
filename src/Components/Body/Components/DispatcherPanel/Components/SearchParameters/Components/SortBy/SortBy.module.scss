@@ -1,4 +1,15 @@
 .SortBy{
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+
+  .sortElementsWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-width: 305px;
+    //border: 1px solid chocolate;
+  }
 }
+
+.SortElement{}

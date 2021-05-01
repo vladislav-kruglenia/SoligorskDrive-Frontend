@@ -1,15 +1,18 @@
 import React from "react";
 import style from "./CurrentOrders.module.scss"
-import {Typography} from "@material-ui/core";
+import OrdersHistoryStyle from "../../OrdersHistory.module.scss"
+import {Paper, Typography} from "@material-ui/core";
 import {OrdersTable} from "../OrdersTable/OrdersTable";
 import {OrderTableType} from "../OrdersTable/OrdersTable.types";
 import {DirectionsNamesEnum} from "../../../../../../AppGlobal/AppGlobalTypes/Enums";
 
 export const CurrentOrders = () => {
-    return <div className={style.CurrentOrders}>
-        <Typography variant={'h4'} className={style.title}>Список текущих заказанных рейсов</Typography>
+    return <Paper className={style.CurrentOrders}>
+        <Typography variant={'h4'} className={`${OrdersHistoryStyle.tableTitle}`}>
+            Список текущих заказанных рейсов
+        </Typography>
         <OrdersTable orders={orders} isCurrentOrdersTable={true}/>
-    </div>
+    </Paper>
 };
 
 const orders: OrderTableType[] = [

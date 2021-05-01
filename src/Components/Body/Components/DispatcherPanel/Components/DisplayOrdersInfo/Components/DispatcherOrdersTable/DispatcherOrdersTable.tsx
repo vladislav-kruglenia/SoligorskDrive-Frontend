@@ -24,7 +24,7 @@ export const DispatcherOrdersTables: FC<DispatcherOrdersTablesProps> = (props) =
 
 export const DispatcherOrdersTable: FC<DispatcherOrdersTableProps> = (props) => {
     const {date, time, orders} = props.dispatcherOrders;
-    return <div className={style.DispatcherOrdersTable}>
+    return <div className={style.DispatcherOrdersTableWrapper}>
         <OrdersTableTitles
             date={date}
             time={time}
