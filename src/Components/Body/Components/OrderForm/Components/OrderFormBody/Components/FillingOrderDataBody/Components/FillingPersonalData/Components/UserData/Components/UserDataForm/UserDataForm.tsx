@@ -1,22 +1,26 @@
 import React, {FC} from "react";
-import style from "../../../../../../../../../../../../../../AppGlobal/AppGlobalStyles/Forms/UserDataForm/UserDataForm.module.scss"
+import style
+    from "../../../../../../../../../../../../../../AppGlobal/AppGlobalStyles/Forms/UserDataForm/UserDataForm.module.scss"
 import * as yup from "yup";
 import {useFormik} from "formik";
 import {Button, TextField} from "@material-ui/core";
 import {UserDataFormProps} from "./UserDataForm.types";
 import {UserOrderData} from "../../../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
+import InputMask from 'react-input-mask';
 
-export const UserDataForm:FC<UserDataFormProps> = (props) => {
+
+export const UserDataForm: FC<UserDataFormProps> = (props) => {
     const {userName, userPhone, userNumberSeats} = props.userOrderData;
 
     const validationSchema = yup.object({
         userName: yup
             .string()
             .nullable()
+            .max(30, 'Не более 30 символов')
             .required('Это поле обязательно'),
         userPhone: yup
             .string()
-            .nullable()
+            .test('Phone not write', "Номер введен не полностью", (value) => value ? !(value.match(/_/)) : false)
             .required('Это поле обязательно'),
         userNumberSeats: yup
             .number()
@@ -51,16 +55,23 @@ export const UserDataForm:FC<UserDataFormProps> = (props) => {
                        helperText={Form.touched.userName && Form.errors.userName}
                        autoFocus={true}
             />
-            <TextField className={style.textField} id="userPhone"
-                       label={"Ваш телефон"} variant="outlined" size={"small"}
-                       value={Form.values.userPhone}
-                       onChange={Form.handleChange}
-                       error={Form.touched.userPhone && Boolean(Form.errors.userPhone)}
-                       helperText={Form.touched.userPhone && Form.errors.userPhone}
-            />
+            <InputMask
+                mask="+375 (99) 999-99-99"
+                value={Form.values.userPhone}
+                onChange={Form.handleChange}
+            >
+                {() => (
+                    <TextField  id="userPhone" className={style.textField}
+                               label={"Ваш телефон"} variant="outlined" size={"small"}
+                               error={Form.touched.userPhone && Boolean(Form.errors.userPhone)}
+                               helperText={Form.touched.userPhone && Form.errors.userPhone}
+                    />
+                )}
+            </InputMask>
+
             <TextField className={style.textField} id="userNumberSeats" type={'number'}
                        label={"Количество мест"} variant="outlined" size={"small"}
-                       InputProps={{ inputProps: { min: 1} }}
+                       InputProps={{inputProps: {min: 1}}}
                        value={Form.values.userNumberSeats}
                        onChange={Form.handleChange}
                        error={Form.touched.userNumberSeats && Boolean(Form.errors.userNumberSeats)}
