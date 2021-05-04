@@ -10,7 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     getRemainingNumberSeatsSelector,
     getUserOrderDataSelector
-} from "../../../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
+} from "../../../../../../../../../../../../Redux/OrderForm/Selectors/OrderForm.selectors";
 import {
     EditUserOrderDataPayload,
     UserOrderData

@@ -1,0 +1,159 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type ClientCurrentOrdersModel {
+    date: String!
+    direction: String!
+    haltName: String!
+    haltTime: String!
+    numberSeats: Float!
+    orderPrice: Float!
+    startHour: Float!
+}
+
+type CreateUserAccountModel {
+    message: String!
+}
+
+type DispatcherOrderData {
+    clientName: String!
+    clientPhone: String!
+    direction: String!
+    idOrder: String!
+}
+
+type DispatcherOrdersModel {
+    date: String!
+    orders: [DispatcherOrderData!]!
+    time: Float!
+}
+
+type FirstQueryType {
+    text: String!
+}
+
+type LoginModel {
+    isAuth: Boolean!
+}
+
+type Mutation {
+    createOrder(createOrderData: Order!): OrderCreationModel!
+    createUserAccount(createUserAccount: CreateUserAccountArgs!): CreateUserAccountModel!
+    login(loginData: LoginArgs!): LoginModel!
+    logout: LoginModel!
+    removeOrder(removeOrderData: RemoveOrderArgs!): RemoveOrderModel!
+    updateUserPassword(updateUserPasswordData: UpdateUserPasswordArgs!): UpdateUserPasswordModel!
+    updateUserPersonalData(newUserPersonalData: UpdateUserPersonalDataArgs!): UpdateUserPersonalDataModel!
+}
+
+type OrderCreationModel {
+    orderId: String!
+    userId: String
+}
+
+type Query {
+    ClientArchiveOrders: [ClientCurrentOrdersModel!]!
+    ClientCurrentOrders: [ClientCurrentOrdersModel!]!
+    DispatcherOrdersInfo(dispatcherOrdersInfoData: DispatcherOrdersInfoArgs!): [DispatcherOrdersModel!]!
+    TravelInfo(travelInfoData: TravelInfoArgs!): [TravelInfoModel!]!
+    UserPersonalData: UserPersonalDataModel!
+    firstQuery: FirstQueryType!
+}
+
+type RemoveOrderModel {
+    orderId: String!
+    userId: String
+}
+
+type TravelInfoModel {
+    priceTravel: Float!
+    remainingNumberSeats: Float!
+    startHourTravel: Float!
+}
+
+type UpdateUserPasswordModel {
+    isPasswordSaved: Boolean!
+}
+
+type UpdateUserPersonalDataModel {
+    userLogin: String!
+    userName: String!
+    userNumberPhone: String!
+}
+
+type UserPersonalDataModel {
+    userLogin: String!
+    userName: String!
+    userNumberPhone: String!
+}
+
+input ClientData {
+    clientId: String
+    clientName: String!
+    clientNumberPhone: String!
+}
+
+input CreateUserAccountArgs {
+    idUser: String!
+    userLogin: String!
+    userName: String!
+    userNumberPhone: String!
+    userPassword: String!
+}
+
+input DispatcherOrdersInfoArgs {
+    date: String
+    direction: String
+    startHour: Float
+}
+
+input LoginArgs {
+    userLogin: String!
+    userPassword: String!
+}
+
+input MainOrderData {
+    date: String!
+    direction: String!
+    startHour: Float!
+}
+
+input Order {
+    clientData: ClientData!
+    mainOrderData: MainOrderData!
+    orderId: String!
+    secondaryOrderData: SecondaryOrderData!
+}
+
+input RemoveOrderArgs {
+    mainOrderData: MainOrderData!
+    orderId: String!
+    userId: String
+}
+
+input SecondaryOrderData {
+    haltName: String!
+    haltTime: String!
+    numberSeatsOrdered: Float!
+    orderPrice: Float!
+}
+
+input TravelInfoArgs {
+    date: String!
+    direction: String!
+}
+
+input UpdateUserPasswordArgs {
+    newPassword: String!
+    oldPassword: String!
+}
+
+input UpdateUserPersonalDataArgs {
+    userLogin: String!
+    userName: String!
+    userNumberPhone: String!
+}

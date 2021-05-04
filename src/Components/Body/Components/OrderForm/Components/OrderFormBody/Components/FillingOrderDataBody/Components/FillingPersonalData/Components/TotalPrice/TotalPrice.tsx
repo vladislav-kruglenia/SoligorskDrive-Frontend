@@ -2,7 +2,7 @@ import React from "react";
 import style from "./TotalPrice.module.scss"
 import {Typography} from "@material-ui/core";
 import {useSelector} from "react-redux";
-import {getTariffPriceSelector} from "../../../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
+import {getTariffPriceSelector} from "../../../../../../../../../../../../Redux/OrderForm/Selectors/OrderForm.selectors";
 
 export const TotalPrice = () => {
     const orderPrice = useSelector(getTariffPriceSelector);

@@ -1,6 +1,7 @@
 import {DirectionsEnum, StepsEnum} from "../../../AppGlobal/AppGlobalTypes/Enums";
 
 export type StartStateType = {
+    orderId: string,
     orderSteps: Steps,
     selectedDirection: DirectionsEnum,
     selectedDate: string | Date,

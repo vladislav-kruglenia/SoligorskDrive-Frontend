@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import 'date-fns';
 import {useDispatch, useSelector} from "react-redux";
-import {getDateSelector} from "../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
+import {getDateSelector} from "../../../../../../../../../../../../../../Redux/OrderForm/Selectors/OrderForm.selectors";
 import {EditDatePayload} from "../../../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
 import {editDate} from "../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer";
 import {DateChoice} from "../../../../../../../../../../../../../../AppGlobal/AppGlobalComponents/Selectors/DateChoice/DateChoice";

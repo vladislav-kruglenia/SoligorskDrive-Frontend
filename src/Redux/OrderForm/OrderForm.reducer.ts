@@ -12,6 +12,7 @@ import {
 import {getOrderPrice} from "./OrderForm.helper-functions";
 import {Halts} from "./Classes/Halts.class";
 import {DirectionsEnum, StepsIndexesEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
+import { v4 as uuidv4 } from 'uuid';
 
 const startState = new StartStateOrderForm().getStartState();
 
@@ -68,12 +69,11 @@ const orderFormReducer = createSlice({
         },
 
         restartOrderForm(state){
+            state.orderId = uuidv4();
             state.indexActiveTravel = null;
             state.orderSteps.indexActiveStep = StepsIndexesEnum.ChoiceRoute;
             state.selectedDirection = DirectionsEnum.none;
         },
-
-
     }
 });
 

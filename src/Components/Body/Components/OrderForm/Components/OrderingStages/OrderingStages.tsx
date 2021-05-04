@@ -3,7 +3,7 @@ import style from "./OrderingStages.module.scss";
 import {Paper, Step, StepLabel, Stepper} from "@material-ui/core";
 import {HorizontalLinearStepperProps} from "./OrderingStages.types";
 import {useSelector} from "react-redux";
-import {getOrderStepsSelector} from "../../../../../../Redux/OrderForm/OrderForm.selectors";
+import {getOrderStepsSelector} from "../../../../../../Redux/OrderForm/Selectors/OrderForm.selectors";
 import {StepType} from "../../../../../../Redux/OrderForm/Types/StartState.types";
 
 export const OrderingStages = () => {

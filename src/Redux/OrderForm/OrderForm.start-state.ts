@@ -1,4 +1,6 @@
+import { v4 as uuidv4 } from 'uuid';
 import {SelectedHaltData, StartStateType} from "./Types/StartState.types";
+
 import {DirectionsEnum, ErrorEnum, StepsEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
 
 export class StartStateOrderForm {
@@ -9,6 +11,7 @@ export class StartStateOrderForm {
 
     getStartState(): StartStateType {
         return {
+            orderId: uuidv4(),
             orderSteps: {
                 indexActiveStep: 0,
                 stepsArr: [

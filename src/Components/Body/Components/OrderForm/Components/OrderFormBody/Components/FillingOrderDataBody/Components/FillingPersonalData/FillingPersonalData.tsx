@@ -9,7 +9,7 @@ import {useSelector} from "react-redux";
 import {
     getHaltDataSelector,
     getIsFilledUpContactsSelector
-} from "../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
+} from "../../../../../../../../../../Redux/OrderForm/Selectors/OrderForm.selectors";
 import {ErrorEnum} from "../../../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 import {FillingPersonalDataProps} from "./FillingPersonalData.types";
 
@@ -31,6 +31,7 @@ export const FillingPersonalData:FC<FillingPersonalDataProps> = (props) => {
         <SendOrderButtonContainer
             typeComponent={props.typeComponent}
             isDisabledSendOrderButton={isDisabledSendOrderButton}
+            createOrderMutation={props.createOrderMutation}
         />
     </Paper>
 };

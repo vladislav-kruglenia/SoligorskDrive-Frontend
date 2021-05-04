@@ -1,6 +1,6 @@
 import {createSelector} from "@reduxjs/toolkit";
-import {AppStateType} from "../../AppGlobal/AppGlobalTypes/Types";
-import {UserOrderData} from "./Types/Actions.types";
+import {AppStateType} from "../../../AppGlobal/AppGlobalTypes/Types";
+import {UserOrderData} from "../Types/Actions.types";
 
 const getDirection = (state: AppStateType) => state.orderForm.selectedDirection;
 const getStartHour = (state: AppStateType) => state.orderForm.startHour;
@@ -11,6 +11,7 @@ const getTariffPrice = (state: AppStateType) => state.orderForm.prices.orderPric
 const getOrderSteps = (state: AppStateType) => state.orderForm.orderSteps;
 const getIndexActiveTravel = (state: AppStateType) => state.orderForm.indexActiveTravel;
 const getIsFilledUpContacts = (state: AppStateType) => state.orderForm.userContacts.isFilledUp;
+
 
 
 const getUserOrderData = (state: AppStateType):UserOrderData => {

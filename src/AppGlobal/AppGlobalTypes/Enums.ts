@@ -11,7 +11,6 @@ export enum DirectionsNamesEnum {
 }
 
 
-
 export enum StepsIndexesEnum {
     ChoiceRoute = 0,
     FillingData = 1,
@@ -26,4 +25,9 @@ export enum StepsEnum {
 
 export enum ErrorEnum {
     None = 'none'
+}
+
+export enum DatesFormats {
+    Normal = 'dd/MM/yyyy',
+    Server = 'yyyy/MM/dd'
 }

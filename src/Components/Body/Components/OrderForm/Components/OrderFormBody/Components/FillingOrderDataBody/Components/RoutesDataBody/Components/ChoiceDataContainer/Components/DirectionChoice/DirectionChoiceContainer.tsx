@@ -2,7 +2,7 @@ import React, {useCallback} from "react";
 import style from "./DirectionChoice.module.scss"
 import {DirectionsEnum} from "../../../../../../../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 import {useDispatch, useSelector} from "react-redux";
-import {getDirectionSelector} from "../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
+import {getDirectionSelector} from "../../../../../../../../../../../../../../Redux/OrderForm/Selectors/OrderForm.selectors";
 import {EditDirectionPayload} from "../../../../../../../../../../../../../../Redux/OrderForm/Types/Actions.types";
 import {editDirection} from "../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.reducer";
 import {DirectionChoiceButton} from "../../../../../../../../../../../../../../AppGlobal/AppGlobalComponents/Selectors/DirectionChoice/DirectionChoiceButton";

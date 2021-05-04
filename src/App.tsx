@@ -7,6 +7,7 @@ import {Body} from './Components/Body/Body';
 import {AppLinks} from "./AppGlobal/AppGlobalTypes/Links";
 import {LandingPage} from "./Components/Landing/Landing";
 import HeaderDrawer from "./Components/HeaderDrawer/HeaderDrawer";
+import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client";
 
 function App() {
     return (
@@ -39,13 +40,21 @@ export const AppUIContainer = () => {
 };
 
 
+const client = new ApolloClient({
+    uri: "http://localhost:5000/graphql",
+    cache: new InMemoryCache()
+});
+
+
 export const AppContainer = () => {
     return <>
-        <BrowserRouter>
-            <Provider store={store}>
-                <App/>
-            </Provider>
-        </BrowserRouter>
+        <ApolloProvider client={client}>
+            <BrowserRouter>
+                <Provider store={store}>
+                    <App/>
+                </Provider>
+            </BrowserRouter>
+        </ApolloProvider>
     </>
 };
 

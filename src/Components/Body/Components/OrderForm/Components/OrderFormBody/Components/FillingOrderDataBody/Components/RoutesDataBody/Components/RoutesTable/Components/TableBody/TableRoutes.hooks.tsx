@@ -8,7 +8,7 @@ import {useSelector} from "react-redux";
 import {
     getDirectionSelector,
     getIndexActiveTravelSelector
-} from "../../../../../../../../../../../../../../Redux/OrderForm/OrderForm.selectors";
+} from "../../../../../../../../../../../../../../Redux/OrderForm/Selectors/OrderForm.selectors";
 import {DirectionsEnum} from "../../../../../../../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 
 export const useTravelsInfoRows = (travelsInfo: TravelInfoType[]) => {
