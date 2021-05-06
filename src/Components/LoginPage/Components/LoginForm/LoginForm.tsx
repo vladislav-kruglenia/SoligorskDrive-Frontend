@@ -1,12 +1,11 @@
-import React from "react";
+import React, {FC} from "react";
 import style from "./LoginForm.module.scss";
 import * as yup from "yup";
 import {useFormik} from "formik";
-import {LoginFormTypes} from "./LoginForm.types";
-import {Button, TextField} from "@material-ui/core";
+import {LoginFormProps, LoginFormTypes} from "./LoginForm.types";
+import {Button, FormHelperText, TextField} from "@material-ui/core";
 
-export const LoginForm = () => {
-
+export const LoginForm: FC<LoginFormProps> = (props) => {
     const validationSchema = yup.object({
         userLogin: yup
             .string()
@@ -23,10 +22,12 @@ export const LoginForm = () => {
     const Form = useFormik<LoginFormTypes>({
         initialValues: {userLogin: '', userPassword: ''},
         validationSchema: validationSchema,
-        onSubmit: (values) => {
-            console.log(values);
+        onSubmit: async (values) => {
+            await props.loginMutation({variables: {loginData: values}})
         }
     });
+
+    const ErrorText = props.serverError && <FormHelperText>Ошибка. Проверьте введенные данные</FormHelperText>;
 
     return <form className={style.LoginForm} onSubmit={Form.handleSubmit}>
         <div className={style.inputs}>
@@ -45,6 +46,7 @@ export const LoginForm = () => {
                        error={Form.touched.userPassword && Boolean(Form.errors.userPassword)}
                        helperText={Form.touched.userPassword && Form.errors.userPassword}
             />
+            {ErrorText}
         </div>
         <Button className={style.formButton} size={"large"} href={''}
                 color="primary" variant={"contained"} type="submit">
