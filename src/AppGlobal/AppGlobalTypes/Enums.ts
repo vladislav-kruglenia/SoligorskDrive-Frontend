@@ -29,5 +29,5 @@ export enum ErrorEnum {
 
 export enum DatesFormats {
     Normal = 'dd/MM/yyyy',
-    Server = 'yyyy/MM/dd'
+    Server = 'yyyy.MM.dd'
 }

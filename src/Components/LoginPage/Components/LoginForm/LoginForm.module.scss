@@ -1,0 +1,18 @@
+.LoginForm{
+  width: 100%;
+  margin: 45px 0 0 0;
+  //border: 1px solid crimson;
+
+  .inputs{
+    display: flex;
+    flex-direction: column;
+
+    .textField{
+      margin: 0 0 20px 0;
+    }
+  }
+  .formButton{
+    width: 100%;
+    margin: 20px 0 0 0;
+  }
+}

@@ -1,5 +1,5 @@
 import {DirectionsEnum} from "../../../AppGlobal/AppGlobalTypes/Enums";
-import {TravelInfoType} from "../../../Components/Body/Components/OrderForm/Components/OrderFormBody/Components/FillingOrderDataBody/Components/RoutesDataBody/Components/RoutesTable/Components/TableBody/TableBody.types";
+import {TravelInfoType} from "../../../Components/AppComponents/Body/Components/OrderForm/Components/OrderFormBody/Components/FillingOrderDataBody/Components/RoutesDataBody/Components/RoutesTable/Components/TableBody/TableBody.types";
 
 export type EditDatePayload = {
     date: Date,

@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import {EditCurrentPagePayload} from "../../../../../../Redux/App/Types/Actions.types";
 import {editCurrentPage} from "../../../../../../Redux/App/App.reducer";
 import {LinkButton} from "../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/MaterialButtons";
-import {AppLinks} from "../../../../../../AppGlobal/AppGlobalTypes/Links";
+import {AppLinks, LoginPageLinks} from "../../../../../../AppGlobal/AppGlobalTypes/Links";
 
 export const LandingHeader = () => {
     const dispatch = useDispatch();
@@ -29,7 +29,7 @@ export const LandingHeader = () => {
                 buttonText={'Регистрация'}
                 onClickFunc={() => {
                 }}
-                link={AppLinks.LandingPage}
+                link={LoginPageLinks.SignUp}
                 color={"secondary"}
             />
         </div>

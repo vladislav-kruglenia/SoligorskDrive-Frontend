@@ -2,10 +2,10 @@ export enum AppLinks {
     AppRedirect = '/app',
     OrderForm = '/app/order-form',
     OrdersHistory = '/app/orders-history',
-    LoginPage = '/app/login-page',
     UserProfile = '/app/user-profile',
     DispatcherPanel = '/app/dispatcher-panel',
     LandingPage = '/landing-page',
+    LoginPage = '/login-page',
 }
 
 
@@ -14,6 +14,11 @@ export enum OrderFormLinksTypes {
     Landing = '/landing-page',
 }
 
+
+export enum LoginPageLinks {
+    LogIn = "/login-page/log-in",
+    SignUp = "/login-page/sign-up",
+}
 
 export enum OrderFormLinks {
     AppFillingOrderData = '/app/order-form/filling-order-data',
