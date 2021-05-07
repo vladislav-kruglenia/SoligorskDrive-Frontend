@@ -42,7 +42,7 @@ type LoginModel {
 
 type Mutation {
     createOrder(createOrderData: Order!): OrderCreationModel!
-    createUserAccount(createUserAccount: CreateUserAccountArgs!): CreateUserAccountModel!
+    createUserAccount(createUserAccountData: CreateUserAccountArgs!): CreateUserAccountModel!
     login(loginData: LoginArgs!): LoginModel!
     logout: LoginModel!
     removeOrder(removeOrderData: RemoveOrderArgs!): RemoveOrderModel!

@@ -1,11 +1,15 @@
-import React from "react";
+import React, {FC} from "react";
+import style from "../LoginForm/LoginForm.module.scss";
 import * as yup from "yup";
 import {useFormik} from "formik";
-import style from "../LoginForm/LoginForm.module.scss";
-import {Button, TextField} from "@material-ui/core";
-import {SignUpFormTypes} from "./SignUpForm.types";
+import { v4 as uuidv4 } from 'uuid';
+import InputMask from "react-input-mask";
+import {Button, FormHelperText, TextField} from "@material-ui/core";
+import {SignUpFormProps, SignUpFormTypes} from "./SignUpForm.types";
+import {CreateUserAccount} from "../../../../GraphQLServer/Mutations/SignUp/Types/SignUpVar.types";
 
-export const SignUpForm = () => {
+export const SignUpForm:FC<SignUpFormProps> = (props) => {
+    const {serverError, signUpMutation} = props;
     const validationSchema = yup.object({
         userName: yup
             .string()
@@ -22,15 +26,24 @@ export const SignUpForm = () => {
             .nullable()
             .max(30, 'Не более 30 символов')
             .required('Это поле обязательно'),
+        userNumberPhone: yup
+            .string()
+            .test('Phone not write', "Номер введен не полностью", (value) => value ? !(value.match(/_/)) : false)
+            .required('Это поле обязательно'),
     });
 
     const Form = useFormik<SignUpFormTypes>({
-        initialValues: {userName:'', userLogin: '', userPassword: ''},
+        initialValues: {userName:'', userLogin: '', userPassword: '', userNumberPhone: ''},
         validationSchema: validationSchema,
-        onSubmit: (values) => {
-            console.log(values);
+        onSubmit: async (values) => {
+            const createUserAccountData: CreateUserAccount = {...values, idUser: uuidv4()};
+            await signUpMutation({
+                variables: {createUserAccountData}
+            })
         }
     });
+
+    const ErrorText = serverError && <FormHelperText>Ошибка. Проверьте введенные данные</FormHelperText>;
 
     return <form className={style.LoginForm} onSubmit={Form.handleSubmit}>
         <div className={style.inputs}>
@@ -42,6 +55,19 @@ export const SignUpForm = () => {
                        helperText={Form.touched.userName && Form.errors.userName}
                        autoFocus={true}
             />
+            <InputMask
+                mask="+375 (99) 999-99-99"
+                value={Form.values.userNumberPhone}
+                onChange={Form.handleChange}
+            >
+                {() => (
+                    <TextField  id="userNumberPhone" className={style.textField}
+                                label={"Ваш телефон"} variant="outlined" size={"medium"}
+                                error={Form.touched.userNumberPhone && Boolean(Form.errors.userNumberPhone)}
+                                helperText={Form.touched.userNumberPhone && Form.errors.userNumberPhone}
+                    />
+                )}
+            </InputMask>
             <TextField className={style.textField} id="userLogin"
                        label={"Ваш логин"} variant={"outlined"} size={"medium"}
                        value={Form.values.userLogin}
@@ -57,9 +83,10 @@ export const SignUpForm = () => {
                        helperText={Form.touched.userPassword && Form.errors.userPassword}
             />
         </div>
+        {ErrorText}
         <Button className={style.formButton} size={"large"} href={''}
                 color="primary" variant={"contained"} type="submit">
-            Сохранить
+            Отправить
         </Button>
     </form>
 };

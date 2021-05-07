@@ -50,7 +50,7 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
         </div>
         <Button className={style.formButton} size={"large"} href={''}
                 color="primary" variant={"contained"} type="submit">
-            Сохранить
+            Войти
         </Button>
     </form>
 };
