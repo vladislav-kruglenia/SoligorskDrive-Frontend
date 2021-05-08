@@ -1,4 +1,4 @@
-import {DirectionsNamesEnum} from "../../../../../../../AppGlobal/AppGlobalTypes/Enums";
+import {DirectionsEnum} from "../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 
 export type OrdersTableProps = {
     orders: OrderTableType[],
@@ -8,7 +8,7 @@ export type OrdersTableProps = {
 
 export type OrderTableType = {
     orderId: string,
-    direction: DirectionsNamesEnum,
+    direction: DirectionsEnum,
     haltName: string,
     haltTime: string,
     orderPrice: number,

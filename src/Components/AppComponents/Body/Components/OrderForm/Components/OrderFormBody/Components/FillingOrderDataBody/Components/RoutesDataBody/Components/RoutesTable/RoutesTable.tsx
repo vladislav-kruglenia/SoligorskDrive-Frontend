@@ -9,8 +9,8 @@ import {Typography} from "@material-ui/core";
 
 export const RoutesTable = () => {
     const travelInfoData = useSelector(getTravelInfoDataSelector);
-    const RenderDataComponent = useQueryTravelInfo(travelInfoData);
     const isNotDirection = travelInfoData.direction === DirectionsEnum.none;
+    const RenderDataComponent = useQueryTravelInfo(travelInfoData);
 
     if(isNotDirection) return <Typography variant={"h5"} color={"error"}>Выберите направление</Typography>;
 

@@ -7,10 +7,11 @@ schema {
 
 type ClientCurrentOrdersModel {
     date: String!
-    direction: String!
+    direction: DirectionsEnum!
     haltName: String!
     haltTime: String!
     numberSeats: Float!
+    orderId: String!
     orderPrice: Float!
     startHour: Float!
 }
@@ -91,6 +92,12 @@ type UserPersonalDataModel {
     userNumberPhone: String!
 }
 
+enum DirectionsEnum {
+    none
+    toMinsk
+    toSoligorsk
+}
+
 input ClientData {
     clientId: String
     clientName: String!
@@ -118,7 +125,7 @@ input LoginArgs {
 
 input MainOrderData {
     date: String!
-    direction: String!
+    direction: DirectionsEnum!
     startHour: Float!
 }
 
@@ -144,7 +151,7 @@ input SecondaryOrderData {
 
 input TravelInfoArgs {
     date: String!
-    direction: String!
+    direction: DirectionsEnum!
 }
 
 input UpdateUserPasswordArgs {

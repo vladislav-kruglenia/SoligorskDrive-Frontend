@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {DeleteOrderButtonContainer} from "../../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/DeleteOrderButtonContainer/DeleteOrderButtonContainer";
 import {OrdersTableProps, OrderTableType} from "./OrdersTable.types";
+import {DirectionsNamesEnum} from "../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 
 
 export const OrdersTable:FC<OrdersTableProps> = (props) => {
@@ -18,7 +19,7 @@ export const OrdersTable:FC<OrdersTableProps> = (props) => {
         orders.map((order: OrderTableType)=>(
             <TableRow key={order.orderId}>
                 <TableCell>{order.date}</TableCell>
-                <TableCell>{order.direction}</TableCell>
+                <TableCell>{DirectionsNamesEnum[order.direction]}</TableCell>
                 <TableCell>{order.haltName}</TableCell>
                 <TableCell>{order.startHour}:{order.haltTime}</TableCell>
                 <TableCell>{order.startHour + 1}:45</TableCell>

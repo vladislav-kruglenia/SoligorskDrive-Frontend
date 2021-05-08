@@ -2,7 +2,7 @@ import React, {ReactNode, ReactNodeArray, useCallback, useMemo} from "react";
 import {Link} from "react-router-dom";
 import {List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
-import {LogInButtonContainer, LogOutButtonContainer} from "./Components/LogButtons/LogButtons";
+import {LogOutButtonContainer} from "./Components/LogButtons/LogButtons";
 import {useDispatch, useSelector} from "react-redux";
 import {getCurrentPageDataSelector, getNavBarPagesSelector} from "../../../Redux/App/App.selectors";
 import {AppPage} from "../../../Redux/App/Types/App.types";
@@ -35,7 +35,7 @@ export const NavBar = () => {
         <List>
             {navBarPagesItems}
         </List>
-        <LogInButtonContainer editCurrentPage={() => editCurrentPageAction(-1, "Вход на сайт")}/>
+
         <LogOutButtonContainer editCurrentPage={() => editCurrentPageAction(-1, "Вход на сайт")}/>
         <div><img src="../../../img/logo.png" alt=""/></div>
     </div>

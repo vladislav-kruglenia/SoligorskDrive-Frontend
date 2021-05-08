@@ -1,24 +1,25 @@
-import React from "react";
+import React, {FC} from "react";
 import style from "./CurrentOrders.module.scss"
 import OrdersHistoryStyle from "../../OrdersHistory.module.scss"
 import {Paper, Typography} from "@material-ui/core";
-import {OrdersTable} from "../OrdersTable/OrdersTable";
 import {OrderTableType} from "../OrdersTable/OrdersTable.types";
-import {DirectionsNamesEnum} from "../../../../../../../AppGlobal/AppGlobalTypes/Enums";
+import {DirectionsEnum} from "../../../../../../../AppGlobal/AppGlobalTypes/Enums";
+import {CurrentOrdersProps} from "./CurrentOrders.types";
 
-export const CurrentOrders = () => {
+export const CurrentOrders:FC<CurrentOrdersProps> = (props) => {
+
     return <Paper className={style.CurrentOrders}>
         <Typography variant={'h4'} className={`${OrdersHistoryStyle.tableTitle}`}>
             Список текущих заказанных рейсов
         </Typography>
-        <OrdersTable orders={orders} isCurrentOrdersTable={true}/>
+        {props.RenderDataComponent}
     </Paper>
 };
 
 const orders: OrderTableType[] = [
     {
         orderId: '342342342342342342342',
-        direction: DirectionsNamesEnum.toMinsk,
+        direction: DirectionsEnum.toMinsk,
         date: '2021-04-06',
         haltName: "Остановка 1",
         haltTime: '45',
@@ -28,7 +29,7 @@ const orders: OrderTableType[] = [
     },
     {
         orderId: '34234234234234cdscsdcsdscs2342342',
-        direction: DirectionsNamesEnum.toMinsk,
+        direction: DirectionsEnum.toMinsk,
         date: '2021-04-02',
         haltName: "Остановка 2",
         haltTime: '37',
@@ -38,7 +39,7 @@ const orders: OrderTableType[] = [
     },
     {
         orderId: 'frefeg4tbybrbtr',
-        direction: DirectionsNamesEnum.toMinsk,
+        direction: DirectionsEnum.toMinsk,
         date: '2021-04-09',
         haltName: "Остановка 3",
         haltTime: '40',
@@ -48,7 +49,7 @@ const orders: OrderTableType[] = [
     },
     {
         orderId: 'vsvadvasvervr',
-        direction: DirectionsNamesEnum.toMinsk,
+        direction: DirectionsEnum.toMinsk,
         date: '2021-04-16',
         haltName: "Остановка 4",
         haltTime: '57',
