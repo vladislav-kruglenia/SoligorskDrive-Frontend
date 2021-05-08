@@ -31,3 +31,9 @@ export enum DatesFormats {
     Normal = 'dd/MM/yyyy',
     Server = 'yyyy.MM.dd'
 }
+
+export enum RolesEnum {
+    None = 'none',
+    User = 'user',
+    Admin = 'admin',
+}

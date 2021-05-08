@@ -39,6 +39,7 @@ type FirstQueryType {
 
 type LoginModel {
     isAuth: Boolean!
+    userRole: RolesEnum!
 }
 
 type Mutation {
@@ -96,6 +97,12 @@ enum DirectionsEnum {
     none
     toMinsk
     toSoligorsk
+}
+
+enum RolesEnum {
+    Admin
+    None
+    User
 }
 
 input ClientData {
