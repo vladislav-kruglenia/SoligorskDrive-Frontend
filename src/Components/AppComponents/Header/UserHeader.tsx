@@ -1,7 +1,7 @@
 import React, {useCallback} from "react";
 import style from "./UserHeader.module.scss"
 import Typography from "@material-ui/core/Typography";
-import logo from "../../../img/logo.png";
+import logo from "../../../Img/logo.png";
 import {useDispatch, useSelector} from "react-redux";
 import {getCurrentPageDataSelector} from "../../../Redux/App/App.selectors";
 import {Logo} from "../../../AppGlobal/AppGlobalComponents/Logo/Logo";

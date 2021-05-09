@@ -37,7 +37,7 @@ export const NavBar = () => {
         </List>
 
         <LogOutButtonContainer editCurrentPage={() => editCurrentPageAction(-1, "Вход на сайт")}/>
-        <div><img src="../../../img/logo.png" alt=""/></div>
+        <div><img src="../../../Img/logo.png" alt=""/></div>
     </div>
 };
 

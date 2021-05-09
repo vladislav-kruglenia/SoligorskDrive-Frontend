@@ -1,3 +1,9 @@
 export type StatusLabelProps = {
-    status: 'successful' | 'error' | "none",
+    status: StatusChangePasswordEnum,
+}
+
+export enum StatusChangePasswordEnum {
+    successful = 'successful',
+    error = 'error',
+    none = "none",
 }

@@ -23,7 +23,7 @@ type CreateUserAccountModel {
 type DispatcherOrderData {
     clientName: String!
     clientPhone: String!
-    direction: String!
+    direction: DirectionsEnum!
     idOrder: String!
 }
 
@@ -121,7 +121,7 @@ input CreateUserAccountArgs {
 
 input DispatcherOrdersInfoArgs {
     date: String
-    direction: String
+    direction: DirectionsEnum
     startHour: Float
 }
 

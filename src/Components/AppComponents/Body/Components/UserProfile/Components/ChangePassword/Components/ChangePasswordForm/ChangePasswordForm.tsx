@@ -38,12 +38,19 @@ export const ChangePasswordForm:FC<ChangePasswordFormProps> = (props) => {
             newPassword2: '',
         },
         validationSchema: validationSchema,
-        onSubmit: (values: ChangePasswordValues) => {
+        onSubmit: async (values: ChangePasswordValues) => {
             const {newPassword1, newPassword2} = values;
             const isPasswordsMatch = newPassword1 === newPassword2;
             if(isPasswordsMatch){
                 editErrorPassword2(false);
-                props.updatePassword(newPassword1);
+                await props.updatePassword({
+                    variables: {
+                        updateUserPasswordData:{
+                            oldPassword: values.oldPassword,
+                            newPassword: values.newPassword1,
+                        }
+                    }
+                });
                 props.exitEditMode();
                 console.log(values);
             } else {

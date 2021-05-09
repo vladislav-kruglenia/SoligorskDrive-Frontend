@@ -4,6 +4,7 @@ import React, {FC, useMemo} from "react";
 import {OrdersTableDisplayProps} from "./OrdersTableDisplay.types";
 import {DispatcherOrderData} from "../../../../DisplayOrdersInfo.types";
 import {DeleteOrderButtonContainer} from "../../../../../../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/DeleteOrderButtonContainer/DeleteOrderButtonContainer";
+import {DirectionsNamesEnum} from "../../../../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 
 export const OrdersTableDisplay: FC<OrdersTableDisplayProps> = (props) => {
     const {orders, startTime} = props;
@@ -11,7 +12,7 @@ export const OrdersTableDisplay: FC<OrdersTableDisplayProps> = (props) => {
     const ordersTableRows = useMemo(() => (
         orders.map((order: DispatcherOrderData) => (
             <TableRow key={order.idOrder}>
-                <TableCell>{order.direction}</TableCell>
+                <TableCell>{DirectionsNamesEnum[order.direction]}</TableCell>
                 <TableCell>{startTime}:00</TableCell>
                 <TableCell>{order.clientName}</TableCell>
                 <TableCell>{order.clientPhone}</TableCell>

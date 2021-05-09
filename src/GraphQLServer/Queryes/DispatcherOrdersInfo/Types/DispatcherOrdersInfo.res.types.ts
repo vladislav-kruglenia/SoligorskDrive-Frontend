@@ -1,3 +1,5 @@
+import {DirectionsEnum} from "../../../../AppGlobal/AppGlobalTypes/Enums";
+
 export type DispatcherOrdersInfoRes = {
     DispatcherOrdersInfo: DispatcherOrdersModel[]
 }
@@ -9,8 +11,8 @@ export type DispatcherOrdersModel = {
 }
 
 export type DispatcherOrder = {
+    direction: DirectionsEnum,
     clientName: string,
     clientPhone: string,
-    direction: string,
     idOrder: string,
 }
