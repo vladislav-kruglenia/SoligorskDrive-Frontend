@@ -1,23 +1,25 @@
-import React, {FC} from "react";
+import React, {FC, memo} from "react";
 import * as yup from "yup";
 import {useFormik} from "formik";
 import style
     from "../../../../../../../../../AppGlobal/AppGlobalStyles/Forms/UserDataForm/UserDataForm.module.scss";
 import {Button, TextField} from "@material-ui/core";
 import {UserProfileDataFormProps} from "./UserProfileDataForm.types";
-import {MainUserProfileData} from "../UserProfileDataDisplay/UserProfileDataDisplay.types";
+import {MainUserProfileData} from "../../UserProfileData.types";
+import InputMask from "react-input-mask";
 
 export const UserProfileDataForm:FC<UserProfileDataFormProps> = (props) => {
-    const {userName, userPhone, userLogin} = props.userData;
+    const {userName, userNumberPhone, userLogin} = props.userData;
 
     const validationSchema = yup.object({
         userName: yup
             .string()
             .nullable()
             .required('Это поле обязательно'),
-        userPhone: yup
+        userNumberPhone: yup
             .string()
             .nullable()
+            .test('Phone not write', "Номер введен не полностью", (value) => value ? !(value.match(/_/)) : false)
             .required('Это поле обязательно'),
         userLogin: yup
             .string()
@@ -25,17 +27,12 @@ export const UserProfileDataForm:FC<UserProfileDataFormProps> = (props) => {
             .required('Это поле обязательно'),
     });
 
-    const valuesForm: MainUserProfileData = {
-        userName: userName,
-        userPhone: userPhone,
-        userLogin: userLogin,
-    };
+    const valuesForm: MainUserProfileData = {userName, userNumberPhone, userLogin};
 
-    const Form = useFormik({
+    const Form = useFormik<MainUserProfileData>({
         initialValues: valuesForm,
         validationSchema: validationSchema,
-        onSubmit: (values: MainUserProfileData) => {
-            props.editUserData(values);
+        onSubmit: (values) => {
             props.exitEditMode();
             console.log(values);
         }
@@ -51,13 +48,19 @@ export const UserProfileDataForm:FC<UserProfileDataFormProps> = (props) => {
                        helperText={Form.touched.userName && Form.errors.userName}
                        autoFocus={true}
             />
-            <TextField className={style.textField} id="userPhone"
-                       label={"Ваш телефон"} variant="outlined" size={"small"}
-                       value={Form.values.userPhone}
-                       onChange={Form.handleChange}
-                       error={Form.touched.userPhone && Boolean(Form.errors.userPhone)}
-                       helperText={Form.touched.userPhone && Form.errors.userPhone}
-            />
+            <InputMask
+                mask="+375 (99) 999-99-99"
+                value={Form.values.userNumberPhone}
+                onChange={Form.handleChange}
+            >
+                {() => (
+                    <TextField  id="userNumberPhone" className={style.textField}
+                                label={"Ваш телефон"} variant="outlined" size={"small"}
+                                error={Form.touched.userNumberPhone && Boolean(Form.errors.userNumberPhone)}
+                                helperText={Form.touched.userNumberPhone && Form.errors.userNumberPhone}
+                    />
+                )}
+            </InputMask>
             <TextField className={style.textField} id="userLogin"
                        label={"Ваш логин"} variant="outlined" size={"small"}
                        value={Form.values.userLogin}
@@ -66,11 +69,12 @@ export const UserProfileDataForm:FC<UserProfileDataFormProps> = (props) => {
                        helperText={Form.touched.userLogin && Form.errors.userLogin}
             />
         </div>
-
         <Button className={style.formButton} size={"small"} href={''}
                 color="default" variant="outlined" type="submit">
             Сохранить
         </Button>
     </form>
 };
+
+export const UserProfileDataFormMemo = memo<UserProfileDataFormProps>(UserProfileDataForm);
 

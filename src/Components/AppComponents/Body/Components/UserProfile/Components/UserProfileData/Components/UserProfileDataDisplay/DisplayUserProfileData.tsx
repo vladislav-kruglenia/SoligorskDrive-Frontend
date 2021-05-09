@@ -4,12 +4,12 @@ import {DisplayUserProfileDataProps, UserValueProps} from "./UserProfileDataDisp
 import {Typography} from "@material-ui/core";
 
 export const DisplayUserProfileData:FC<DisplayUserProfileDataProps> = (props) => {
-    const {userName, userLogin, userPhone} = props.userData;
+    const {userName, userLogin, userNumberPhone} = props.userData;
 
     return <div className={style.UserProfileDataDisplay}>
         <UserValue labelText={'Имя'} dataValue={userName}/>
         <UserValue labelText={'Логин'} dataValue={userLogin}/>
-        <UserValue labelText={'Телефон'} dataValue={userPhone}/>
+        <UserValue labelText={'Телефон'} dataValue={userNumberPhone}/>
     </div>
 };
 

@@ -1,7 +1,7 @@
-import {MainUserProfileData} from "../UserProfileDataDisplay/UserProfileDataDisplay.types";
+import {MainUserProfileData} from "../../UserProfileData.types";
 
 export type UserProfileDataFormProps = {
     userData: MainUserProfileData,
-    editUserData: (values: MainUserProfileData) => void,
+    // editUserData: (values: MainUserProfileData) => void,
     exitEditMode: () => void,
 }
