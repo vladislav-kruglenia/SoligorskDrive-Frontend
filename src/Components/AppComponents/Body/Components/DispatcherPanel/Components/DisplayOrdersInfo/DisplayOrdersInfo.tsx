@@ -1,19 +1,20 @@
-import React from "react";
+import React, {memo} from "react";
 import style from "./DisplayOrdersInfo.module.scss"
-import {DispatcherOrdersTables} from "./Components/DispatcherOrdersTable/DispatcherOrdersTable";
 import {Paper, Typography} from "@material-ui/core";
-import {DispatcherOrdersData} from "./DisplayOrdersInfo.types";
-import {DirectionsNamesEnum} from "../../../../../../../AppGlobal/AppGlobalTypes/Enums";
+import {useQueryDisplayOrdersInfo} from "./DisplayOrdersInfo.hooks";
 
 export const DisplayOrdersInfo = () => {
+    const RenderDataComponent = useQueryDisplayOrdersInfo();
 
     return <Paper className={style.DisplayOrdersInfo}>
         <Typography className={style.title} variant={"h6"}>Текущие рейсы</Typography>
-        <DispatcherOrdersTables dispatcherOrders={dispatcherOrdersArr}/>
+        {RenderDataComponent}
     </Paper>
 };
 
-const dispatcherOrdersArr: DispatcherOrdersData[] = [
+export const DisplayOrdersInfoMemo = memo(DisplayOrdersInfo);
+
+/*const dispatcherOrdersArr: DispatcherOrdersData[] = [
     {
         date: '01/01/2021',
         time: 12,
@@ -36,7 +37,7 @@ const dispatcherOrdersArr: DispatcherOrdersData[] = [
         ]
     },
 
-];
+];*/
 
 
 

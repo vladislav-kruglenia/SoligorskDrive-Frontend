@@ -1,13 +1,13 @@
 import {AppStateType} from "../../../AppGlobal/AppGlobalTypes/Types";
 import {TravelInfoArgs} from "../../../GraphQLServer/Queryes/TravelInfo/Types/TravelInfoVars.types";
-import {getDate} from "../OrderForm.helper-functions";
-import {DatesFormats} from "../../../AppGlobal/AppGlobalTypes/Enums";
 import {createSelector} from "reselect";
+import {DateAndHourService} from "../../../AppGlobal/AppGlobalClasses/DateService";
 
 export const getTravelInfoData = (state: AppStateType): TravelInfoArgs => {
+    const {date} = new DateAndHourService(state.orderForm.selectedDate as Date);
+
     return {
-        direction: state.orderForm.selectedDirection,
-        date: getDate(state.orderForm.selectedDate as Date, DatesFormats.Server)
+        date, direction: state.orderForm.selectedDirection,
     }
 };
 

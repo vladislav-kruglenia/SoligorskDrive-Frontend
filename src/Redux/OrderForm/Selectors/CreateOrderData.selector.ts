@@ -1,18 +1,17 @@
 import {AppStateType} from "../../../AppGlobal/AppGlobalTypes/Types";
 import {
+    ClientData,
     MainOrderData,
     Order,
-    SecondaryOrderData,
-    ClientData
+    SecondaryOrderData
 } from "../../../GraphQLServer/Mutations/CreateOrder/Types/CreateOrderVar.types";
-import {getDate} from "../OrderForm.helper-functions";
-import {DatesFormats} from "../../../AppGlobal/AppGlobalTypes/Enums";
 import {createSelector} from "reselect";
+import {DateAndHourService} from "../../../AppGlobal/AppGlobalClasses/DateService";
 
 const getCreateOrderData = (state: AppStateType): Order => {
     const startHour = state.orderForm.startHour;
     const direction = state.orderForm.selectedDirection;
-    const date = getDate(state.orderForm.selectedDate as Date, DatesFormats.Server);
+    const {date} = new DateAndHourService(state.orderForm.selectedDate as Date);
     const orderPrice = state.orderForm.prices.orderPrice;
     const numberSeatsOrdered = state.orderForm.seats.userNumberSeats;
     const {haltTime, selectedHaltLabel} = state.orderForm.haltData;
