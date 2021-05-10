@@ -57,7 +57,7 @@ export const LinkButton: FC<LinkButtonPropsType> = (props) => {
 
 export const OutlinedButton: FC<OutlinedButtonPropsType> = (props) => {
     return <Button variant={"outlined"}
-                   color={"primary"}
+                   color={props.color || "primary"}
                    size={props.size}
                    disabled={props.disabled}
                    onClick={() => {

@@ -12,6 +12,6 @@ export const ClientCurrentAndArchiveOrdersGQL = gql`
     
     fragment OrdersData on ClientCurrentOrdersModel{
         date, direction, haltName, haltTime,
-        numberSeats, orderPrice, startHour
+        numberSeats, orderPrice, startHour, orderId   
     }
 `;

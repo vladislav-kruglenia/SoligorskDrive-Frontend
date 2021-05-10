@@ -32,6 +32,7 @@ export const DispatcherOrdersTable: FC<DispatcherOrdersTableProps> = (props) => 
         <OrdersTableDisplay
             orders={orders}
             startTime={time}
+            date={date}
         />
     </div>
 };

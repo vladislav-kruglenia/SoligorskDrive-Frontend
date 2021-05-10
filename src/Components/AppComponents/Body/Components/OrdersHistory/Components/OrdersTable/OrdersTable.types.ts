@@ -2,7 +2,7 @@ import {DirectionsEnum} from "../../../../../../../AppGlobal/AppGlobalTypes/Enum
 
 export type OrdersTableProps = {
     orders: OrderTableType[],
-    isCurrentOrdersTable?: boolean,
+    isCurrentOrdersTable: boolean,
 }
 
 
@@ -16,3 +16,4 @@ export type OrderTableType = {
     date: string,
     startHour: number,
 }
+

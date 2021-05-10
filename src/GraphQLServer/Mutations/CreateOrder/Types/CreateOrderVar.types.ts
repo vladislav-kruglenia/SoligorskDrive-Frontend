@@ -1,3 +1,5 @@
+import {MainOrderData} from "../../../ApolloClientCommon/Types/Types";
+
 export type CreateOrderVarType = {
     createOrderData: Order
 }
@@ -8,13 +10,6 @@ export interface Order {
     secondaryOrderData: SecondaryOrderData;
     mainOrderData: MainOrderData;
     clientData: ClientData;
-}
-
-
-export interface MainOrderData {
-    direction: string;
-    date: string;
-    startHour: number;
 }
 
 

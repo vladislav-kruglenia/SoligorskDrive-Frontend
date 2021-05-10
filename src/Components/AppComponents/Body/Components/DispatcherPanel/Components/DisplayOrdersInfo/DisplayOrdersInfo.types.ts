@@ -2,7 +2,7 @@ import {DirectionsEnum} from "../../../../../../../AppGlobal/AppGlobalTypes/Enum
 
 export type DispatcherOrdersData = {
     date: string,
-    time: number | null,
+    time: number,
     orders: DispatcherOrderData[],
 }
 

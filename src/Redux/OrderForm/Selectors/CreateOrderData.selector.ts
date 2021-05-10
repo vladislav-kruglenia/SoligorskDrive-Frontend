@@ -1,12 +1,12 @@
 import {AppStateType} from "../../../AppGlobal/AppGlobalTypes/Types";
 import {
     ClientData,
-    MainOrderData,
     Order,
     SecondaryOrderData
 } from "../../../GraphQLServer/Mutations/CreateOrder/Types/CreateOrderVar.types";
 import {createSelector} from "reselect";
 import {DateAndHourService} from "../../../AppGlobal/AppGlobalClasses/DateService";
+import {MainOrderData} from "../../../GraphQLServer/ApolloClientCommon/Types/Types";
 
 const getCreateOrderData = (state: AppStateType): Order => {
     const startHour = state.orderForm.startHour;
