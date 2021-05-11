@@ -1,6 +1,11 @@
+import {RolesEnum} from "../../../../AppGlobal/AppGlobalTypes/Enums";
+
 export type LogInResType = {
-    login: {
-        isAuth: boolean;
-    }
+    login: LoginModel,
+}
+
+export type LoginModel = {
+    isAuth: boolean,
+    userRole: RolesEnum,
 }
 
