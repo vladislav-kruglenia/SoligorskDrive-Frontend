@@ -7,10 +7,14 @@ import {DeleteOrderButtonContainer} from "../../../../../../../../../../../AppGl
 import {DirectionsNamesEnum} from "../../../../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 import {useMutationRemoveOrder} from "../../../../../../../../Body.hooks";
 import {MainOrderData} from "../../../../../../../../../../../GraphQLServer/ApolloClientCommon/Types/Types";
+import {RemoveOrderCacheType} from "../../../../../../../../../../../GraphQLServer/Mutations/RemoveOrder/Cache/RemoveOrder.cache.types";
+import {useSelector} from "react-redux";
+import {getDispatcherOrdersArgsSelector} from "../../../../../../../../../../../Redux/DispatcherPanel/Selectors/DispatcherOrdersArgs";
 
 export const OrdersTableDisplay: FC<OrdersTableDisplayProps> = (props) => {
     const {orders, startTime, date} = props;
     const {mutationData, mutationCallback} = useMutationRemoveOrder();
+    const dispatcherOrdersInfoData = useSelector(getDispatcherOrdersArgsSelector);
 
     const ordersTableRows = useMemo(() => (
         orders.map((order: DispatcherOrderData) => {
@@ -25,6 +29,8 @@ export const OrdersTableDisplay: FC<OrdersTableDisplayProps> = (props) => {
                     <TableCell>
                         <DeleteOrderButtonContainer
                             orderId={idOrder}
+                            dispatcherOrdersArgs={dispatcherOrdersInfoData}
+                            mutationType={RemoveOrderCacheType.Dispatcher}
                             mutationData={mutationData}
                             removeOrderMutation={mutationCallback}
                             mainOrderData={mainOrderData}
@@ -33,7 +39,7 @@ export const OrdersTableDisplay: FC<OrdersTableDisplayProps> = (props) => {
                 </TableRow>
             )
         })
-    ), [orders, startTime, date, mutationCallback, mutationData]);
+    ), [orders, startTime, date, mutationCallback, mutationData, dispatcherOrdersInfoData]);
 
 
     return <TableContainer className={style.DispatcherOrdersTable} component={Paper}>

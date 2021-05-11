@@ -5,9 +5,10 @@ import {RemoveOrderArgs} from "../../../../../GraphQLServer/Mutations/RemoveOrde
 import {RemoveOrderCache} from "../../../../../GraphQLServer/Mutations/RemoveOrder/Cache/RemoveOrder.cache";
 
 export const DeleteOrderButtonContainer:FC<DeleteOrderButtonContainerProps> = (props) => {
-    const {mainOrderData, mutationData, removeOrderMutation, orderId} = props;
+    const {mainOrderData, mutationData, removeOrderMutation, orderId, mutationType, dispatcherOrdersArgs} = props;
     const {loading, error} = mutationData;
     const removeOrderData: RemoveOrderArgs = {mainOrderData, orderId, userId:"1"};
+
 
 
     return <OutlinedButton
@@ -18,7 +19,7 @@ export const DeleteOrderButtonContainer:FC<DeleteOrderButtonContainerProps> = (p
         onClickFunc={() => removeOrderMutation({
             variables: {removeOrderData},
             update: (cache) => {
-                new RemoveOrderCache().updateCache(cache, orderId);
+                new RemoveOrderCache(mutationType, dispatcherOrdersArgs).updateCache(cache, orderId);
             },
         })}
     />

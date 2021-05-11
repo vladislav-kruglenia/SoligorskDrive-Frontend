@@ -3,6 +3,7 @@ import TableCell from "@material-ui/core/TableCell";
 import {DeleteOrderButtonContainer} from "../../../../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/DeleteOrderButtonContainer/DeleteOrderButtonContainer";
 import {DeleteButtonTableCellProps} from "./DeleteButtonTableCell.types";
 import {useMutationRemoveOrder} from "../../../../../../Body.hooks";
+import {RemoveOrderCacheType} from "../../../../../../../../../GraphQLServer/Mutations/RemoveOrder/Cache/RemoveOrder.cache.types";
 
 export const DeleteButtonTableCell: FC<DeleteButtonTableCellProps> = (props) => {
     const {isCurrentOrdersTable, mainOrderData, orderId} = props;
@@ -12,6 +13,7 @@ export const DeleteButtonTableCell: FC<DeleteButtonTableCellProps> = (props) => 
         <TableCell>
             <DeleteOrderButtonContainer
                 orderId={orderId}
+                mutationType={RemoveOrderCacheType.Client}
                 mainOrderData={mainOrderData}
                 mutationData={mutationData}
                 removeOrderMutation={mutationCallback}
