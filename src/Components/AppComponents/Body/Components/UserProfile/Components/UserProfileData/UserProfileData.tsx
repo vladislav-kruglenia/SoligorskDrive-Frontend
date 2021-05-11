@@ -7,6 +7,7 @@ import {useQueryUserProfileData} from "./UserProfileData.hooks";
 export const UserProfileData = () => {
     const {RenderDataComponent} = useQueryUserProfileData();
 
+
     return <Paper className={style.UserProfileData}>
         <Typography variant={'h4'}>Мои данные</Typography>
         <Divider/>
@@ -15,9 +16,9 @@ export const UserProfileData = () => {
 };
 
 
-const userProfileData: MainUserProfileData = {
+/*const userProfileData: MainUserProfileData = {
     userName: "Антон Петрович",
     userLogin: "32334309anton@gmail.com",
     userNumberPhone: "+375293817500",
-};
+};*/
 

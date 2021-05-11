@@ -7,13 +7,13 @@ export interface MainOrderData {
     startHour: number;
 }
 
-export type MutationTypes<TData> = {
-    data: TData | null | undefined,
+export type MutationTypes<Res> = {
+    data: Res | null | undefined,
     loading: boolean,
     error: ApolloError | undefined,
 }
 
-export type MutationFunc<R, A> = (options?: MutationFunctionOptions<R, A>) => Promise<FetchResult<R>>
+export type MutationFunc<Res, Var> = (options?: MutationFunctionOptions<Res, Var>) => Promise<FetchResult<Res>>
 
 export type UseMutationHookReturn<R, A> = {
     mutationCallback: MutationFunc<R, A>,

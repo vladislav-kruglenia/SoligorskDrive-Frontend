@@ -6,6 +6,10 @@ import {Preloader} from "../../../../../../../AppGlobal/AppGlobalComponents/Mate
 import {Typography} from "@material-ui/core";
 import {ProfileDataWrapper} from "./Components/ProfileDataWrapper/ProfileDataWrapper";
 import {UseQueryUserProfileDataDTO} from "./UserProfileData.types";
+import {useMutationCommonHook} from "../../../../../../../GraphQLServer/ApolloClientCommon/Hooks/UseMutation.hook";
+import {UpdateUserData} from "../../../../../../../GraphQLServer/Mutations/UpdateUserData/UpdateUserData.gql";
+import {UpdateUserDataVar} from "../../../../../../../GraphQLServer/Mutations/UpdateUserData/Types/UpdateUserData.var.types";
+import {UpdateUserDataRes} from "../../../../../../../GraphQLServer/Mutations/UpdateUserData/Types/UpdateUserData.res.types";
 
 
 export const useQueryUserProfileData = (): UseQueryUserProfileDataDTO => {
@@ -21,6 +25,10 @@ export const useQueryUserProfileData = (): UseQueryUserProfileDataDTO => {
 
     return {RenderDataComponent};
 };
+
+export function useMutationUpdateUserData(){
+    return useMutationCommonHook<UpdateUserDataRes, UpdateUserDataVar>(UpdateUserData)
+}
 
 
 

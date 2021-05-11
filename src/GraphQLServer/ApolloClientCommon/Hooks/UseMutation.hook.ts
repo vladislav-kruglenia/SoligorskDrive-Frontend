@@ -1,10 +1,9 @@
+import {useMutation} from "@apollo/client";
 import {DocumentNode} from "graphql";
 import {UseMutationHookReturn} from "../Types/Types";
-import {useMutation} from "@apollo/client";
-import {RemoveOrder} from "../../Mutations/RemoveOrder/RemoveOrder.gql";
 
-export function useMutationCommonHook<Res, Args>(GqlDocument: DocumentNode): UseMutationHookReturn<Res, Args> {
-    const [removeOrderMutation, {data, loading, error}] = useMutation<Res, Args>(GqlDocument);
+export function useMutationCommonHook<Res, Var>(GqlDocument: DocumentNode): UseMutationHookReturn<Res, Var> {
+    const [removeOrderMutation, {data, loading, error}] = useMutation<Res, Var>(GqlDocument);
 
     return {
         mutationCallback: removeOrderMutation,

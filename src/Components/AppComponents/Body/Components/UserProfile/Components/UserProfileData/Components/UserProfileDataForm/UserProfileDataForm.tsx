@@ -7,9 +7,14 @@ import {Button, TextField} from "@material-ui/core";
 import {UserProfileDataFormProps} from "./UserProfileDataForm.types";
 import {MainUserProfileData} from "../../UserProfileData.types";
 import InputMask from "react-input-mask";
+import {UpdateUserDataCache} from "../../../../../../../../../GraphQLServer/Mutations/UpdateUserData/Cache/UpdateUserData.cache";
 
 export const UserProfileDataForm:FC<UserProfileDataFormProps> = (props) => {
+    const {editUserData} = props;
+    const {loading, error} = props.mutationData;
     const {userName, userNumberPhone, userLogin} = props.userData;
+
+    const colorButton = error ? 'secondary' : 'default';
 
     const validationSchema = yup.object({
         userName: yup
@@ -32,7 +37,16 @@ export const UserProfileDataForm:FC<UserProfileDataFormProps> = (props) => {
     const Form = useFormik<MainUserProfileData>({
         initialValues: valuesForm,
         validationSchema: validationSchema,
-        onSubmit: (values) => {
+        onSubmit: async (values) => {
+            const {userLogin, userNumberPhone, userName} = values;
+            const newUserPersonalData = {userLogin, userNumberPhone, userName};
+
+            await editUserData({
+                variables:{newUserPersonalData},
+                update: (cache, {data}) => {
+                    new UpdateUserDataCache(cache).updateCache(data!.updateUserPersonalData)
+                }
+            });
             props.exitEditMode();
             console.log(values);
         }
@@ -69,8 +83,8 @@ export const UserProfileDataForm:FC<UserProfileDataFormProps> = (props) => {
                        helperText={Form.touched.userLogin && Form.errors.userLogin}
             />
         </div>
-        <Button className={style.formButton} size={"small"} href={''}
-                color="default" variant="outlined" type="submit">
+        <Button className={style.formButton} size={"small"} href={''} disabled={loading} color={colorButton}
+                variant="outlined" type="submit">
             Сохранить
         </Button>
     </form>

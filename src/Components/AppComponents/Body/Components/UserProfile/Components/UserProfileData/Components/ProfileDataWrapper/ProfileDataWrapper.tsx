@@ -6,8 +6,10 @@ import {DisplayTypeEnum} from "../../../../../../../../../AppGlobal/AppGlobalCom
 import {DisplayUserProfileData} from "../UserProfileDataDisplay/DisplayUserProfileData";
 import {UserProfileDataFormMemo} from "../UserProfileDataForm/UserProfileDataForm";
 import {ProfileDataWrapperProps} from "./ProfileDataWrapper.types";
+import {useMutationUpdateUserData} from "../../UserProfileData.hooks";
 
 export const ProfileDataWrapper:FC<ProfileDataWrapperProps> = (props) => {
+    const {mutationData, mutationCallback} = useMutationUpdateUserData();
     const {userProfileData} = props;
     const [editMode, setEditMode] = useState(false);
 
@@ -26,6 +28,8 @@ export const ProfileDataWrapper:FC<ProfileDataWrapperProps> = (props) => {
                 <UserProfileDataFormMemo
                     userData={userProfileData}
                     exitEditMode={() => setEditMode(false)}
+                    mutationData={mutationData}
+                    editUserData={mutationCallback}
                 />
             }
         />
