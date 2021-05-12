@@ -6,6 +6,7 @@ import {DispatcherOrdersInfoArgs} from "../../../../../GraphQLServer/Queryes/Dis
 
 export type DeleteOrderButtonContainerProps = {
     orderId: string,
+    userId?: string,
     dispatcherOrdersArgs?: DispatcherOrdersInfoArgs,
     mainOrderData: MainOrderData,
     mutationType: RemoveOrderCacheType,

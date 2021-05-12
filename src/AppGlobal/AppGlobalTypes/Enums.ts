@@ -33,7 +33,7 @@ export enum DatesFormats {
 }
 
 export enum RolesEnum {
-    None = 'none',
-    User = 'user',
-    Admin = 'admin',
+    None = 'None',
+    User = 'User',
+    Admin = 'Admin',
 }

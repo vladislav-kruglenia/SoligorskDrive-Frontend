@@ -5,9 +5,12 @@ import {RemoveOrderArgs} from "../../../../../GraphQLServer/Mutations/RemoveOrde
 import {RemoveOrderCache} from "../../../../../GraphQLServer/Mutations/RemoveOrder/Cache/RemoveOrder.cache";
 
 export const DeleteOrderButtonContainer:FC<DeleteOrderButtonContainerProps> = (props) => {
-    const {mainOrderData, mutationData, removeOrderMutation, orderId, mutationType, dispatcherOrdersArgs} = props;
+    const {
+        mainOrderData, mutationData, removeOrderMutation,
+        orderId, mutationType, dispatcherOrdersArgs, userId
+    } = props;
     const {loading, error} = mutationData;
-    const removeOrderData: RemoveOrderArgs = {mainOrderData, orderId, userId:"1"};
+    const removeOrderData: RemoveOrderArgs = {mainOrderData, orderId, userId};
 
 
 

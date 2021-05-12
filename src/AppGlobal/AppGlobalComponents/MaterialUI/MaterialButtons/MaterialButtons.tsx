@@ -83,8 +83,6 @@ export const TextOrOutlinedButton: FC<TextOrOutlinedButtonPropsType> = (props) =
 
 export const NavBarButton: FC<NavBarButtonPropsType> = (props) => {
     return <Button variant={"outlined"}
-                   component={Link}
-                   to={props.link}
                    className={style.NavBarButton}
                    color={props.color}
                    size={props.size}

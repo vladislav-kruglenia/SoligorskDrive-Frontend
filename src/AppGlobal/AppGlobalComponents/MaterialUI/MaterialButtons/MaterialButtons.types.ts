@@ -21,7 +21,7 @@ export interface TextOrOutlinedButtonPropsType extends StandardButtonProps{
 }
 
 export interface NavBarButtonPropsType extends StandardButtonProps{
-    link: string,
+    // link: string,
 }
 
 export interface LinkButtonPropsType extends StandardButtonProps{

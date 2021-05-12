@@ -7,5 +7,6 @@ export type LogInResType = {
 export type LoginModel = {
     isAuth: boolean,
     userRole: RolesEnum,
+    userId: string,
 }
 

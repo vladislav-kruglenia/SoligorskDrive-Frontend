@@ -1,7 +1,7 @@
 import {UserPersonalDataServiceCache} from "../../../Queryes/UserPersonalData/Cache/UserPersonalData.service.cache";
 import {UpdateUserDataRes} from "../Types/UpdateUserData.res.types";
 import {ApolloCache} from "@apollo/client";
-import {MainUserProfileData} from "../../../../Components/AppComponents/Body/Components/UserProfile/Components/UserProfileData/UserProfileData.types";
+import {MainUserProfileData} from "../../../../ReactComponents/Pages/AppPage/Body/Components/UserProfile/Components/UserProfileData/UserProfileData.types";
 import {
     UserPersonalDataRes,
     UserPersonalDataType

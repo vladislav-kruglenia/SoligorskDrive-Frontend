@@ -7,6 +7,7 @@ export interface StartStateType {
     isInitialized: boolean,
     isAuth: boolean,
     userRole: RolesEnum,
+    userId: string,
 }
 
 export interface CurrentPage {

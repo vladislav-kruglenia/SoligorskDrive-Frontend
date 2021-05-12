@@ -9,6 +9,7 @@ import {DateAndHourService} from "../../../AppGlobal/AppGlobalClasses/DateServic
 import {MainOrderData} from "../../../GraphQLServer/ApolloClientCommon/Types/Types";
 
 const getCreateOrderData = (state: AppStateType): Order => {
+    const clientId = state.app.userId || undefined;
     const startHour = state.orderForm.startHour;
     const direction = state.orderForm.selectedDirection;
     const {date} = new DateAndHourService(state.orderForm.selectedDate as Date);
@@ -17,25 +18,11 @@ const getCreateOrderData = (state: AppStateType): Order => {
     const {haltTime, selectedHaltLabel} = state.orderForm.haltData;
     const {userPhone, userName} = state.orderForm.userContacts;
 
+    const mainOrderData: MainOrderData = {startHour, direction, date};
+    const secondaryOrderData: SecondaryOrderData = {orderPrice, numberSeatsOrdered, haltTime, haltName: selectedHaltLabel};
+    const clientData: ClientData = {clientNumberPhone: userPhone, clientName: userName, clientId};
 
-
-
-    const mainOrderData: MainOrderData = {
-        startHour, direction, date
-    };
-
-    const secondaryOrderData: SecondaryOrderData = {
-        orderPrice, numberSeatsOrdered, haltTime, haltName: selectedHaltLabel
-    };
-
-    const clientData: ClientData = {
-        clientNumberPhone: userPhone, clientName: userName
-    };
-
-    return {
-        orderId: state.orderForm.orderId,
-        mainOrderData, secondaryOrderData, clientData
-    }
+    return {orderId: state.orderForm.orderId, mainOrderData, secondaryOrderData, clientData}
 };
 
 export const getCreateOrderDataSelector = createSelector(getCreateOrderData, data => data);

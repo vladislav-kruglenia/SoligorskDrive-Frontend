@@ -39,6 +39,7 @@ type FirstQueryType {
 
 type LoginModel {
     isAuth: Boolean!
+    userId: String!
     userRole: RolesEnum!
 }
 
@@ -61,6 +62,7 @@ type Query {
     ClientArchiveOrders: [ClientCurrentOrdersModel!]!
     ClientCurrentOrders: [ClientCurrentOrdersModel!]!
     DispatcherOrdersInfo(dispatcherOrdersInfoData: DispatcherOrdersInfoArgs!): [DispatcherOrdersModel!]!
+    IsAuth: LoginModel!
     TravelInfo(travelInfoData: TravelInfoArgs!): [TravelInfoModel!]!
     UserPersonalData: UserPersonalDataModel!
     firstQuery: FirstQueryType!
