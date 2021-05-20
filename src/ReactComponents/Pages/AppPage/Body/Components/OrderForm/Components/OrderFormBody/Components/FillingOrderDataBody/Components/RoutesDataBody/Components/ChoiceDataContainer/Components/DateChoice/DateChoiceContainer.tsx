@@ -9,25 +9,37 @@ import {DateChoice} from "../../../../../../../../../../../../../../../../AppGlo
 
 export const DateChoiceContainer = () => {
     const selectedDate = useSelector(getDateSelector);
+    const currentDate = new Date(selectedDate);
 
     const dispatch = useDispatch();
     const editDateAction = useCallback((date: Date) => {
-      const action: EditDatePayload = {date};
-      return dispatch(editDate(action))
+        const action: EditDatePayload = {date};
+        return dispatch(editDate(action))
     }, [dispatch]);
 
     // The first commit of Material-UI
     // const [selectedDate, setSelectedDate] = React.useState<Date | null | string>(currentDate);
 
     const handleDateChange = useCallback((date: Date | null) => {
-        if(date) editDateAction(date);
+        if (date) editDateAction(date);
     }, [editDateAction]);
 
-    return <DateChoice
-        selectedDate={selectedDate}
-        handleDateChange={handleDateChange}
-        isDatePicker={true}
-    />;
+    return (
+        <>
+            <DateChoice
+                selectedDate={selectedDate}
+                handleDateChange={handleDateChange}
+                isDatePicker={true}
+            />
+            {/*<MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <Calendar
+                    date={currentDate}
+                    onChange={handleDateChange}
+                    disablePast={true}
+                />
+            </MuiPickersUtilsProvider>*/}
+        </>
+    );
 };
 
 

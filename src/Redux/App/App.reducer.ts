@@ -3,6 +3,7 @@ import {EditCurrentPagePayload, InitializePayload, LoginPayload} from "./Types/A
 import {AppStartState} from "./StartState/AppStartState";
 import {NavBarPagesService} from "./StartState/Services/NavBarPagesService";
 import {CurrentPageService} from "./StartState/Services/CurrentPageService";
+import {RolesEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
 
 
 const appReducer = createSlice({
@@ -27,6 +28,8 @@ const appReducer = createSlice({
         },
         logOut(state) {
             state.isAuth = false;
+            state.userRole = RolesEnum.None;
+            state.userId = "";
         },
     }
 });

@@ -1,0 +1,42 @@
+.DesignerTitle{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  position: relative;
+  z-index: 0;
+
+  background-image: url("../../../../../../../../Img/way1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding: 30px;
+  margin: 0 0 30px 0;
+  min-height: 30vh;
+
+  .titlesContainer{
+    z-index: 1;
+    color: white;
+
+    & div:first-child{
+      margin: 0 0 10px 0;
+    }
+  }
+
+}
+
+.DesignerTitle:after{
+  z-index: -1;
+  display: block;
+  position: absolute;
+  top:0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  content: '';
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+

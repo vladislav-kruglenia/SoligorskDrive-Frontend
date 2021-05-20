@@ -6,16 +6,35 @@ import {ApolloProvider} from "@apollo/client";
 import {client} from "../GraphQLServer/indexGraphQL";
 import {store} from "../Redux/Store";
 import {AppInitialize} from "./Containers/AppAuth/App.initialize";
+import {ThemeProvider} from '@material-ui/core';
+import {createMuiTheme} from '@material-ui/core/styles';
+import {pink} from "@material-ui/core/colors";
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            light: '#6932a5',
+            main: '#370075',
+            dark: '#0a0048',
+            contrastText: '#fff',
+        },
+        secondary: pink,
+    },
+});
+
+
 
 export const App = () => {
     return <>
-        <ApolloProvider client={client}>
-            <BrowserRouter>
-                <Provider store={store}>
-                    <AppInitialize/>
-                </Provider>
-            </BrowserRouter>
-        </ApolloProvider>
+        <ThemeProvider theme={theme}>
+            <ApolloProvider client={client}>
+                <BrowserRouter>
+                    <Provider store={store}>
+                        <AppInitialize/>
+                    </Provider>
+                </BrowserRouter>
+            </ApolloProvider>
+        </ThemeProvider>
     </>
 };
 

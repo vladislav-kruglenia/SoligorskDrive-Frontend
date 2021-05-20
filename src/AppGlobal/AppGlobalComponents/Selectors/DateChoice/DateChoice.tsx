@@ -44,6 +44,7 @@ const KeyboardDatePickerComponent: FC<KeyboardDatePickerProps> = (props) => {
             label="Выберите дату"
             value={props.selectedDate}
             onChange={props.handleDateChange}
+            disablePast={true}
             KeyboardButtonProps={{
                 'aria-label': 'change date',
             }}
