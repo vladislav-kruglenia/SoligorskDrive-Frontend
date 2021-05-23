@@ -8,5 +8,6 @@ export type LoginModel = {
     isAuth: boolean,
     userRole: RolesEnum,
     userId: string,
+    userName: string,
 }
 

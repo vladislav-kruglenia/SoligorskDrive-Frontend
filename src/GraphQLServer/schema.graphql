@@ -40,6 +40,7 @@ type FirstQueryType {
 type LoginModel {
     isAuth: Boolean!
     userId: String!
+    userName: String!
     userRole: RolesEnum!
 }
 

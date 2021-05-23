@@ -10,6 +10,7 @@ export class AppStartState {
     private readonly isAuth: boolean;
     private readonly userRole: RolesEnum;
     private readonly userId: string;
+    private readonly userName: string;
 
     constructor() {
         this.isAuth = false;
@@ -18,12 +19,13 @@ export class AppStartState {
         this.navBarPages = new NavBarPagesService(RolesEnum.None).navBarPages;
         this.currentPage = new CurrentPageService(this.navBarPages);
         this.userId = '';
+        this.userName = '';
     }
 
     getAppStartState(): StartStateType{
-        const {isAuth, isInitialized, userRole, navBarPages, currentPage, userId} = this;
+        const {isAuth, isInitialized, userRole, navBarPages, currentPage, userId, userName} = this;
 
-        return {isAuth, isInitialized, userRole, navBarPages, currentPage, userId}
+        return {isAuth, isInitialized, userRole, navBarPages, currentPage, userId, userName}
     }
 }
 

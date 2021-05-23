@@ -13,7 +13,7 @@ export const Body = () => {
     return <div className={style.Body}>
         <Switch>
             <Route exact path={AppLinks.AppRedirect}
-                   render={() => <Redirect to={AppLinks.OrderForm}/>}/>
+                   render={() => <Redirect to={AppLinks.UserProfile}/>}/>
             <Route path={AppLinks.OrderForm} render={() => <OrderForm typeComponent={OrderFormType.App}/>}/>
             <Route path={AppLinks.OrdersHistory} render={() => <OrdersHistory/>}/>
             <Route path={AppLinks.LoginPage} render={() => <LoginPage/>}/>

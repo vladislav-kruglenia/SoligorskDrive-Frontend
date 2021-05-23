@@ -23,21 +23,21 @@ export class NavBarPagesService {
     }
 
     private ClientBarPages: AppPage[] = [
+        {pageLink: AppLinks.UserProfile, pageName: 'Мой профиль'},
         {pageLink: AppLinks.OrderForm, pageName: 'Оформление заказа'},
         {pageLink: AppLinks.OrdersHistory, pageName: 'История заказов'},
-        {pageLink: AppLinks.UserProfile, pageName: 'Настройки профиля'},
     ];
 
     private DispatcherNavBarPages: AppPage[] = [
+        {pageLink: AppLinks.UserProfile, pageName: 'Мой профиль'},
         {pageLink: AppLinks.OrderForm, pageName: 'Оформление заказа'},
-        {pageLink: AppLinks.UserProfile, pageName: 'Настройки профиля'},
         {pageLink: AppLinks.DispatcherPanel, pageName: 'Панель диспетчера'},
     ];
 
     private CommonNavBarPages: AppPage[] = [
+        {pageLink: AppLinks.UserProfile, pageName: 'Мой профиль'},
         {pageLink: AppLinks.OrderForm, pageName: 'Оформление заказа'},
         {pageLink: AppLinks.OrdersHistory, pageName: 'История заказов'},
-        {pageLink: AppLinks.UserProfile, pageName: 'Настройки профиля'},
         {pageLink: AppLinks.DispatcherPanel, pageName: 'Панель диспетчера'},
     ];
 }

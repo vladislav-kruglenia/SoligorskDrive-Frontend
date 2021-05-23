@@ -12,3 +12,7 @@ export type InitializePayload = {
 export interface LoginPayload extends LoginModel{
 
 }
+
+export type EditUserNamePayload = {
+    userName: string,
+}

@@ -10,17 +10,22 @@ import {useMutationCommonHook} from "../../../../../../../../GraphQLServer/Apoll
 import {UpdateUserData} from "../../../../../../../../GraphQLServer/Mutations/UpdateUserData/UpdateUserData.gql";
 import {UpdateUserDataVar} from "../../../../../../../../GraphQLServer/Mutations/UpdateUserData/Types/UpdateUserData.var.types";
 import {UpdateUserDataRes} from "../../../../../../../../GraphQLServer/Mutations/UpdateUserData/Types/UpdateUserData.res.types";
+import {useAppReducerActions} from "../../../../../../../../Redux/App/Hooks/Actions.hooks";
 
 
 export const useQueryUserProfileData = (): UseQueryUserProfileDataDTO => {
+    const {editUserNameAction} = useAppReducerActions();
     let RenderDataComponent = null;
-    const {data, loading, error} = useQuery<UserPersonalDataRes>(UserPersonalData);
+    const {data, loading, error} = useQuery<UserPersonalDataRes>(UserPersonalData,{
+        fetchPolicy: "cache-and-network",
+    });
 
     if(loading) RenderDataComponent = <Preloader/>;
     if(error) RenderDataComponent = <Typography color={"error"}>Ошибка ввода данных</Typography>;
     if(data){
         const {UserPersonalData} = data;
-        RenderDataComponent = <ProfileDataWrapper userProfileData={UserPersonalData}/>
+        editUserNameAction({userName: UserPersonalData.userName});
+        RenderDataComponent = <ProfileDataWrapper userProfileData={UserPersonalData}/>;
     }
 
     return {RenderDataComponent};

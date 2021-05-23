@@ -37,3 +37,9 @@ export enum RolesEnum {
     User = 'User',
     Admin = 'Admin',
 }
+
+export enum RolesTitles {
+    None = 'Не авторизован',
+    User = 'Клиент',
+    Admin = 'Администратор',
+}

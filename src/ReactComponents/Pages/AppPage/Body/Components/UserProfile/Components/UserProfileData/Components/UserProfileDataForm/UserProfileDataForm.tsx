@@ -1,8 +1,7 @@
 import React, {FC, memo} from "react";
 import * as yup from "yup";
 import {useFormik} from "formik";
-import style
-    from "../../../../../../../../../../AppGlobal/AppGlobalStyles/Forms/UserDataForm/UserDataForm.module.scss";
+import style from "../../../../../../../../../../AppGlobal/AppGlobalStyles/Forms/UserDataForm/UserDataForm.module.scss";
 import {Button, TextField} from "@material-ui/core";
 import {UserProfileDataFormProps} from "./UserProfileDataForm.types";
 import {MainUserProfileData} from "../../UserProfileData.types";
@@ -62,6 +61,14 @@ export const UserProfileDataForm:FC<UserProfileDataFormProps> = (props) => {
                        helperText={Form.touched.userName && Form.errors.userName}
                        autoFocus={true}
             />
+
+            <TextField className={style.textField} id="userLogin"
+                       label={"Ваш логин"} variant="outlined" size={"small"}
+                       value={Form.values.userLogin}
+                       onChange={Form.handleChange}
+                       error={Form.touched.userLogin && Boolean(Form.errors.userLogin)}
+                       helperText={Form.touched.userLogin && Form.errors.userLogin}
+            />
             <InputMask
                 mask="+375 (99) 999-99-99"
                 value={Form.values.userNumberPhone}
@@ -75,13 +82,6 @@ export const UserProfileDataForm:FC<UserProfileDataFormProps> = (props) => {
                     />
                 )}
             </InputMask>
-            <TextField className={style.textField} id="userLogin"
-                       label={"Ваш логин"} variant="outlined" size={"small"}
-                       value={Form.values.userLogin}
-                       onChange={Form.handleChange}
-                       error={Form.touched.userLogin && Boolean(Form.errors.userLogin)}
-                       helperText={Form.touched.userLogin && Form.errors.userLogin}
-            />
         </div>
         <Button className={style.formButton} size={"small"} href={''} disabled={loading} color={colorButton}
                 variant="outlined" type="submit">

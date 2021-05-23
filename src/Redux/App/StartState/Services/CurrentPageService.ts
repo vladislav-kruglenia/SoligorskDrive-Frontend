@@ -12,7 +12,8 @@ export class CurrentPageService {
     private _getIndexCurrentPage(navBarPages: AppPage[]): number {
         const {pathname} = window.location;
 
-        const indexCurrentPage = navBarPages.findIndex(page => page.pageLink.includes(pathname));
+        const indexCurrentPage = navBarPages.findIndex(page => pathname.includes(page.pageLink));
+        debugger
 
         return indexCurrentPage === -1 ? 0 : indexCurrentPage;
     }
