@@ -6,9 +6,10 @@ import {CurrentPageName} from "./Components/CurrentPageName/CurrentPageName";
 
 export const UserHeader = () => {
     return <div className={style.UserHeader}>
-        <HeaderLogo/>
-
-        <CurrentPageName/>
+        <div className={style.leftHeaderContainer}>
+            <HeaderLogo/>
+            <CurrentPageName/>
+        </div>
 
         <HeaderUserRole/>
     </div>

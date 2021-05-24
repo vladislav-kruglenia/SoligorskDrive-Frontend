@@ -10,8 +10,8 @@ export const HeaderUserRole = () => {
     const userRoleTitle = RolesTitles[userRole];
 
     return <div className={style.HeaderUserRole}>
-        <div>{userName}</div>
-        <div>{userRoleTitle}</div>
+        <div className={style.userName}>{userName}</div>
+        <div className={style.userRole}>{userRoleTitle}</div>
     </div>
 
 };

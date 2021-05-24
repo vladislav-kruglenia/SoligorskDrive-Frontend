@@ -1,5 +1,5 @@
 import {DatesFormats} from "../AppGlobalTypes/Enums";
-import {format} from "date-fns";
+import {format, isValid} from "date-fns";
 
 export class DateAndHourService {
     private readonly currentDate: Date;
@@ -7,7 +7,8 @@ export class DateAndHourService {
     date: string;
 
     constructor(date: Date, dateFormat: DatesFormats = DatesFormats.Server) {
-        this.currentDate = date;
+        console.log(date);
+        this.currentDate = isValid(date) ? date : new Date();
         this.date = this._getDate(dateFormat);
         this.hour = this._getHour();
     }
