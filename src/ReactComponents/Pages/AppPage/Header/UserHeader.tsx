@@ -4,6 +4,7 @@ import {HeaderLogo} from "./Components/HeaderLogo/HeaderLogo";
 import {HeaderUserRole} from "./Components/HeaderUserRole/HeaderUserRole";
 import {CurrentPageName} from "./Components/CurrentPageName/CurrentPageName";
 
+
 export const UserHeader = () => {
     return <div className={style.UserHeader}>
         <div className={style.leftHeaderContainer}>

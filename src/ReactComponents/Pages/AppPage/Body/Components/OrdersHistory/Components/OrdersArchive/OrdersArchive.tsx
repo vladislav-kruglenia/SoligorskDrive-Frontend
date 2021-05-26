@@ -2,8 +2,6 @@ import React, {FC} from "react";
 import style from "./OrdersArchive.module.scss"
 import OrdersHistoryStyle from "../../OrdersHistory.module.scss";
 import {Paper, Typography} from "@material-ui/core";
-import {OrderTableType} from "../OrdersTable/OrdersTable.types";
-import {DirectionsEnum} from "../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 import {OrdersArchiveProps} from "./OrdersArchive.types";
 
 export const OrdersArchive:FC<OrdersArchiveProps> = (props) => {

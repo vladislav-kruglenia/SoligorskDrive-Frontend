@@ -2,8 +2,6 @@ import React, {FC} from "react";
 import style from "./CurrentOrders.module.scss"
 import OrdersHistoryStyle from "../../OrdersHistory.module.scss"
 import {Paper, Typography} from "@material-ui/core";
-import {OrderTableType} from "../OrdersTable/OrdersTable.types";
-import {DirectionsEnum} from "../../../../../../../../AppGlobal/AppGlobalTypes/Enums";
 import {CurrentOrdersProps} from "./CurrentOrders.types";
 
 export const CurrentOrders:FC<CurrentOrdersProps> = (props) => {

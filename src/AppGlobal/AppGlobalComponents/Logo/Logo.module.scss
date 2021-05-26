@@ -17,7 +17,15 @@ $colorLogoHover: rgba(255, 255, 255, 0.95);
   .LogoTitle{
     color: $colorLogo;
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 28px;
+
+
+    .largeSize{
+      font-size: 48px;
+    }
+
+    .defaultSize{
+      font-size: 28px;
+    }
   }
 
 
@@ -54,12 +62,9 @@ $colorLogoHover: rgba(255, 255, 255, 0.95);
     }
   }
 
-
-
   &:hover{
     .LogoTitle{
       color: $colorLogoHover;
-      text-decoration: none;
     }
   }
 }

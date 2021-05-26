@@ -1,9 +1,13 @@
 .OrderForm{
   padding: 0;
-  //padding: 0 20px;
+   //padding: 0 20px;
 
-  @media all and (max-width: 400px){
+  @media all and (max-width: 1010px){
     padding: 0;
   }
+
+  /*@media all and (max-width: 400px){
+    padding: 0;
+  }*/
   //border: 1px solid fuchsia;
 }

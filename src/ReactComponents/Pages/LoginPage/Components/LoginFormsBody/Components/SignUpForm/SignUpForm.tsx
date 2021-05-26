@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import InputMask from "react-input-mask";
 import {Button, FormHelperText, TextField} from "@material-ui/core";
 import {SignUpFormProps, SignUpFormTypes} from "./SignUpForm.types";
-import {CreateUserAccount} from "../../../../../GraphQLServer/Mutations/SignUp/Types/SignUpVar.types";
+import {CreateUserAccount} from "../../../../../../../GraphQLServer/Mutations/SignUp/Types/SignUpVar.types";
 
 export const SignUpForm:FC<SignUpFormProps> = (props) => {
     const {serverError, signUpMutation} = props;
@@ -48,7 +48,7 @@ export const SignUpForm:FC<SignUpFormProps> = (props) => {
     return <form className={style.LoginForm} onSubmit={Form.handleSubmit}>
         <div className={style.inputs}>
             <TextField className={style.textField} id="userName"
-                       label={"Ваше имя"} variant={"outlined"} size={"medium"}
+                       label={"Введите имя"} variant={"outlined"} size={"medium"}
                        value={Form.values.userName}
                        onChange={Form.handleChange}
                        error={Form.touched.userName && Boolean(Form.errors.userName)}
@@ -62,21 +62,21 @@ export const SignUpForm:FC<SignUpFormProps> = (props) => {
             >
                 {() => (
                     <TextField  id="userNumberPhone" className={style.textField}
-                                label={"Ваш телефон"} variant="outlined" size={"medium"}
+                                label={"Введите телефон"} variant="outlined" size={"medium"}
                                 error={Form.touched.userNumberPhone && Boolean(Form.errors.userNumberPhone)}
                                 helperText={Form.touched.userNumberPhone && Form.errors.userNumberPhone}
                     />
                 )}
             </InputMask>
             <TextField className={style.textField} id="userLogin"
-                       label={"Ваш логин"} variant={"outlined"} size={"medium"}
+                       label={"Введите логин"} variant={"outlined"} size={"medium"}
                        value={Form.values.userLogin}
                        onChange={Form.handleChange}
                        error={Form.touched.userLogin && Boolean(Form.errors.userLogin)}
                        helperText={Form.touched.userLogin && Form.errors.userLogin}
             />
             <TextField className={style.textField} id="userPassword"
-                       label={"Ваш пароль"} variant={"outlined"} size={"medium"}
+                       label={"Введите пароль"} variant={"outlined"} size={"medium"}
                        value={Form.values.userPassword}
                        onChange={Form.handleChange}
                        error={Form.touched.userPassword && Boolean(Form.errors.userPassword)}

@@ -1,6 +1,6 @@
 import {ApolloError, FetchResult, MutationFunctionOptions} from "@apollo/client";
-import {LogInVars} from "../../../../../GraphQLServer/Mutations/LogIn/Types/LogInVar.types";
-import {LogInResType} from "../../../../../GraphQLServer/Mutations/LogIn/Types/LogInRes.types";
+import {LogInVars} from "../../../../../../../GraphQLServer/Mutations/LogIn/Types/LogInVar.types";
+import {LogInResType} from "../../../../../../../GraphQLServer/Mutations/LogIn/Types/LogInRes.types";
 
 export type LoginFormProps = {
     serverError:  ApolloError | undefined,

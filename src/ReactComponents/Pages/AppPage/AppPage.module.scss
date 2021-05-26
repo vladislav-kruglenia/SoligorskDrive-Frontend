@@ -1,0 +1,31 @@
+.AppPage{
+
+  .appBodyContainer{
+    display: flex;
+    justify-content: center;
+    padding: 75px 0 20px 0;
+
+    background-image: url("../../../Img/background_body3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    //// designer background
+    //background-color: #e2dada;
+
+    .appBodyWidthWrapper{
+      display: flex;
+      align-items: flex-start;
+      width: 90%;
+
+      .AppBodyNavbar{
+        margin: 0 20px 0 15px;
+        padding: 5px;
+        min-width: 270px;
+
+        @media all and (max-width: 1010px){
+          display: none;
+        }
+      }
+    }
+
+  }
+}

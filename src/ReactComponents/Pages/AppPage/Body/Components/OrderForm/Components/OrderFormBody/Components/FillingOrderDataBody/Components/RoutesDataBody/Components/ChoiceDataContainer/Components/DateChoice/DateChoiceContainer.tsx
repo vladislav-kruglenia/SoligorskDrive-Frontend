@@ -9,7 +9,7 @@ import {DateChoice} from "../../../../../../../../../../../../../../../../AppGlo
 
 export const DateChoiceContainer = () => {
     const selectedDate = useSelector(getDateSelector);
-    const currentDate = new Date(selectedDate);
+    // const currentDate = new Date(selectedDate);
 
     const dispatch = useDispatch();
     const editDateAction = useCallback((date: Date) => {
