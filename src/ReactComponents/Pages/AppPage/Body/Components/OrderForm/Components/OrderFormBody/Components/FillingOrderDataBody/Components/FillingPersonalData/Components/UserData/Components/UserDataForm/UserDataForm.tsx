@@ -48,7 +48,7 @@ export const UserDataForm: FC<UserDataFormProps> = (props) => {
     return <form className={style.UserDataForm} onSubmit={Form.handleSubmit}>
         <div className={style.inputs}>
             <TextField className={style.textField} id="userName"
-                       label={"Ваше имя"} variant="outlined" size={"small"}
+                       label={"Имя"} variant="outlined" size={"small"}
                        value={Form.values.userName}
                        onChange={Form.handleChange}
                        error={Form.touched.userName && Boolean(Form.errors.userName)}
@@ -62,7 +62,7 @@ export const UserDataForm: FC<UserDataFormProps> = (props) => {
             >
                 {() => (
                     <TextField  id="userPhone" className={style.textField}
-                               label={"Ваш телефон"} variant="outlined" size={"small"}
+                               label={"Телефон"} variant="outlined" size={"small"}
                                error={Form.touched.userPhone && Boolean(Form.errors.userPhone)}
                                helperText={Form.touched.userPhone && Form.errors.userPhone}
                     />

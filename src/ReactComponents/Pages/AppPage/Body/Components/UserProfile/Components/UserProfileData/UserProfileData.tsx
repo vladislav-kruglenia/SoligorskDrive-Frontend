@@ -8,7 +8,7 @@ export const UserProfileData = () => {
 
 
     return <Paper className={style.UserProfileData}>
-        <Typography variant={'h4'}>Мои данные</Typography>
+        <Typography variant={'h4'} style={{fontWeight: "bold"}}>Мои данные</Typography>
         <Divider/>
         {RenderDataComponent}
     </Paper>

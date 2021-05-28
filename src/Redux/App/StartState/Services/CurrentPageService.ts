@@ -6,7 +6,7 @@ export class CurrentPageService {
 
     constructor(navBarPages: AppPage[]) {
         this.indexCurrentPage = this._getIndexCurrentPage(navBarPages);
-        this.currentPageName = navBarPages[this.indexCurrentPage].pageName;
+        this.currentPageName = navBarPages[this.indexCurrentPage].pageHeaderName;
     }
 
     private _getIndexCurrentPage(navBarPages: AppPage[]): number {

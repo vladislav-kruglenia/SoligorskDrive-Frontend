@@ -22,22 +22,34 @@ export class NavBarPagesService {
         }
     }
 
-    private ClientBarPages: AppPage[] = [
-        {pageLink: AppLinks.UserProfile, pageName: 'Мой профиль'},
-        {pageLink: AppLinks.OrderForm, pageName: 'Оформление заказа'},
-        {pageLink: AppLinks.OrdersHistory, pageName: 'История заказов'},
+    private CommonPages: AppPage[] = [
+        {
+            pageLink: AppLinks.UserProfile,
+            pageLinkName: 'Мой профиль',
+            pageHeaderName: "Профиль пользователя",
+        },
+        {
+            pageLink: AppLinks.OrderForm,
+            pageLinkName: 'Заказ 24/7',
+            pageHeaderName: 'Оформление заказа'
+        },
     ];
 
-    private DispatcherNavBarPages: AppPage[] = [
-        {pageLink: AppLinks.UserProfile, pageName: 'Мой профиль'},
-        {pageLink: AppLinks.OrderForm, pageName: 'Оформление заказа'},
-        {pageLink: AppLinks.DispatcherPanel, pageName: 'Панель диспетчера'},
-    ];
+    private dispatcherPanel: AppPage = {
+        pageLink: AppLinks.DispatcherPanel,
+        pageLinkName: 'Панель диспетчера',
+        pageHeaderName: 'Сводка текущих заказов'
+    };
 
-    private CommonNavBarPages: AppPage[] = [
-        {pageLink: AppLinks.UserProfile, pageName: 'Мой профиль'},
-        {pageLink: AppLinks.OrderForm, pageName: 'Оформление заказа'},
-        {pageLink: AppLinks.OrdersHistory, pageName: 'История заказов'},
-        {pageLink: AppLinks.DispatcherPanel, pageName: 'Панель диспетчера'},
-    ];
+    private ordersHistory: AppPage = {
+        pageLink: AppLinks.OrdersHistory,
+        pageLinkName: 'История заказов',
+        pageHeaderName: "История заказанных рейсов",
+    };
+
+    private ClientBarPages: AppPage[] = [...this.CommonPages, this.ordersHistory];
+
+    private DispatcherNavBarPages: AppPage[] = [...this.CommonPages, this.dispatcherPanel,];
+
+    private CommonNavBarPages: AppPage[] = [...this.CommonPages, this.ordersHistory, this.dispatcherPanel,];
 }

@@ -1,5 +1,18 @@
+@import "../../../../../AppGlobal/AppGlobalStyles/Colors.module";
+
 .LandingOrderForm{
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+
+  .orderFormWrapper{
+    width: 70%;
+  }
+  @media all and (max-width: 420px) {
+    padding: 20px 0;
+  }
+
   min-height: 100vh;
 
-  background-color: #e2dada;
+  background-color: $backgroundColor;
 }

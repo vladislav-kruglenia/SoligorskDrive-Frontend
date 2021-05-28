@@ -30,12 +30,12 @@ export const TravelsInfoTable: FC<TravelsInfoTableProps> = (props) => {
 
 export const TravelsInfoTableHead = () => {
     return (
-        <TableHead className={style.tableHead}>
+        <TableHead className={style.tableHead} style={{backgroundColor: "rgba(20, 33, 61, 0.2)"}}>
             <TableRow>
-                <TableCell>Стартовое время</TableCell>
-                <TableCell>Время прибытия</TableCell>
-                <TableCell>Стоимость заказа</TableCell>
-                <TableCell>Заказано мест</TableCell>
+                <TableCell align={"center"}>Стартовое время</TableCell>
+                <TableCell align={"center"}>Время прибытия</TableCell>
+                <TableCell align={"center"}>Стоимость заказа</TableCell>
+                <TableCell align={"center"}>Заказано мест</TableCell>
                 <TableCell/>
             </TableRow>
         </TableHead>

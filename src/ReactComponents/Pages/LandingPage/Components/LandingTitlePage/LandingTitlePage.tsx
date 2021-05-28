@@ -36,7 +36,7 @@ export const OrderFormButton = () => {
         <Scroll to={ElementsId.LandingOrderForm} smooth={true}>
             <Button
                 variant={"contained"}
-                color={"secondary"}
+                color={"primary"}
                 onClick={() => {
                 }}
                 size={"large"}

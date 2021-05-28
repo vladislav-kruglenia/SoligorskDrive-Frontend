@@ -1,3 +1,5 @@
+@import '../../../AppGlobal/AppGlobalStyles/Colors.module';
+
 .AppPage{
 
   .appBodyContainer{
@@ -5,11 +7,11 @@
     justify-content: center;
     padding: 75px 0 20px 0;
 
-    background-image: url("../../../Img/background_body3.jpg");
+    /*background-image: url("../../../Img/background_body3.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
     //// designer background
-    //background-color: #e2dada;
+    background-color: $backgroundColor;
 
     .appBodyWidthWrapper{
       display: flex;

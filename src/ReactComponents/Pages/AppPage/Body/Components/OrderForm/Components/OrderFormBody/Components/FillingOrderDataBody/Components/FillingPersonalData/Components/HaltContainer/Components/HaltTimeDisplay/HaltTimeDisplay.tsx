@@ -5,6 +5,6 @@ import {HaltTimeDisplayProps} from "./HaltTimeDisplay.types";
 
 export const HaltTimeDisplay:FC<HaltTimeDisplayProps> = (props) => {
     return <Typography className={style.HaltTimeDisplay}>
-        Время на остановке: {props.startHour - 1}:{props.haltTime}
+        Время: {props.startHour - 1}:{props.haltTime}
     </Typography>
 };

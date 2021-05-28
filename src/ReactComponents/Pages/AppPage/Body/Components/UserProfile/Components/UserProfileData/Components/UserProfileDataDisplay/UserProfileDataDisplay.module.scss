@@ -1,6 +1,8 @@
 .UserProfileDataDisplay{
   //margin: 15px 0 0 0;
   padding: 0 5px;
+  position: relative;
+  cursor: pointer;
 
   .UserValue{
     display: flex;
@@ -17,5 +19,16 @@
       font-size: 18px;
       word-break: break-word;
     }
+  }
+
+  .editButton{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &:hover .editButton{
+    display: block;
   }
 }

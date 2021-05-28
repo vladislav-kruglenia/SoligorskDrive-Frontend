@@ -14,7 +14,7 @@ export const LogOutButtonContainer:FC<LogButtonsProps> = (props) => {
     return <div className={style.LogButtonContainer}>
         <NavBarButton
             buttonText={'Выйти'}
-            color={"secondary"}
+            color={"primary"}
             size={"large"}
             onClickFunc={async () => {
                 await mutationCallback();

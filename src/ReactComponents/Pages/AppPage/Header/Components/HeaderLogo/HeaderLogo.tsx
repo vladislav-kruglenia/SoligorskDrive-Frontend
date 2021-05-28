@@ -14,7 +14,7 @@ export const HeaderLogo = () => {
 
     const onEditCurrentPage = () => editCurrentPageAction({
         indexCurrentPage: 0,
-        currentPageName: 'Мой профиль'
+        currentPageName: "Профиль пользователя"
     });
 
     return <React.Fragment>

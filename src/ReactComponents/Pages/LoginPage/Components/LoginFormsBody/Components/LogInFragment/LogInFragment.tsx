@@ -19,7 +19,7 @@ export const LogInFragment = () => {
     }
 
     return <React.Fragment>
-        <Typography variant={'h4'}>Вход в приложение</Typography>
+        <Typography variant={'h4'}>Авторизация</Typography>
         <LoginForm
             loginMutation={logInMutation}
             serverError={error}

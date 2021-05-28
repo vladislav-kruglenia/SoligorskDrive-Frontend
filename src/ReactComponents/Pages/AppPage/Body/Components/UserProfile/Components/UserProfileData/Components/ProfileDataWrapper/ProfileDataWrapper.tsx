@@ -22,6 +22,7 @@ export const ProfileDataWrapper:FC<ProfileDataWrapperProps> = (props) => {
             displayComponent={
                 <DisplayUserProfileData
                     userData={userProfileData}
+                    setEditMode={value => setEditMode(value)}
                 />
             }
             grandFormComponent={

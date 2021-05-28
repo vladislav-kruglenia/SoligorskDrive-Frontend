@@ -17,6 +17,7 @@ export interface CurrentPage {
 }
 
 export type AppPage = {
-    pageName: string,
+    pageLinkName: string,
+    pageHeaderName: string,
     pageLink: AppLinks,
 }

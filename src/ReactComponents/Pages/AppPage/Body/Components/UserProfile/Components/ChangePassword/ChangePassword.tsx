@@ -24,7 +24,7 @@ export const ChangePassword = () => {
         />;
 
     return <Paper className={style.ChangePassword}>
-        <Typography variant={'h4'}>Изменение пароля</Typography>
+        <Typography variant={'h4'} style={{fontWeight: "bold"}}>Изменение пароля</Typography>
         <Divider/>
         <div className={style.changePasswordWrapper}>
             {componentDisplay}

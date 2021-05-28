@@ -8,7 +8,7 @@ export const TotalPrice = () => {
     const orderPrice = useSelector(getTariffPriceSelector);
 
     return <div className={style.TotalPrice}>
-        <Typography className={style.totalPriceTitle}>Стоимость заказа:</Typography>
+        <Typography className={style.totalPriceTitle} variant={"h4"} style={{fontWeight: "bold"}}>Стоимость заказа:</Typography>
         <Typography className={style.priceValue}>{orderPrice} р.</Typography>
     </div>
 };

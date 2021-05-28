@@ -28,4 +28,10 @@ export interface LinkButtonPropsType extends StandardButtonProps{
     link: string,
 }
 
+export interface EditButtonPropsType {
+    size?: 'small' | 'medium',
+    iconSize?: 'inherit' | 'default' | 'small' | 'large',
+    onClickFunc: () => void
+}
+
 

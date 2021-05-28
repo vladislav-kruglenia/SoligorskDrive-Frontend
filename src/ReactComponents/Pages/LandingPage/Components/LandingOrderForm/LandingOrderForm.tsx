@@ -6,6 +6,8 @@ import {OrderFormType} from "../../../AppPage/Body/Components/OrderForm/OrderFor
 
 export const LandingOrderForm = () => {
     return <div id={ElementsId.LandingOrderForm} className={style.LandingOrderForm}>
-        <OrderForm typeComponent={OrderFormType.Landing}/>
+        <div className={style.orderFormWrapper}>
+            <OrderForm typeComponent={OrderFormType.Landing}/>
+        </div>
     </div>
 };

@@ -17,20 +17,20 @@ export const LandingHeader = () => {
         <div className={style.headerButtons}>
             <LinkButton
                 size={"large"}
+                color={"primary"}
                 buttonText={'Вход'}
                 onClickFunc={() => {
                     editCurrentPageAction(-1, "Вход на сайт")
                 }}
                 link={AppLinks.LoginPage}
-                color={"secondary"}
             />
             <LinkButton
                 size={"large"}
+                color={"primary"}
                 buttonText={'Регистрация'}
                 onClickFunc={() => {
                 }}
                 link={LoginPageLinks.SignUp}
-                color={"secondary"}
             />
         </div>
     </div>

@@ -1,7 +1,8 @@
 import React, {FC} from "react";
 import style from "./MaterialButtons.module.scss"
-import {Badge, Button, Typography} from "@material-ui/core";
+import {Badge, Button, IconButton, Typography} from "@material-ui/core";
 import {
+    EditButtonPropsType,
     LinkButtonPropsType,
     NavBarButtonPropsType,
     OrderButtonPropsType,
@@ -10,6 +11,7 @@ import {
     TextOrOutlinedButtonPropsType
 } from "./MaterialButtons.types";
 import {Link} from "react-router-dom";
+import EditIcon from '@material-ui/icons/Edit';
 
 export const OrderButton: FC<OrderButtonPropsType> = (props) => {
     return <>
@@ -34,6 +36,7 @@ export const SendOrderButton: FC<SendOrderButtonPropsType> = (props) => {
                    color={props.color || "primary"}
                    size={props.size}
                    disabled={props.disabled}
+                   style={{width: '86%'}}
                    onClick={() => {
                        props.onClickFunc()
                    }}>
@@ -42,7 +45,7 @@ export const SendOrderButton: FC<SendOrderButtonPropsType> = (props) => {
 };
 
 export const LinkButton: FC<LinkButtonPropsType> = (props) => {
-    return <Button variant={"outlined"}
+    return <Button variant={"contained"}
                    color={props.color || "primary"}
                    component={Link}
                    to={props.link}
@@ -82,7 +85,7 @@ export const TextOrOutlinedButton: FC<TextOrOutlinedButtonPropsType> = (props) =
 
 
 export const NavBarButton: FC<NavBarButtonPropsType> = (props) => {
-    return <Button variant={"text"}
+    return <Button variant={"outlined"}
                    className={style.NavBarButton}
                    color={props.color}
                    size={props.size}
@@ -101,5 +104,11 @@ export const OrderButtonText = () => {
     return <Badge color="secondary" badgeContent={0}>
         <Typography>Текст</Typography>
     </Badge>
+};
+
+export const EditButton: FC<EditButtonPropsType> = (props) => {
+    return <IconButton size={props.size} onClick={() => props.onClickFunc()}>
+        <EditIcon fontSize={props.iconSize}/>
+    </IconButton>
 };
 

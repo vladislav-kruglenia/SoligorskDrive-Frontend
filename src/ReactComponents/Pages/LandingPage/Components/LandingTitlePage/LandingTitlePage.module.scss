@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@900&family=Open+Sans+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@900&family=Open+Sans+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,800&display=swap');
+
 
 .LandingTitlePage{
   z-index: 0;
@@ -24,11 +27,12 @@
     margin: 80px 0 20px 0;
     z-index: 1;
 
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 60px;
 
     .titleSecond{
-      color: #c00d57;
+      color: #ffffff;
+      //color: #f50057;
     }
   }
 
@@ -36,7 +40,7 @@
     z-index: 1;
     width: 80%;
 
-    font-size: 20px;
+    font-size: 25px;
     text-align: center;
     font-family: 'Open Sans Condensed', sans-serif;
   }

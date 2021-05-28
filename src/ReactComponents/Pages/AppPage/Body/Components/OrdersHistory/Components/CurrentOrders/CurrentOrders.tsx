@@ -7,8 +7,8 @@ import {CurrentOrdersProps} from "./CurrentOrders.types";
 export const CurrentOrders:FC<CurrentOrdersProps> = (props) => {
 
     return <Paper className={style.CurrentOrders}>
-        <Typography variant={'h4'} className={`${OrdersHistoryStyle.tableTitle}`}>
-            Список текущих заказанных рейсов
+        <Typography variant={'h4'} style={{fontWeight: "bold"}} className={`${OrdersHistoryStyle.tableTitle}`}>
+            Заказанные рейсы
         </Typography>
         {props.RenderDataComponent}
     </Paper>

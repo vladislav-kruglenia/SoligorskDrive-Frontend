@@ -33,21 +33,23 @@ export const UserData:FC<UserDataProps> = (props) => {
     const [editMode, setEditMode] = useState(true);
 
     return <div className={style.UserData}>
-        <Typography className={style.userDataTitle} variant={'h5'}>Ваши контакты и количество мест</Typography>
-        <ValueDisplay
-            displayType={DisplayTypeEnum.component}
-            editModeStatus={editMode}
-            type={FormTypeEnum.grandForm}
-            setEditModeInProps={value => setEditMode(value)}
-            displayComponent={<DisplayUserData userOrderData={userOrderData}/>}
-            grandFormComponent={<UserDataForm
-                userOrderData={userOrderData}
-                remainingNumberSeats={remainingNumberSeats}
-                editUserOrderData={userOrderData1 => editUserOrderDataAction(userOrderData1)}
-                exitEditMode={() => setEditMode(false)}
-            />}
-            isNotAllowedToExitEditMode={!isFilledUpContacts}
-        />
+        <Typography className={style.userDataTitle} variant={'h5'} style={{fontWeight: "bold"}}>Контакты</Typography>
+        <div className={style.userDataContainer}>
+            <ValueDisplay
+                displayType={DisplayTypeEnum.component}
+                editModeStatus={editMode}
+                type={FormTypeEnum.grandForm}
+                setEditModeInProps={value => setEditMode(value)}
+                displayComponent={<DisplayUserData userOrderData={userOrderData}/>}
+                grandFormComponent={<UserDataForm
+                    userOrderData={userOrderData}
+                    remainingNumberSeats={remainingNumberSeats}
+                    editUserOrderData={userOrderData1 => editUserOrderDataAction(userOrderData1)}
+                    exitEditMode={() => setEditMode(false)}
+                />}
+                isNotAllowedToExitEditMode={!isFilledUpContacts}
+            />
+        </div>
     </div>
 };
 

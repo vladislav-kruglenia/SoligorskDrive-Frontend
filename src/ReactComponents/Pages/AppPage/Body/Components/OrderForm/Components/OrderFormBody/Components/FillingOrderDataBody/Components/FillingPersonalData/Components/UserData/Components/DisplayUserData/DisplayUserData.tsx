@@ -7,15 +7,15 @@ export const DisplayUserData:FC<DisplayUserDataProps> = (props) => {
     const {userName, userPhone, userNumberSeats} = props.userOrderData;
 
     return <div className={style.DisplayUserData}>
-        <UserDataElement labelText={'Ваше имя:'} elementValue={userName}/>
-        <UserDataElement labelText={'Ваш телефон:'} elementValue={userPhone}/>
+        <UserDataElement labelText={'Имя:'} elementValue={userName}/>
+        <UserDataElement labelText={'Телефон:'} elementValue={userPhone}/>
         <UserDataElement labelText={'Количество мест:'} elementValue={userNumberSeats}/>
     </div>
 };
 
 export const UserDataElement:FC<UserDataElementProps> = (props) => {
     return <div className={style.UserDataElement}>
-        <Typography variant={"caption"} className={style.elementLabel}>{props.labelText}</Typography>
+        <Typography className={style.elementLabel}>{props.labelText}</Typography>
         <Typography className={style.elementValue}>{props.elementValue}</Typography>
     </div>
 };

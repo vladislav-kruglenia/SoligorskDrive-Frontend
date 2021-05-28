@@ -17,7 +17,7 @@ export const HaltContainer:FC<HaltContainerProps> = (props) => {
         : null;
 
     return <div className={style.HaltContainer}>
-        <Typography variant={"h5"}>Остановка и время отправления</Typography>
+        <Typography variant={"h5"} style={{fontWeight: "bold"}}>Место отправления</Typography>
 
         <div className={style.haltWrapper}>
             <HaltChoice haltName={selectedHaltLabel}/>
