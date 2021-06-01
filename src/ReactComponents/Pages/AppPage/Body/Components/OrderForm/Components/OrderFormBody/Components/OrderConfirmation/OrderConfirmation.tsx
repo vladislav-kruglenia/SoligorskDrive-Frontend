@@ -26,7 +26,7 @@ export const OrderConfirmation: FC<OrderConfirmationProps> = (props) => {
         isLinkButton={true}
     />;
 
-    return <OrderConfirmationWrapper StatusComponent={<LoadingResponse/>} LinkButton={LinkButtonComponent}/>;
+    return <OrderConfirmationWrapper StatusComponent={<SuccessfulStatus/>} LinkButton={LinkButtonComponent} isLinkButton={true}/>;
 };
 
 

@@ -15,9 +15,3 @@ export const UserProfileData = () => {
 };
 
 
-/*const userProfileData: MainUserProfileData = {
-    userName: "Антон Петрович",
-    userLogin: "32334309anton@gmail.com",
-    userNumberPhone: "+375293817500",
-};*/
-

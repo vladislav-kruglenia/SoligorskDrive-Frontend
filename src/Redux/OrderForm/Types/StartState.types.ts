@@ -1,4 +1,4 @@
-import {DirectionsEnum, StepsEnum} from "../../../AppGlobal/AppGlobalTypes/Enums";
+import {DirectionsEnum, StepsEnum, StepsIndexesEnum} from "../../../AppGlobal/AppGlobalTypes/Enums";
 
 export type StartStateType = {
     orderId: string,
@@ -14,7 +14,7 @@ export type StartStateType = {
 }
 
 export type Steps = {
-    indexActiveStep: number,
+    indexActiveStep: StepsIndexesEnum,
     stepsArr: StepType[]
 }
 

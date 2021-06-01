@@ -14,11 +14,11 @@ import {Halts} from "./Classes/Halts.class";
 import {DirectionsEnum, StepsIndexesEnum} from "../../AppGlobal/AppGlobalTypes/Enums";
 import { v4 as uuidv4 } from 'uuid';
 
-const startState = new StartStateOrderForm().getStartState();
+const initialState = new StartStateOrderForm().getStartState();
 
 const orderFormReducer = createSlice({
     name: "OrderFormReducer",
-    initialState: startState,
+    initialState,
     reducers: {
         editDate(state, action: PayloadAction<EditDatePayload>) {
             state.selectedDate = action.payload.date;
@@ -31,10 +31,6 @@ const orderFormReducer = createSlice({
             state.selectedDirection = direction;
             state.indexActiveTravel = null;
             state.orderSteps.indexActiveStep = StepsIndexesEnum.ChoiceRoute
-            /*state.orderSteps.indexActiveStep = direction === DirectionsEnum.none
-                ? DirectionsIndexesEnum.ChoiceRoute
-                : state.orderSteps.indexActiveStep
-            */
         },
 
         editUserOrderData(state, action: PayloadAction<EditUserOrderDataPayload>) {

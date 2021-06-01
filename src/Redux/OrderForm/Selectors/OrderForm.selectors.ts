@@ -13,7 +13,6 @@ const getIndexActiveTravel = (state: AppStateType) => state.orderForm.indexActiv
 const getIsFilledUpContacts = (state: AppStateType) => state.orderForm.userContacts.isFilledUp;
 
 
-
 const getUserOrderData = (state: AppStateType):UserOrderData => {
     const orderForm = state.orderForm;
     const {userName, userPhone} = orderForm.userContacts;
