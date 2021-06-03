@@ -7,13 +7,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    padding: 0 5px;
+    min-height: 80px;
     color: white;
     background-color: #4caf50;
 
     .title{
       text-align: center;
-      word-break: break-all;
+      word-break: break-word;
     }
   }
 }

@@ -13,7 +13,6 @@ export class CurrentPageService {
         const {pathname} = window.location;
 
         const indexCurrentPage = navBarPages.findIndex(page => pathname.includes(page.pageLink));
-        debugger
 
         return indexCurrentPage === -1 ? 0 : indexCurrentPage;
     }

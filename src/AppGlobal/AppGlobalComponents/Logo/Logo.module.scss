@@ -26,6 +26,12 @@ $colorLogoHover: rgba(255, 255, 255, 0.95);
     .defaultSize{
       font-size: 28px;
     }
+
+    @media all and (max-width: 360px) {
+      .largeSize{
+        font-size: 40px;
+      }
+    }
   }
 
 

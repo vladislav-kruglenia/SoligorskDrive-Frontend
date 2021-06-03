@@ -18,6 +18,10 @@
       align-items: flex-start;
       width: 90%;
 
+      @media all and (max-width: 540px) {
+        width: 100%;
+      }
+
       .AppBodyNavbar{
         margin: 0 20px 0 15px;
         padding: 5px;

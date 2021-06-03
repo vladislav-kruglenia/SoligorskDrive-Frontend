@@ -8,8 +8,12 @@
   .orderFormWrapper{
     width: 70%;
   }
-  @media all and (max-width: 420px) {
+  @media all and (max-width: 500px) {
     padding: 20px 0;
+
+    .orderFormWrapper{
+      width: 100%;
+    }
   }
 
   min-height: 100vh;
