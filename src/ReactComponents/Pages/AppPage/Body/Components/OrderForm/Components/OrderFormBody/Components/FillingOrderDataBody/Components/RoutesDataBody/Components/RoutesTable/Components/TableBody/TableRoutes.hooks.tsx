@@ -50,7 +50,7 @@ export const TableRowTravelsInfo: FC<TableRowTravelsInfoProps> = (props) => {
             <TableCell align={"center"}>{startHourTravel}:00</TableCell>
             <TableCell align={"center"}>{startHourTravel + 1}:45</TableCell>
             <TableCell align={"center"}>{priceTravel}р.</TableCell>
-            <TableCell align={"center"}>{remainingNumberSeats} мест</TableCell>
+            <TableCell align={"center"}>{remainingNumberSeats}</TableCell>
             <TableCell>
                 <OrderButtonContainer
                     startHourTravel={startHourTravel}

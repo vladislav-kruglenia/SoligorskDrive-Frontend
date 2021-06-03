@@ -29,7 +29,7 @@ export const OrdersTable: FC<OrdersTableProps> = (props) => {
                     <TableCell>{date}</TableCell>
                     <TableCell>{DirectionsNamesEnum[direction]}</TableCell>
                     <TableCell>{order.haltName}</TableCell>
-                    <TableCell>{startHour}:{order.haltTime}</TableCell>
+                    <TableCell>{startHour - 1}:{order.haltTime}</TableCell>
                     <TableCell>{startHour + 1}:45</TableCell>
                     <TableCell>{order.orderPrice} р.</TableCell>
                     <TableCell>{order.numberSeats}</TableCell>

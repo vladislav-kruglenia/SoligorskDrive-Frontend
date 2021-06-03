@@ -35,7 +35,7 @@ export const TravelsInfoTableHead = () => {
                 <TableCell align={"center"}>Стартовое время</TableCell>
                 <TableCell align={"center"}>Время прибытия</TableCell>
                 <TableCell align={"center"}>Стоимость заказа</TableCell>
-                <TableCell align={"center"}>Заказано мест</TableCell>
+                <TableCell align={"center"}>Мест</TableCell>
                 <TableCell/>
             </TableRow>
         </TableHead>
