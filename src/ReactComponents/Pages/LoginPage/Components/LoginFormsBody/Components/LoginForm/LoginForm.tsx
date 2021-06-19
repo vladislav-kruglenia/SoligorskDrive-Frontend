@@ -4,8 +4,12 @@ import * as yup from "yup";
 import {useFormik} from "formik";
 import {LoginFormProps, LoginFormTypes} from "./LoginForm.types";
 import {Button, FormHelperText, TextField} from "@material-ui/core";
+import {PasswordButton} from "../../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/PasswordButton/PasswordButton";
+import {usePasswordButtonProp} from "../../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/PasswordButton/PasswordButton.hooks";
 
 export const LoginForm: FC<LoginFormProps> = (props) => {
+    const {passwordWriteMode, setPasswordWriteMode, typePasswordField} = usePasswordButtonProp();
+
     const validationSchema = yup.object({
         userLogin: yup
             .string()
@@ -40,11 +44,19 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
                        autoFocus={true}
             />
             <TextField className={style.textField} id="userPassword"
-                       label={"Введите пароль"} variant={"outlined"} size={"medium"}
+                       label={"Введите пароль"} variant={"outlined"} size={"medium"} type={typePasswordField}
                        value={Form.values.userPassword}
                        onChange={Form.handleChange}
                        error={Form.touched.userPassword && Boolean(Form.errors.userPassword)}
                        helperText={Form.touched.userPassword && Form.errors.userPassword}
+                       InputProps={{
+                           endAdornment: (
+                               <PasswordButton
+                                   passwordWriteMode={passwordWriteMode}
+                                   setPasswordWriteMode={value => setPasswordWriteMode(value)}
+                               />
+                           )
+                       }}
             />
             {ErrorText}
         </div>

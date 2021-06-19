@@ -43,3 +43,8 @@ export enum RolesTitles {
     User = 'Клиент',
     Admin = 'Администратор',
 }
+
+export enum TextFieldPasswordTypes {
+    Text = 'text',
+    Password = 'password',
+}

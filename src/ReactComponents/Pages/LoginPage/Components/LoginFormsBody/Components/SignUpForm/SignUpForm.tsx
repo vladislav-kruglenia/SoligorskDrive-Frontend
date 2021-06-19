@@ -7,9 +7,13 @@ import InputMask from "react-input-mask";
 import {Button, FormHelperText, TextField} from "@material-ui/core";
 import {SignUpFormProps, SignUpFormTypes} from "./SignUpForm.types";
 import {CreateUserAccount} from "../../../../../../../GraphQLServer/Mutations/SignUp/Types/SignUpVar.types";
+import {PasswordButton} from "../../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/PasswordButton/PasswordButton";
+import {usePasswordButtonProp} from "../../../../../../../AppGlobal/AppGlobalComponents/MaterialUI/MaterialButtons/PasswordButton/PasswordButton.hooks";
 
 export const SignUpForm:FC<SignUpFormProps> = (props) => {
     const {serverError, signUpMutation} = props;
+    const {passwordWriteMode, setPasswordWriteMode, typePasswordField} = usePasswordButtonProp();
+
     const validationSchema = yup.object({
         userName: yup
             .string()
@@ -75,12 +79,20 @@ export const SignUpForm:FC<SignUpFormProps> = (props) => {
                        error={Form.touched.userLogin && Boolean(Form.errors.userLogin)}
                        helperText={Form.touched.userLogin && Form.errors.userLogin}
             />
-            <TextField className={style.textField} id="userPassword"
+            <TextField className={style.textField} id="userPassword" type={typePasswordField}
                        label={"Введите пароль"} variant={"outlined"} size={"medium"}
                        value={Form.values.userPassword}
                        onChange={Form.handleChange}
                        error={Form.touched.userPassword && Boolean(Form.errors.userPassword)}
                        helperText={Form.touched.userPassword && Form.errors.userPassword}
+                       InputProps={{
+                           endAdornment: (
+                               <PasswordButton
+                                   passwordWriteMode={passwordWriteMode}
+                                   setPasswordWriteMode={value => setPasswordWriteMode(value)}
+                               />
+                           )
+                       }}
             />
         </div>
         {ErrorText}
